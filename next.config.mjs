@@ -2,6 +2,9 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  sassOptions:{
+    quietdeps:true
+  },
 };
 
 export default nextConfig;
