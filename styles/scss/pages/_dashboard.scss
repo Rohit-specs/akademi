@@ -1,0 +1,64 @@
+.stats-icon {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-cell {
+  height: 58px;
+  border: 1px solid $gray-100;
+
+}
+
+.calendar-day {
+  width: 34px;
+  height: 34px;
+  transition: 0.3s;
+}
+
+.dashboard-pagination-btn {
+  width: 35px;
+  height: 35px;
+}
+
+.student-intution {
+  .profile-picture {
+    width: 40px;
+    height: 40px;
+  }
+
+  td {
+    background-color: $white;
+  }
+}
+
+.right-side-bar {
+  .content {
+    min-width: 240px;
+  }
+
+  .user-picture {
+    width: 50px;
+    aspect-ratio: 1/1;
+  }
+  .profile-picture{
+    width: 40px;
+    height: 40px;
+  }
+
+  .plus-icon {
+    width: 40px;
+    // aspect-ratio: 1/1;
+    height: 40px;
+  }
+}

@@ -1,0 +1,87 @@
+body {
+  background: $body-bg;
+}
+
+.bg-purple-10 {
+  background: $purple-10;
+}
+
+.bg-linear-1 {
+  background: $linear-1;
+}
+
+.bg-linear-2 {
+  background: $linear-2;
+}
+
+.bg-linear-3 {
+  background: $linear-3;
+}
+
+.logo {
+  font-size: $fs-3xl;
+  // 36px
+}
+
+.page-title {
+  font-size: $fs-2xl;
+  // 32px
+}
+
+.card-title {
+  font-size: $fs-xl;
+  // 24px
+}
+
+.sidebar-link {
+  font-size: $fs-md;
+  // 18px
+}
+
+.small-text {
+  font-size: $fs-sm;
+  // 14px
+}
+
+a {
+  text-decoration: none;
+}
+/* Background Color Classes */
+.bg-gray-100 {
+  background-color: $gray-100;
+}
+
+.bg-gray-200 {
+  background-color: $gray-200;
+}
+
+.bg-gray-300 {
+  background-color: $gray-300;
+}
+
+.bg-gray-400 {
+  background-color: $gray-400;
+}
+/* Text Color Classes */
+.text-gray-100 {
+  color: $gray-100;
+}
+
+.text-gray-200 {
+  color: $gray-200;
+}
+
+.text-gray-300 {
+  color: $gray-300;
+}
+
+.text-gray-400 {
+  color: $gray-400;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+

@@ -1,0 +1,24 @@
+// .sidebar-link.active{
+//     background-color: white !important;
+//     &>*{
+//         color: $primary;}
+// }
+.sidebar-item {
+  @include media-breakpoint-down(lg) {
+    margin-left: 11px;
+    padding-right: auto;
+  }
+
+  &.active {
+    background: $body-bg;
+    *{
+        color: $primary;
+    }
+  }
+}
+.sidebar{
+  min-width: 80px;  
+  @include media-breakpoint-up(lg) {
+    min-width: 254px;
+  }
+}
