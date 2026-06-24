@@ -14,39 +14,6 @@ const StudentTable = () => {
     const currentStudents = students.slice(startIndex, endIndex)
     return (
         <>
-            {/* <Table cellSpacing={"10px"} responsive={true} variant="light" className="student-table align-items-center justify-content-center">
-                <thead >
-                    <tr className="">
-                        <th>Name</th>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Parent Name</th>
-                        <th>City</th>
-                        <th>Contact</th>
-                        <th>Grade</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {currentStudents.map((student) => (
-                        <tr key={student.id}>
-                            <td>{student.name}</td>
-                            <td>{student.userId}</td>
-                            <td>{student.date}</td>
-                            <td>{student.parentName}</td>
-                            <td>{student.city}</td>
-                            <td ><span className="icon-link gap-3 badge">
-                                <div className="bg-purple-10 p-3 rounded-pill d-flex justify-content-center align-items-center text-dark"><Envelope role size={20}/></div>
-                                <div className="bg-purple-10 p-3 rounded-pill d-flex justify-content-center align-items-center text-dark"><Telephone role size={20}/></div>
-                                </span>
-                            </td>
-                            <td><span className={`rounded-pill py-2 ${student.grade.includes("A") ? "bg-primary" : ""} ${student.grade.includes("B") ? "bg-warning" : ""} ${student.grade.includes("C") ? "bg-info" : ""}`}>{student.grade}</span></td>
-                            <td><ThreeDots /></td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table> */}
             <Table responsive variant="light" className="student-table align-middle">
                 <thead>
                     <tr>
@@ -66,7 +33,7 @@ const StudentTable = () => {
                         <tr key={student.id}>
                             <td>
                                 <div className="d-flex align-items-center gap-3">
-                                    <div className="student-avatar profile-picture"><img className="profile-picture" src={student.profilePicture}/></div>
+                                    <div className="student-avatar rounded-circle bg-purple-10 profile-picture"><img className="profile-picture rounded-circle" src={student.profilePicture}/></div>
 
                                     <span className="fw-semibold">
                                         {student.name}
@@ -74,11 +41,11 @@ const StudentTable = () => {
                                 </div>
                             </td>
 
-                            <td className="student-id">
+                            <td className="student-id text-primary fw-medium">
                                 #{student.userId}
                             </td>
 
-                            <td className="text-muted">
+                            <td className="text-gray-400">
                                 {student.date}
                             </td>
 
@@ -89,28 +56,28 @@ const StudentTable = () => {
                             <td>
                                 <div className="d-flex gap-2">
                                     <button
-                                        className="contact-btn"
+                                        className="contact-btn bg-purple-10 text-primary d-flex align-items-center justify-content-center rounded-circle border-0"
                                         type="button"
                                     >
-                                        <Telephone size={12} />
+                                        <Telephone size={18} />
                                     </button>
 
                                     <button
-                                        className="contact-btn"
+                                        className="contact-btn bg-purple-10 text-primary d-flex align-items-center justify-content-center rounded-circle border-0"
                                         type="button"
                                     >
-                                        <Envelope size={12} />
+                                        <Envelope size={18} />
                                     </button>
                                 </div>
                             </td>
 
                             <td>
                                 <span
-                                    className={`grade-badge ${student.grade.includes("A")
-                                            ? "grade-a"
+                                    className={`grade-badge text-light fw-medium ${student.grade.includes("A")
+                                            ? "bg-primary"
                                             : student.grade.includes("B")
-                                                ? "grade-b"
-                                                : "grade-c"
+                                                ? "bg-warning"
+                                                : "bg-info"
                                         }`}
                                 >
                                     {student.grade}
@@ -121,7 +88,7 @@ const StudentTable = () => {
                                 <Dropdown align="end">
                                     <Dropdown.Toggle
                                         as="div"
-                                        className="action-menu"
+                                        className="action-menu" bsPrefix=" "
                                     >
                                         <ThreeDots />
                                     </Dropdown.Toggle>
