@@ -54,7 +54,7 @@ export default function SchoolPerformance() {
         </div>
 
         <div className="w-100" style={{height: 300 }}>
-          <ResponsiveContainer>
+          <ResponsiveContainer height="100%" width="100%">
             <AreaChart data={data}>
               <defs>
                 <linearGradient id="yellowFill" x1="0" y1="0" x2="0" y2="1">

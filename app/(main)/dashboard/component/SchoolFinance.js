@@ -10,7 +10,6 @@ import {
     Tooltip,
 } from "recharts";
 import { COLORS } from "/data/Theme";
-import { OverlayTrigger } from "react-bootstrap";
 const data = [
     { day: "Mon", thisWeek: 75, lastWeek: 98 },
     { day: "Tue", thisWeek: 55, lastWeek: 44 },
@@ -70,7 +69,7 @@ const SchoolFinance = () => {
                 </div>
             </div>
             <div className="w-100" style={{ height: 310 }}>
-                <ResponsiveContainer>
+                <ResponsiveContainer height="100%" width={"100%"}>
                     <BarChart
                         data={data}
                         barGap={6}

@@ -1,5 +1,6 @@
 "use client"
-import { Fragment, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 import {
   Offcanvas,
   Form,
@@ -8,31 +9,19 @@ import {
 } from "react-bootstrap";
 import {
   List,
-  Grid,
-  People,
-  PersonBadge,
-  CalendarEvent,
   CurrencyDollar,
   CupHot,
   Person,
-  ChatDots
+  House,
+  Mortarboard,
+  PersonWorkspace,
+  Calendar3,
+  Chat,
+  Activity
 } from "react-bootstrap-icons";
 
 export default function DashboardDrawer() {
   const [show, setShow] = useState(false);
-//   const [mobile, setMobile] = useState(window.innerWidth < 576);
-
-//   useEffect(() => {
-//     const resizeHandler = () => {
-//       setMobile(window.innerWidth < 576);
-//     };
-
-//     window.addEventListener("resize", resizeHandler);
-
-//     return () =>
-//       window.removeEventListener("resize", resizeHandler);
-//   }, []);
-
   return (
     <>
       <Button
@@ -40,7 +29,7 @@ export default function DashboardDrawer() {
         className="p-0 border-0 text-dark d-xl-none"
         onClick={() => setShow(true)}
       >
-        <List size={28} />
+        <List size={32} />
       </Button>
 
       <Offcanvas
@@ -68,44 +57,48 @@ export default function DashboardDrawer() {
               </h6>
 
               <ListGroup className="mb-4">
-                <ListGroup.Item className="border-0">
-                  <Grid className="me-2" />
+                <ListGroup.Item  as={Link} href="/dashboard" className="border-0">
+                  <House className="me-2" />
                   Dashboard
                 </ListGroup.Item>
 
-                <ListGroup.Item className="border-0">
-                  <People className="me-2" />
+                <ListGroup.Item as={Link} href="/students" className="border-0">
+                  <Mortarboard className="me-2" />
                   Students
                 </ListGroup.Item>
 
-                <ListGroup.Item className="border-0">
-                  <PersonBadge className="me-2" />
+                <ListGroup.Item  as={Link} href="/teachers" className="border-0">
+                  <PersonWorkspace className="me-2" />
                   Teachers
                 </ListGroup.Item>
 
-                <ListGroup.Item className="border-0">
-                  <CalendarEvent className="me-2" />
+                <ListGroup.Item  as={Link} href="/events" className="border-0">
+                  <Calendar3 className="me-2" />
                   Events
                 </ListGroup.Item>
 
-                <ListGroup.Item className="border-0">
+                <ListGroup.Item  as={Link} href="/finance" className="border-0">
                   <CurrencyDollar className="me-2" />
                   Finance
                 </ListGroup.Item>
 
-                <ListGroup.Item className="border-0">
+                <ListGroup.Item  as={Link} href="/food" className="border-0">
                   <CupHot className="me-2" />
                   Food
                 </ListGroup.Item>
 
-                <ListGroup.Item className="border-0">
+                <ListGroup.Item  as={Link} href="/user" className="border-0">
                   <Person className="me-2" />
                   User
                 </ListGroup.Item>
 
-                <ListGroup.Item className="border-0">
-                  <ChatDots className="me-2" />
+                <ListGroup.Item  as={Link} href="/chat" className="border-0">
+                  <Chat className="me-2" />
                   Chat
+                </ListGroup.Item>
+                <ListGroup.Item  as={Link} href="/activity" className="border-0">
+                  <Activity className="me-2" />
+                  Latest Activity
                 </ListGroup.Item>
               </ListGroup>
 
@@ -119,19 +112,19 @@ export default function DashboardDrawer() {
           </h6>
 
           <ListGroup className="mb-4">
-            <ListGroup.Item className="border-0 px-0">
+            <ListGroup.Item  as={Link} href="/" className="b>order-0 px-0">
               Samantha William
             </ListGroup.Item>
 
-            <ListGroup.Item className="border-0 px-0">
+            <ListGroup.Item  as={Link} href="/" className="b>order-0 px-0">
               Tony Kemp
             </ListGroup.Item>
 
-            <ListGroup.Item className="border-0 px-0">
+            <ListGroup.Item  as={Link} href="/" className="b>order-0 px-0">
               Jordan Neo
             </ListGroup.Item>
 
-            <ListGroup.Item className="border-0 px-0">
+            <ListGroup.Item  as={Link} href="/" className="b>order-0 px-0">
               Korina Hope
             </ListGroup.Item>
           </ListGroup>
@@ -141,22 +134,22 @@ export default function DashboardDrawer() {
           </h6>
 
           <ListGroup className="mb-4">
-            <ListGroup.Item className="border-0 px-0">
-              Samantha William
+            <ListGroup.Item  as={Link} href="/" className="border-0 px-0">
+  -            Samantha William
               <div className="small text-gray-400">
                 Lorem ipsum dolor sit amet...
               </div>
             </ListGroup.Item>
 
-            <ListGroup.Item className="border-0 px-0">
-              Tony Kemp
+            <ListGroup.Item  as={Link} href="/" className="border-0 px-0">
+  -            Tony Kemp
               <div className="small text-gray-400">
                 Lorem ipsum dolor sit amet...
               </div>
             </ListGroup.Item>
 
-            <ListGroup.Item className="border-0 px-0">
-              Jordan Neo
+            <ListGroup.Item  as={Link} href="/" className="border-0 px-0">
+  -            Jordan Neo
               <div className="small text-gray-400">
                 Lorem ipsum dolor sit amet...
               </div>

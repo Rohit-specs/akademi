@@ -97,12 +97,6 @@ const DashboardContent = () => {
           </Row>
         </section>
         <section>
-          {/* <div className="section-title rounded-4 mb-lg-4 mb-2 p-4 bg-light">
-            <h2 className="page-title">School Performance</h2>
-            <div className="icon-link">
-              
-            </div>
-          </div> */}
           <SchoolPerformance />
         </section>
         <Row>
@@ -172,7 +166,7 @@ const DashboardContent = () => {
             {foods.map((item) => (
               <div key={item.id} className="mb-3">
                 <img
-                  src={"https://www.vecteezy.com/free-photos/image"}
+                  src={"https://i.pravatar.cc/150?img=2"}
                   alt={item.title}
                   className="w-100 rounded-4 object-fit-cover bg-purple-10"
                   style={{

@@ -97,7 +97,7 @@ function StudentPagination() {
 
         <h2 className="mb-3 card-title fw-bold">Unpaid Student Intuition</h2>
         <div className="table-responsive">
-            <Table borderless className="align-middle">
+            <Table borderless responsive className="align-middle" variant="light">
                 <tbody>
                     {currentStudents.map((student) => (
                         <tr key={student.id}>
@@ -160,118 +160,7 @@ function StudentPagination() {
                 </tbody>
             </Table></div>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} startIndex={startIndex} endIndex={endIndex} totalItems={students.length}/>
-        {/* {currentStudents.map((student) => (
-            <Row key={student.id} className="align-items-center">
-
-
-                <Col>
-                    <div className="d-flex align-items-center">
-                        <img
-                            className="rounded-circle me-3 profile-picture"
-                            src={student.profilePicture}
-                            alt="profile picture"
-                        />
-
-                        <div>
-                            <div className="fw-semibold small">
-                                {student.name}
-                            </div>
-                        </div>
-                    </div>
-                </Col>
-
-
-                <Col>
-                    <div>
-                        <span className="small text-primary fw-semibold">
-                            ID:{student.studentId}
-                        </span>
-                    </div>
-                </Col>
-
-                <Col>
-                    <div className="d-flex align-items-center">
-                        <div
-                            className="rounded-circle bg-info d-flex align-items-center profile-picture justify-content-center me-2"
-                        >
-                            <Person className="text-light" />
-                        </div>
-
-                        <div>
-                            <div>Class</div>
-                            <div className="fw-semibold small">
-                                {student.class}
-                            </div>
-                        </div>
-                    </div>
-                </Col>
-
-     
-                <Col>
-                    <div className="fw-bold text-dark">
-                        ${student.fee}
-                    </div>
-                </Col>
-
         
-                <Col>
-                    <div className="d-flex align-items-center gap-3">
-                        <Printer />
-                        <ThreeDots/>
-                    </div>
-                </Col>
-
-            </Row>
-        ))} */}
-
-
-        {/* <div className="d-flex justify-content-between align-items-center mt-4">
-            <small className="text-gray-400">
-                Showing {startIndex + 1}-
-                {Math.min(endIndex, students.length)} from{" "}
-                {students.length} data
-            </small>
-
-            <div className="d-flex align-items-center gap-2">
-                <button
-                    className="btn btn-sm border-0"
-                    disabled={currentPage === 1}
-                    onClick={() =>
-                        setCurrentPage((prev) => prev - 1)
-                    }
-                >
-                    <ChevronLeft />
-                </button>
-
-                {Array.from(
-                    { length: totalPages },
-                    (_, index) => (
-                        <button
-                            key={index + 1}
-                            onClick={() =>
-                                setCurrentPage(index + 1)
-                            }
-                            className={`dashboard-pagination-btn btn btn-sm rounded-circle ${currentPage === index + 1
-                                ? "btn-primary"
-                                : "btn-light"
-                                }`}
-                        >
-                            {index + 1}
-                        </button>
-                    )
-                )}
-
-                <button
-                    className="btn btn-sm border-0"
-                    disabled={currentPage === totalPages}
-                    onClick={() =>
-                        setCurrentPage((prev) => prev + 1)
-                    }
-                >
-                    <ChevronRight />
-                </button>
-            </div>
-        </div> */}
     </>
     )
 }
