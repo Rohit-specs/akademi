@@ -1,5 +1,61 @@
-.students-table{
-   tr ,td{
+.student-table {
+
+
+    thead th {
+        color: $dark;
+        padding: 18px;
+        border-bottom: 1px solid $gray-200;
+        white-space: nowrap;
+    }
+
+    tbody td {
+        padding: 18px;
+        vertical-align: middle;
+        border-bottom: 1px solid $gray-200;
         color: $text;
+    }
+
+    .student-id {
+        color: #6f42c1;
+        font-weight: 600;
+    }
+
+    .contact-btn {
+        width: 28px;
+        height: 28px;
+        border: none;
+        border-radius: 50%;
+        background: #f3efff;
+        color: #6f42c1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .grade-badge {
+        display: inline-block;
+        min-width: 55px;
+        text-align: center;
+        padding: 6px 12px;
+        border-radius: 30px;
+        color: white;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .grade-a {
+        background: #ff7d5a;
+    }
+
+    .grade-b {
+        background: #ffc43d;
+    }
+
+    .grade-c {
+        background: #5b50d6;
+    }
+
+    .action-menu {
+        cursor: pointer;
     }
 }
