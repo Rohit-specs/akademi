@@ -16,10 +16,10 @@ export const metadata = {
   ],
 
 }
-const page = () => {
+const StudentsPage = () => {
   return (
-    <StudentContent />
+    <StudentContent/>
   )
 }
 
-export default page
+export default StudentsPage

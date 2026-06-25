@@ -3,9 +3,11 @@ import { useState } from "react"
 import { students } from "/data/students/StudentsData"
 import { Envelope, Telephone, ThreeDots } from "react-bootstrap-icons"
 import Pagination from "/component/Pagination"
-import { Badge, Dropdown, Table } from "react-bootstrap"
+import { Dropdown, Table } from "react-bootstrap"
+import { useRouter } from "next/navigation"
 
 const StudentTable = () => {
+    const redirect = useRouter()
     const itemPerPage = 6
     const totalPages = Math.ceil(students.length / itemPerPage)
     const [onPage, setOnPage] = useState(1)
@@ -94,7 +96,7 @@ const StudentTable = () => {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        <Dropdown.Item>View</Dropdown.Item>
+                                        <Dropdown.Item onClick={()=>redirect.push("students/"+student.id)}>View</Dropdown.Item>
                                         <Dropdown.Item>Edit</Dropdown.Item>
                                         <Dropdown.Item>Delete</Dropdown.Item>
                                     </Dropdown.Menu>
