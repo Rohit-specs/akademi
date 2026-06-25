@@ -1,0 +1,96 @@
+.details-page-profile-picture{
+    width: 150px;
+    aspect-ratio: 1/1;
+}
+.profile-picture-border{
+    border: 10px solid $light;
+}
+.details-banner{
+    height: 140px;
+}
+.contact-icon{
+    height: 40px;
+    width: 40px;
+}
+.payment-icon{
+    width: 60px;
+    height: 60px;
+}
+
+.payment-table{
+    td{
+        color: $text;
+        background: $light;
+    }
+}
+
+.schedule-card-primary {
+  position: relative;
+  overflow: hidden; 
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    background: $primary;
+  }
+}
+.schedule-card-primary {
+  position: relative;
+  overflow: hidden; 
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    background: $primary;
+  }
+}
+.schedule-card-info {
+  position: relative;
+  overflow: hidden; 
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    background: $info;
+  }
+}
+.schedule-card-warning {
+  position: relative;
+  overflow: hidden; 
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    background: $warning;
+  }
+}
+.schedule-card-text {
+  position: relative;
+  overflow: hidden; 
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    background: $text;
+  }
+}
