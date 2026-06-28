@@ -5,7 +5,7 @@ import { StatsData } from "//data/StatsData";
 import SchoolPerformance from "./SchoolPerformanceChart";
 import SchoolCalendar from "./Calender";
 import SchoolFinance from "./SchoolFinance";
-import StudentPagination from "./StudentIntuition";
+import StudentPagination from "../../../../component/StudentIntuition";
 import DashboardDrawer from "/component/DashboardDrawer";
 
 const contacts = [
@@ -109,7 +109,7 @@ const DashboardContent = () => {
           </div>
         </section>
       </div>
-      <aside className="position-relative d-none d-xl-block">
+      <aside className="position-relative d-none d-xxl-block">
         <div className="right-side-bar bg-light position-sticky top-0 overflow-y-auto vh-100">
           <div className="content m-lg-4 m-3">
             <div className="mb-lg-4 mb-2 d-flex gap-4 justify-content-between align-items-center ">

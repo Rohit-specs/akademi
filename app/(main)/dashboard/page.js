@@ -14,10 +14,10 @@ export const metadata = {
   ],
 };
 
-const page = () => {
+const DashboardPage = () => {
   return (
     <DashboardContent />
   );
 };
 
-export default page;
+export default DashboardPage;
