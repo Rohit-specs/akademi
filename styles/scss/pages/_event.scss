@@ -1,0 +1,22 @@
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-day {
+    height: 120px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.calendar-day:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .15);
+}
+.event-dot{
+    width: 14px;
+    height: 14px;
+}
+.dropdown-btn{
+    border-radius: 50px !important;
+}
