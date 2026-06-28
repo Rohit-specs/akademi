@@ -29,7 +29,7 @@ function Pagination({
                         onClick={() => onPageChange(index + 1)}
                         className={`dashboard-pagination-btn btn btn-sm rounded-circle ${currentPage === index + 1
                             ? "btn-primary"
-                            : "btn-light"
+                            : "btn-outline-secondary"
                             }`}
                     >
                         {index + 1}
@@ -37,7 +37,7 @@ function Pagination({
                 ))}
 
                 <button
-                    className="btn btn-sm border-0"
+                    className="btn btn-sm border-0 "
                     disabled={currentPage === totalPages}
                     onClick={() => onPageChange(currentPage + 1)}
                 >

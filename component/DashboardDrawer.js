@@ -26,7 +26,7 @@ export default function DashboardDrawer() {
     <>
       <Button
         variant="link"
-        className="p-0 border-0 text-dark d-xl-none"
+        className="p-0 border-0 text-dark d-xxl-none"
         onClick={() => setShow(true)}
       >
         <List size={32} />
