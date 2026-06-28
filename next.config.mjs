@@ -3,7 +3,7 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
   sassOptions:{
-    quietdeps:true
+    quietDeps:true
   },
 };
 
