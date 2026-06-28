@@ -1,5 +1,5 @@
 "use client"
-import { Col, Dropdown, Form, Row } from "react-bootstrap"
+import { Dropdown, Form, Row } from "react-bootstrap"
 import { Bell, Gear, Plus, Search } from "react-bootstrap-icons"
 import DashboardDrawer from "/component/DashboardDrawer"
 import TeachersCard from "./TeachersCard"
@@ -10,7 +10,7 @@ const TeachersContent = () => {
                 <header>
                     <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                         <h1 className="logo">Teachers</h1>
-                        <div className="d-xl-flex gap-4 justify-content-between align-items-center d-none">
+                        <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
                             <span className="p-2 rounded-pill bg-light"><Bell className="text-gray-400 fs-4" /></span>
                             <span className="p-2 rounded-pill bg-light"><Gear className="text-gray-400 fs-4" /></span>
 

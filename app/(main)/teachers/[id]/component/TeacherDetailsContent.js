@@ -1,67 +1,25 @@
+
 "use client"
 import DashboardDrawer from '/component/DashboardDrawer'
-import { Bell, Calendar3, Clock, Envelope, Gear, GeoAlt, Person, Search, Telephone } from 'react-bootstrap-icons'
+import { Bell, Calendar3, Clock, Envelope, Gear, GeoAlt, Search, Telephone } from 'react-bootstrap-icons'
 import { Card, Col, Form, Row, Table } from 'react-bootstrap'
-import Pagination from '/component/Pagination'
-import { useState } from 'react'
 
-const StudentDetails = () => {
-    const studentData = {
+const TeacherDetailsContent = () => {
+    const teacherData = {
         name: "Karen Hope",
-        parentName: "Justin Hope",
         address: "Jakarta, Indonesia",
         phone: "+12 245 6845",
         email: "hope@gmail.com",
 
     }
-    const studentPaymentHistory = [
-        {
-            "id": "#1245679",
-            "date": "2021-03-02T13:45:00",
-            "amount": 50036,
-            "currency": "USD",
-            "status": "Complete",
-            "icon": "trending-up"
-        },
-        {
-            "id": "#1235679",
-            "date": "2021-03-02T13:45:00",
-            "amount": 50036,
-            "currency": "USD",
-            "status": "Pending",
-            "icon": "trending-up"
-        },
-        {
-            "id": "#1234589",
-            "date": "2021-03-02T13:45:00",
-            "amount": 50036,
-            "currency": "USD",
-            "status": "Canceled",
-            "icon": "trending-up"
-        },
-        {
-            "id": "#1256789",
-            "date": "2021-03-02T13:45:00",
-            "amount": 50036,
-            "currency": "USD",
-            "status": "Complete",
-            "icon": "trending-up"
-        }
-    ]
-    const itemPerPage = 4
-    const [onPage, setOnPage] = useState(1)
-    const startIndex = (onPage - 1) * itemPerPage
-    const totalPages = Math.ceil(studentPaymentHistory / itemPerPage)
-    const endIndex = startIndex + itemPerPage
-    const currentPage = studentPaymentHistory.slice(startIndex, endIndex)
     return (
         <div className="m-lg-4 m-3">
             <header>
                 <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
-                    <h1 className="logo">Students</h1>
+                    <h1 className="logo">Teachers</h1>
                     <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
 
-                        <div className="search-box position-relative d-none my-auto d-xxl-inline-block">
+                            <div className="search-box position-relative d-none my-auto d-xxl-inline-block">
                             <Search
                                 size={16}
                                 className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
@@ -72,7 +30,9 @@ const StudentDetails = () => {
                                 placeholder="Search here..."
                             />
 
-                        </div>
+                            </div>
+
+                     
                         <span className="p-2 rounded-pill bg-light"><Bell className="text-gray-400 fs-4" /></span>
                         <span className="p-2 rounded-pill bg-light"><Gear className="text-gray-400 fs-4" /></span>
 
@@ -96,93 +56,40 @@ const StudentDetails = () => {
                         <div className='bg-light p-4 rounded-4 position-relative pb-lg-5'>
                             <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
                             <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={"https://i.pravatar.cc/150?img=2"} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
-                            <h2 className='mt-3'>{studentData.name}</h2>
-                            <p className='sidebar-link text-gray-400 mt-2'>Student</p>
-                            <Row>
-                                <Col xs={12} md={6} xl={3}>
-                                    <div className='d-flex flex-column'>
-                                        <p className='text-gray-400 sidebar-link'>Parent:</p>
-                                        <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='flex-shrink-0 bg-info text-light p-3 rounded-circle contact-icon position-relative'><Person className='position-absolute start-50 top-50 translate-middle' size={24} /></div>{studentData.parentName}</div></div></Col>
-                                <Col xs={12} md={6} xl={3}>
+                            <h2 className='mt-3 logo'>{teacherData.name}</h2>
+                            <p className='sidebar-link text-gray-400 mt-2'>Teacher</p>
+                            <Row className='mb-3'>
+                                <Col xs={12} md={6} xl={4}>
                                     <div className='d-flex flex-column'>
                                         <p className='text-gray-400 sidebar-link'>Address:</p>
-                                        <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='flex-shrink-0 bg-info text-light p-3 rounded-circle contact-icon position-relative'><GeoAlt size={24} className='position-absolute start-50 top-50 translate-middle' /></div>{studentData.address}</div></div></Col>
-                                <Col xs={12} md={6} xl={3}>
+                                        <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='bg-info text-light p-3 rounded-circle contact-icon position-relative'><GeoAlt size={24} className='position-absolute start-50 top-50 translate-middle' /></div>{teacherData.address}</div></div></Col>
+                                <Col xs={12} md={6} xl={4}>
                                     <div className='d-flex flex-column'>
                                         <p className='text-gray-400 sidebar-link'>Phone:</p>
-                                        <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='flex-shrink-0 bg-info text-light p-3 rounded-circle contact-icon position-relative'><Telephone size={24} className='position-absolute start-50 top-50 translate-middle' /></div>{studentData.phone}</div></div></Col>
-                                <Col xs={12} md={6} xl={3}>
+                                        <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='bg-info text-light p-3 rounded-circle contact-icon position-relative'><Telephone size={24} className='position-absolute start-50 top-50 translate-middle' /></div>{teacherData.phone}</div></div></Col>
+                                <Col xs={12} md={6} xl={4}>
                                     <div className='d-flex flex-column'>
                                         <p className='text-gray-400 sidebar-link'>Email:</p>
-                                        <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='flex-shrink-0 text-break bg-info text-light p-3 rounded-circle contact-icon position-relative'><Envelope size={24} className='position-absolute start-50 top-50 translate-middle' /></div>{studentData.email}</div></div></Col>
+                                        <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='text-break bg-info text-light p-3 rounded-circle contact-icon position-relative'><Envelope size={24} className='position-absolute start-50 top-50 translate-middle' /></div>{teacherData.email}</div></div></Col>
                             </Row>
+                            <h3 className='mb-2 card-title'>About:</h3>
+                            <p className='about-content mb-2 mb-lg-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <h3 className='mb-2 card-title'>Education:</h3>
+                            <ul className='education-list mb-2 mb-lg-3'>
+                                <li className='fw-medium'>History Major, University Akademi Historia</li>
+                                <small className='text-gray-400'>2013-2017</small>
+                                <li className='fw-medium'>Master of History, Universiity Akedemi Historia</li>
+                                <small className='text-gray-400'>2017-2020</small>
+                            </ul>
+                            <h3 className='mb-2 card-title'>Expertise:</h3>
+                            <p className='mb-3 mb-lg-5'>World History, Philosophy, Prehistoric, Culture, Ancient</p>
+
+
 
 
                         </div>
-                        <div className='bg-light p-4 rounded-4 py-lg-5 mt-3 mt-lg-4 mt-xl-5'>
-                            <h3 className='card-title mb-4'>Payment History</h3>
 
-                            <Table responsive variant='light' borderless className="align-middle payment-table mb-0">
-                                {/* <thead>
-                                    <tr>
-                                        <th>Payment ID</th>
-                                        <th>Date</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead> */}
 
-                                <tbody>
-                                    {currentPage.map((payment) => (
-                                        <tr key={payment.id}>
-                                            <td>
-                                                <div className='d-flex align-items-center gap-3'>
-                                                    <span className='rounded-circle payment-icon bg-danger d-flex justify-content-center align-items-center'>
-                                                        <img
-                                                            width={28}
-                                                            src={"/icons/graph-up-arrow.svg"}
-                                                            alt=""
-                                                        />
-                                                    </span>
-
-                                                    <span className='fs-5 fw-medium'>
-                                                        {payment.id}
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                            <td className='text-gray-400 small-text'>
-                                                {payment.date}
-                                            </td>
-
-                                            <td className='fs-5 fw-medium'>
-                                                {payment.currency} {payment.amount}
-                                            </td>
-
-                                            <td
-                                                className={`fs-5 fw-medium ${payment.status.toLowerCase() === "complete"
-                                                    ? "text-success"
-                                                    : payment.status.toLowerCase() === "pending"
-                                                        ? "text-gray-400"
-                                                        : "text-danger"
-                                                    }`}
-                                            >
-                                                {payment.status}
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </Table>
-
-                            <Pagination
-                                currentPage={onPage}
-                                endIndex={endIndex}
-                                onPageChange={setOnPage}
-                                startIndex={startIndex}
-                                totalItems={studentPaymentHistory.length}
-                                totalPages={totalPages}
-                            />
-                        </div>
                     </div>
                     <div className='d-none d-xxl-block'>
                         <div className='bg-light p-lg-4 rounded-4 p-3 mb-3'>
@@ -193,8 +100,8 @@ const StudentDetails = () => {
 
                             <div className="card-content">
                                 <div className="card-info">
-                                    <h5 className="title">Basic Algorithm</h5>
-                                    <p className="category text-gray-400 mb-3">Algorithm</p>
+                                    <h5 className="title">World History</h5>
+                                    <p className="category text-gray-400 mb-3">Class VII-B</p>
                                     <div className='d-flex align-items-center gap-5'>
                                         <div className="schedule">
                                             <div className="schedule-item d-flex align-items-center gap-2">
@@ -221,8 +128,8 @@ const StudentDetails = () => {
 
                             <div className="card-content">
                                 <div className="card-info">
-                                    <h5 className="title">Basic Art</h5>
-                                    <p className="category text-gray-400 mb-3">Art</p>
+                                    <h5 className="title">Ancient History</h5>
+                                    <p className="category text-gray-400 mb-3">Class VII-A</p>
                                     <div className='d-flex align-items-center gap-5'>
                                         <div className="schedule">
                                             <div className="schedule-item d-flex align-items-center gap-2">
@@ -249,8 +156,8 @@ const StudentDetails = () => {
 
                             <div className="card-content">
                                 <div className="card-info">
-                                    <h5 className="title">HTML & CSS Class</h5>
-                                    <p className="category text-gray-400 mb-3">Programming</p>
+                                    <h5 className="title">Culture</h5>
+                                    <p className="category text-gray-400 mb-3">Class VII-A</p>
                                     <div className='d-flex align-items-center gap-5'>
                                         <div className="schedule">
                                             <div className="schedule-item d-flex align-items-center gap-2">
@@ -277,8 +184,8 @@ const StudentDetails = () => {
 
                             <div className="card-content">
                                 <div className="card-info">
-                                    <h5 className="title">Simple Past Tense</h5>
-                                    <p className="category text-gray-400 mb-3">English</p>
+                                    <h5 className="title">World History</h5>
+                                    <p className="category text-gray-400 mb-3">Class VII-A</p>
                                     <div className='d-flex align-items-center gap-5'>
                                         <div className="schedule">
                                             <div className="schedule-item d-flex align-items-center gap-2">
@@ -302,7 +209,7 @@ const StudentDetails = () => {
 
                         </div>
                         <button
-                            className="fw-medium mt-2 mb-2 btn bg-purple-10 text-primary w-100 rounded-pill">
+                            className="mt-2 mb-2 btn bg-purple-10 text-primary w-100 rounded-pill fw-medium">
                             View More
                         </button>
 
@@ -315,4 +222,4 @@ const StudentDetails = () => {
     )
 }
 
-export default StudentDetails
+export default TeacherDetailsContent

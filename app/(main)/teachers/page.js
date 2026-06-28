@@ -14,10 +14,10 @@ export const meta = {
   ],
 
 }
-const page = () => {
+const TeachersPage = () => {
   return (
     <TeachersContent/>
   )
 }
 
-export default page
+export default TeachersPage

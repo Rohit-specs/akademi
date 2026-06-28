@@ -24,17 +24,17 @@ const TeachersCard = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item onClick={() => (router.push("/teachers:id"))}>
+                        <Dropdown.Item onClick={() => (router.push("/teachers/"+teacher.id))}>
                             View Profile
                         </Dropdown.Item>
 
-                        <Dropdown.Item onClick={() => (router.push("/teachers:id"))} >
+                        <Dropdown.Item onClick={() => (router.push("/teachers/"+teacher.id))} >
                             Edit
                         </Dropdown.Item>
 
                         <Dropdown.Divider />
 
-                        <Dropdown.Item className="text-danger" onClick={() => (router.push("/teachers:id"))}>
+                        <Dropdown.Item className="text-danger" >
                             Delete
                         </Dropdown.Item>
                     </Dropdown.Menu>
