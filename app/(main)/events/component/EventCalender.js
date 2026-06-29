@@ -102,7 +102,7 @@ const EventCalendar = () => {
 
 
 
-          <Button variant="primary" className="rounded-pill">
+          <Button variant="primary" className="rounded-pill btn-lg">
             <Plus className="me-2" size={24} />
             New Student
           </Button>
@@ -110,7 +110,7 @@ const EventCalendar = () => {
       </Stack>
 
 
-      <Row className="text-center fw-semibold text-secondary mb-3">
+      <Row className="text-center fw-semibold text-gray-400 mb-3">
         {weekDays.map((day) => (
           <Col key={day}>{day}</Col>
         ))}
@@ -120,7 +120,7 @@ const EventCalendar = () => {
         {days.map((day) => (
           <div key={day} className="calendar-day w-100 h-100">
             <div
-              className={`rounded-4 border-primary p-1 p-lg-2 border-2 ${!isSameMonth(day, currentDate) ? "opacity-50" : ""}`}>
+              className={`rounded-4 border-primary p-1 p-lg-2 ${!isSameMonth(day, currentDate) ? "opacity-50" : ""}`}>
               <div className="fw-bold">
                 {format(day, "d")}
               </div>
