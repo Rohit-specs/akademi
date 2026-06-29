@@ -1,9 +1,8 @@
 "use client"
 import { useState } from "react";
 import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, eachDayOfInterval, isSameMonth, getYear, } from "date-fns";
-import { Card, Row, Col, Button, Dropdown, DropdownButton, Stack, } from "react-bootstrap";
+import { Row, Col, Button, Dropdown, DropdownButton, Stack, } from "react-bootstrap";
 import { Plus, } from "react-bootstrap-icons";
-import { COLORS } from "/data/Theme";
 
 const EventCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date())
@@ -53,7 +52,6 @@ const EventCalendar = () => {
 
   return (
     <>
-
       <Stack
         direction="horizontal"
         className="justify-content-between mb-4"
@@ -61,9 +59,9 @@ const EventCalendar = () => {
         <h2 className="fw-bold">Calendar</h2>
 
         <Stack direction="horizontal" gap={2}>
-          <div className="dropdown-btn"> 
+
             <DropdownButton
-            className="rounded-pill dropdown-btn"
+            className="calendar-dropdown"
             variant="outline-primary"
             title={format(currentDate, "MMMM")}
           >
@@ -80,10 +78,10 @@ const EventCalendar = () => {
               </Dropdown.Item>
             ))}
           </DropdownButton>
-          </div>
-          <div className="dropdown-btn"> 
+          
+   
             <DropdownButton
-            className="dropdown-btn"
+            className="calendar-dropdown"
             variant="outline-primary"
             title={getYear(currentDate)}
           >
@@ -99,7 +97,7 @@ const EventCalendar = () => {
                 {year}
               </Dropdown.Item>
             ))}
-          </DropdownButton></div>
+          </DropdownButton>
 
 
 
@@ -111,7 +109,6 @@ const EventCalendar = () => {
         </Stack>
       </Stack>
 
-      {/* Week Days */}
 
       <Row className="text-center fw-semibold text-secondary mb-3">
         {weekDays.map((day) => (
@@ -119,36 +116,23 @@ const EventCalendar = () => {
         ))}
       </Row>
 
-      {/* Calendar */}
-
-      <div className="calendar-grid mx-2 gap-3">
+      <div className="event-calendar calendar-grid mx-2 gap-3">
         {days.map((day) => (
-          <div key={day}>
+          <div key={day} className="calendar-day w-100 h-100">
             <div
-              className={`rounded-4 border-primary p-2 p-lg-3 border-2 ${!isSameMonth(day, currentDate) ? "opacity-50" : ""
-                }`}
-            >
-
+              className={`rounded-4 border-primary p-1 p-lg-2 border-2 ${!isSameMonth(day, currentDate) ? "opacity-50" : ""}`}>
               <div className="fw-bold">
                 {format(day, "d")}
               </div>
-
-              {/* Demo Event Dots */}
-
               <div className="mt-4 d-flex gap-1">
                 <span
                   className="event-dot rounded-circle bg-warning"
-
                 ></span>
-
                 <span
                   className="event-dot rounded-circle bg-primary"
-
                 ></span>
-
                 <span
                   className="event-dot rounded-circle bg-info"
-
                 ></span>
               </div>
             </div>
