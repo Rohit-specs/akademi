@@ -1,15 +1,19 @@
-.custom-border-bottom {
-  position: relative;
+// .custom-border-bottom {
+//   position: relative;
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    border-bottom: 0.0625rem solid $gray-300;
-  }
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     border-bottom: 0.0625rem solid $gray-300;
+//   }
+// }
+.custom-border-bottom{
+    border-bottom: 1px solid $gray-400;
 }
+
 .food-table{
     td,th{
         background-color: $light;

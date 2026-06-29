@@ -34,15 +34,15 @@ const FoodItems = () => {
             <h2 className="page-title fw-medium">Food Menu</h2>
             <Nav className="d-flex gap-1 gap-lg-2 flex-nowrap custom-border-bottom">
                 {categories.map((item) => (
-                    <Nav.Item key={item.id} className={`text-gray-400 ${activeTab === item.id ? "text-primary fw-semibold border-bottom-2 border-primary" : ""
-                                }`}>
+                    <Nav.Item key={item.id} className={`${activeTab === item.id?"border-primary custom-border-bottom":""}`}>
                         <Nav.Link
                             active={activeTab === item.id}
-                           className="text-gray-400"
                             onClick={() => {
                                 setActiveTab(item.id)
                                 manageCategory(item.id)
                             }}
+                            className={`${activeTab === item.id ? "text-primary fw-semibold" : "text-gray-400 "
+                                }`}
                         >
                             {item.name}
                         </Nav.Link>
