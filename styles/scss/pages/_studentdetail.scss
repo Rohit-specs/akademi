@@ -16,32 +16,16 @@
     width: 50px;
     height: 50px;
 }
-
 .payment-table{
     td{
         color: $text;
         background: $light;
     }
 }
-
 .schedule-card-primary {
   position: relative;
   overflow: hidden; 
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 16px;
-    background: $primary;
-  }
-}
-.schedule-card-primary {
-  position: relative;
-  overflow: hidden; 
-
+  
   &::before {
     content: '';
     position: absolute;

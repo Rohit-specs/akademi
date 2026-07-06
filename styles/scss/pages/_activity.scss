@@ -1,0 +1,15 @@
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 22px;
+  bottom: -38px;
+  width: 2px;
+  background: $purple-10;
+}
+.ratio-4X3{
+  aspect-ratio: 4/3;
+}
+.timeline-item:last-child::before {
+  display: none;
+}

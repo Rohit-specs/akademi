@@ -46,6 +46,7 @@ body {
 a {
   text-decoration: none;
 }
+
 /* Background Color Classes */
 .bg-gray-100 {
   background-color: $gray-100;
@@ -62,6 +63,7 @@ a {
 .bg-gray-400 {
   background-color: $gray-400;
 }
+
 /* Text Color Classes */
 .text-gray-100 {
   color: $gray-100;
@@ -79,8 +81,24 @@ a {
   color: $gray-400 !important;
 }
 
-ul{
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
+.sidebar-menu {
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.progress-circle {
+  height: 60px;
+  width: 60px;
+}
+
+.border-gray-300{
+  border-color: $gray-300;
+}
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
 }

@@ -1,16 +1,8 @@
 .event-calendar {
-
-
-    // .calendar-day:hover {
-    //     transform: scale(2px);
-    //     box-shadow: 0 5px 18px rgba(0, 0, 0, .15);
-    // }
     .event-dot {
         width: 14px;
         height: 14px;
     }
-
-    
     .calendar-day>div {
         border: 0.0625rem solid $dark;
         height: 110px;
