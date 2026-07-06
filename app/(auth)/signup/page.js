@@ -5,18 +5,9 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import {
-  Card,
-  Form,
-  Button,
-  InputGroup,
-} from "react-bootstrap";
+import { Card, Form, Button, InputGroup, } from "react-bootstrap";
 
-import {
-  Eye,
-  EyeSlash,
-  Google,
-} from "react-bootstrap-icons";
+import { Eye, EyeSlash, Google, RocketTakeoff, } from "react-bootstrap-icons";
 import { SignUpSchema } from "/schema/SignUpSchema";
 
 const SignUp = () => {
@@ -31,7 +22,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(SignUpSchema),
-  });
+  })
 
   const onSubmit = (data) => {
 
@@ -43,24 +34,23 @@ const SignUp = () => {
         phone: data.phone,
         password: data.password,
       })
-    );
+    )
 
     alert("Account Created Successfully");
 
-    router.push("/signin");
-  };
+    router.push("/signin")
+  }
 
   return (
     <Card
       className="border-0 shadow rounded-4 w-100 signupcard"
-      style={{ maxWidth: "520px" }}
     >
       <Card.Body className="p-4 p-lg-5">
 
         <div className="text-center mb-4">
 
           <h2 className="fw-bold">
-            Create Account 🚀
+            Create Account <RocketTakeoff className="text-danger" />
           </h2>
 
           <p className="text-secondary mb-0">
@@ -70,8 +60,6 @@ const SignUp = () => {
         </div>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
-
-          {/* Full Name */}
 
           <Form.Group className="mb-3">
 
@@ -89,8 +77,6 @@ const SignUp = () => {
             </small>
 
           </Form.Group>
-
-          {/* Email */}
 
           <Form.Group className="mb-3">
 
@@ -110,8 +96,6 @@ const SignUp = () => {
 
           </Form.Group>
 
-          {/* Phone */}
-
           <Form.Group className="mb-3">
 
             <Form.Label>Phone Number</Form.Label>
@@ -129,8 +113,6 @@ const SignUp = () => {
             </small>
 
           </Form.Group>
-
-          {/* Password */}
 
           <Form.Group className="mb-3">
 
@@ -163,7 +145,6 @@ const SignUp = () => {
 
           </Form.Group>
 
-          {/* Confirm Password */}
 
           <Form.Group className="mb-3">
 
@@ -201,8 +182,6 @@ const SignUp = () => {
             </small>
 
           </Form.Group>
-
-          {/* Terms */}
 
           <Form.Check
             className="mb-3"

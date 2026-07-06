@@ -96,7 +96,7 @@ function StudentPagination() {
     return (<>
 
         <h2 className="mb-3 card-title fw-bold">Unpaid Student Intuition</h2>
-        <div className="table-responsive">
+
             <Table borderless responsive className="align-middle" variant="light">
                 <tbody>
                     {currentStudents.map((student) => (
@@ -158,7 +158,7 @@ function StudentPagination() {
                         </tr>
                     ))}
                 </tbody>
-            </Table></div>
+            </Table>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} startIndex={startIndex} endIndex={endIndex} totalItems={students.length}/>
         
     </>

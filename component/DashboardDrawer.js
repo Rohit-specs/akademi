@@ -20,7 +20,7 @@ import {
   Activity
 } from "react-bootstrap-icons";
 
-export default function DashboardDrawer() {
+export default function DashboardDrawer({children}) {
   const [show, setShow] = useState(false);
   return (
     <>
@@ -107,7 +107,7 @@ export default function DashboardDrawer() {
      
 
 
-          <h6 className="text-gray-400 fw-semibold">
+          {/* <h6 className="text-gray-400 fw-semibold">
             Recent Students
           </h6>
 
@@ -127,9 +127,9 @@ export default function DashboardDrawer() {
             <ListGroup.Item  as={Link} href="/" className="b>order-0 px-0">
               Korina Hope
             </ListGroup.Item>
-          </ListGroup>
+          </ListGroup> */}
 
-          <h6 className="text-gray-400 fw-semibold">
+          {/* <h6 className="text-gray-400 fw-semibold">
             Messages
           </h6>
 
@@ -171,7 +171,11 @@ export default function DashboardDrawer() {
 
           <div className="bg-light rounded p-3">
             Japanese Beef Ramen
-          </div>
+          </div> */}
+
+          {
+            children
+          }
         </Offcanvas.Body>
       </Offcanvas>
     </>

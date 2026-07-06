@@ -6,13 +6,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import {
-  Card,
-  Form,
-  Button,
-  InputGroup,
-  Stack,
-} from "react-bootstrap";
+import { Card, Form, Button, InputGroup, Stack, } from "react-bootstrap";
 
 import {
   Eye,
@@ -24,9 +18,7 @@ import { toast } from "react-toastify";
 
 const SignIn = () => {
   const router = useRouter();
-
   const [showPassword, setShowPassword] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -57,7 +49,6 @@ const SignIn = () => {
   return (
     <Card
       className="border-0 shadow rounded-4 w-100 signupcard"
-      style={{ maxWidth: "480px" }}
     >
       <Card.Body className="p-4 p-lg-5">
 

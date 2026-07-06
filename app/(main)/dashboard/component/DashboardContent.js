@@ -8,6 +8,7 @@ import SchoolFinance from "./SchoolFinance";
 import StudentPagination from "../../../../component/StudentIntuition";
 import DashboardDrawer from "/component/DashboardDrawer";
 import HeaderIcons from "/component/HeaderIcons";
+import RightSideBarContent from "./RightSideBarContent";
 
 const contacts = [
   {
@@ -86,7 +87,9 @@ const DashboardContent = () => {
             />
 
 
-          </div><DashboardDrawer />
+          </div><DashboardDrawer>
+            <RightSideBarContent/>
+          </DashboardDrawer>
         </header>
         <section className="status bg-light rounded-4 mb-lg-4 mb-2">
           <Row className="p-4">
@@ -116,7 +119,7 @@ const DashboardContent = () => {
             <div className="mb-lg-4 mb-2 d-flex gap-4 justify-content-between align-items-center ">
               <HeaderIcons />
             </div>
-            <div className="d-flex justify-content-between align-content-center mb-2">
+            {/* <div className="d-flex justify-content-between align-content-center mb-2">
               <div>
                 <h2 className="card-title fw-bold">Recent Student</h2>
                 <span className="text-gray-400">You have <span className="fw-medium">{456}</span> students</span>
@@ -179,7 +182,8 @@ const DashboardContent = () => {
             <button
               className="mt-2 mb-2 btn bg-purple-10 text-primary fw-medium w-100 rounded-pill">
               View More
-            </button>
+            </button> */}
+            <RightSideBarContent/>
           </div>
           <div>
 

@@ -1,14 +1,19 @@
+import { Container } from "react-bootstrap"
 import Sidebar from "./../../component/Sidebar"
+import ProtectedRoute from "/helper/ProtectedRoutes"
 
-const dashboardLayout = ({children}) => {
+const dashboardLayout = ({ children }) => {
   return (
-    <div className="d-flex">
-        <Sidebar/>
+    <ProtectedRoute>
+      <Container fluid="true">
+      <div className="d-flex">
+        <Sidebar />
         <main className="flex-grow-1">
-            {children}
+          {children}
         </main>
-
-    </div>
+          
+      </div></Container>
+    </ProtectedRoute>
   )
 }
 

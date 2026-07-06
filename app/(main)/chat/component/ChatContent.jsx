@@ -202,7 +202,7 @@ const ChatContent = () => {
                                         <small className="d-block fs-small text-gray-400">{message.message}</small>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="flex-shrink-0">
                                     <small className="text-gray-400">{message.time}</small>
                                     {message.unread != 0 && (
                                         <div className="ms-auto unread-message">

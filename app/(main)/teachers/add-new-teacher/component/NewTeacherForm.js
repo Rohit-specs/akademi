@@ -1,3 +1,10 @@
+"use client"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { useState } from "react"
+import { Button, Col, Form, Row } from "react-bootstrap"
+import { useForm } from "react-hook-form"
+import { StudentDetailsSchema } from "/schema/TeachersDetailSchema"
+
  
 
 const NewTeacherForm = () => {

@@ -1,24 +1,18 @@
-// "use client"
-// import { useEffect } from "react";
-// import { useRouter } from "next/navigation";
-
-// export default function Home() {
-//   const router = useRouter();
-
-//   useEffect(() => {
-//     router.push("/dashboard");
-//   }, [router]);
-
-//   return null;
-// }
-import { redirect } from "next/navigation";
-
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 export default function Home() {
-  const loggedIn = true;
+  const router = useRouter();
 
-  if (loggedIn) {
-    redirect("/dashboard");
-  }
+  useEffect(() => {
+    const token = localStorage.getItem("isLoggedIn");
 
-  redirect("/signin");
+    if (token) {
+      router.replace("/dashboard");
+    } else {
+      router.replace("/signin");
+    }
+  }, [router]);
+
+  return null;
 }
