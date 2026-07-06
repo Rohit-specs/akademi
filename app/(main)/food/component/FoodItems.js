@@ -4,12 +4,22 @@ import { FoodData } from "/data/food/FoodData"
 import { useState } from "react"
 import { ArrowUpRight, BarChartFill, StarFill, ThreeDots } from "react-bootstrap-icons"
 import Pagination from "/component/Pagination"
+import ProgressCircle from "/component/ProgressCircle"
+import { useRouter } from "next/navigation"
 
 const FoodItems = () => {
     const [activeTab, setActiveTab] = useState("all");
     const categories = FoodData.categories
     const menuItems = FoodData.menuItems
-    const [foodCategoryItems, setFoodCategoryItems] = useState(menuItems)
+    const [foodCategoryItems, setFoodCategoryItems] = useState(menuItems) 
+
+    const itemPerPage = 5;
+    const totalPages = Math.ceil(foodCategoryItems.length / itemPerPage);
+    const [onPage, setOnPage] = useState(1);
+    const startIndex = (onPage - 1) * itemPerPage;
+    const endIndex = startIndex + itemPerPage;
+    const currentFoods = foodCategoryItems.slice(startIndex, endIndex);
+
     const manageCategory = (category) => {
         let newCategory;
         if (category !== "all") {
@@ -18,19 +28,15 @@ const FoodItems = () => {
         else {
             newCategory = menuItems
         }
+        setOnPage(1)
         setFoodCategoryItems(newCategory)
     }
-    const itemPerPage = 5;
-    const totalPages = Math.ceil(foodCategoryItems.length / itemPerPage);
-    const [onPage, setOnPage] = useState(1);
-    const startIndex = (onPage - 1) * itemPerPage;
-    const endIndex = startIndex + itemPerPage;
-    const currentFoods = foodCategoryItems.slice(startIndex, endIndex);
+    const router = useRouter()
     return (<>
 
         {/* {JSON.stringify(menuItems, null, 4)} */}
 
-        <div className="d-flex justify-content-between mb-3 mb-lg-4">
+        <div className="d-inline-flex d-lg-flex flex-column flex-lg-row justify-content-between mb-3 mb-lg-4">
             <h2 className="page-title fw-medium">Food Menu</h2>
             <Nav className="d-flex gap-1 gap-lg-2 flex-nowrap custom-border-bottom">
                 {categories.map((item) => (
@@ -50,8 +56,8 @@ const FoodItems = () => {
                 ))}
             </Nav>
         </div>
-        <Table responsive className="food-table align-middle">
-            <thead>
+        <Table responsive borderless className="food-table align-middle">
+            {/* <thead>
                 <tr>
                     <th>Food</th>
                     <th>Rating</th>
@@ -60,27 +66,24 @@ const FoodItems = () => {
                     <th>Progress</th>
                     <th></th>
                 </tr>
-            </thead>
+            </thead> */}
 
             <tbody>
                 {currentFoods.map((food) => (
-                    <tr key={food.id}>
+                    <tr key={food.id} className="gap-2">
                         <td>
                             <div className="d-flex align-items-center gap-3">
-                                <img
+                                <span className="food-image bg-purple-10 rounded-4"> <img className="food-image rounded-4"
                                     src={food.image}
-                                    alt={food.name}
-                                    width={60}
-                                    height={60}
-                                    className="rounded"
-                                />
+                                /></span>
+                               
 
                                 <div>
-                                    <Badge bg="primary" className="mb-2">
+                                    <Badge bg="primary" className="fs-5 px-3 py-2 mb-2 rounded-pill">
                                         {food.category}
                                     </Badge>
 
-                                    <h6 className="mb-0 fw-semibold">
+                                    <h6 className="mb-0 fs-4 fw-medium text-dark">
                                         {food.name}
                                     </h6>
                                 </div>
@@ -90,42 +93,40 @@ const FoodItems = () => {
                         <td>
                             <div className="d-flex align-items-center gap-2">
                                 <StarFill className="text-warning" />
-                                <span>{food.rating}</span>
+                                <span className="fs-4 fw-medium p-0 m-0 text-dark">{food.rating}</span>
                             </div>
                         </td>
 
                         <td>
                             <div className="d-flex align-items-center gap-2">
-                                <BarChartFill className="text-primary" />
-                                {food.totalOrders}
+                                <BarChartFill size={30} className="text-primary" />
+                                <div>
+                                    <p className="fs-4 fw-medium p-0 m-0 text-dark">{food.totalOrders}</p>
+                                    <span className="text-gray-400">Total Order</span>
+                                </div>
                             </div>
                         </td>
 
                         <td>
                             <div className="d-flex align-items-center gap-2">
-                                <ArrowUpRight className="text-primary" />
-                                {food.interest}%
+                                <ArrowUpRight size={30} className="text-primary fw-bold" />
+                               
+                                <div>
+                                    <p className="fs-4 fw-medium p-0 m-0 text-dark"> {food.interest}%</p>
+                                    <span className="text-gray-400">Interest</span>
+                                </div>
                             </div>
                         </td>
 
                         <td>
-                            <div
-                                className="progress"
-                                style={{ width: 80, height: 8 }}
-                            >
-                                <div
-                                    className="progress-bar"
-                                    style={{
-                                        width: `${food.progress}%`,
-                                    }}
-                                ></div>
-                            </div>
+                            <ProgressCircle value={food.progress}/>
                         </td>
 
                         <td>
                             <Dropdown align="end">
                                 <Dropdown.Toggle
-                                    as="div"
+                                    role="button"
+                                    as="span"
                                     bsPrefix=" "
                                     className="action-menu"
                                 >
@@ -133,7 +134,7 @@ const FoodItems = () => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item>
+                                    <Dropdown.Item onClick={()=>router.push("food/"+food.id)}>
                                         View
                                     </Dropdown.Item>
 
@@ -160,12 +161,6 @@ const FoodItems = () => {
             totalPages={totalPages}
             totalItems={foodCategoryItems.length}
         />
-
-
-
-
-
-
     </>
     )
 }

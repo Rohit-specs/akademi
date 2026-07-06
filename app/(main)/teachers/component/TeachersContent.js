@@ -1,8 +1,10 @@
 "use client"
-import { Dropdown, Form, Row } from "react-bootstrap"
+import { Button, Dropdown, Form, Row } from "react-bootstrap"
 import { Bell, Gear, Plus, Search } from "react-bootstrap-icons"
 import DashboardDrawer from "/component/DashboardDrawer"
 import TeachersCard from "./TeachersCard"
+import Link from "next/link"
+import HeaderIcons from "/component/HeaderIcons"
 
 const TeachersContent = () => {
   return (
@@ -11,18 +13,7 @@ const TeachersContent = () => {
                     <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                         <h1 className="logo">Teachers</h1>
                         <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
-                            <span className="p-2 rounded-pill bg-light"><Bell className="text-gray-400 fs-4" /></span>
-                            <span className="p-2 rounded-pill bg-light"><Gear className="text-gray-400 fs-4" /></span>
-
-                            <span className="icon-link gap-3">
-                                <span>
-                                    <div className="fs-small">Nabila A.</div>
-                                    <small className="text-gray-400 ms-auto">Admin</small>
-                                </span>
-                                <span className="rounded-circle user-picture bg-purple-10">
-                                    <img src={"https://i.pravatar.cc/150?img=2"} className="user-picture rounded-circle" />
-                                </span>
-                            </span>
+                           <HeaderIcons/>
                         </div>
 
                         <DashboardDrawer /></div>
@@ -57,8 +48,8 @@ const TeachersContent = () => {
                                     <Dropdown.Item>Most Popular</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                            <button className="rounded-pill btn btn-primary">
-                                <Plus fontWeight={500} className="fs-4 text-light"/> New Teachers</button>
+                            <Button as={Link} href="/teachers/add-new-teacher" className="rounded-pill btn btn-primary">
+                                <Plus fontWeight={500} className="fs-4 text-light"/> New Teachers</Button>
                         </div>
 
                     </div>

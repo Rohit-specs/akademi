@@ -1,15 +1,14 @@
 import { Bell, Gear, Search } from "react-bootstrap-icons"
 import DashboardDrawer from "/component/DashboardDrawer"
 import { Form } from "react-bootstrap"
-import FoodItems from "./FoodItems"
+import NewStudentForm from "./NewStudentForm"
 import HeaderIcons from "/component/HeaderIcons"
-
-const FoodContent = () => {
+const NewStudentPageContent = () => {
     return (
         <div className="m-lg-4 m-3">
             <header>
                 <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
-                    <h1 className="logo">Events</h1>
+                    <h1 className="logo">Add New Teacher</h1>
                     <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
 
                         <div className="search-box position-relative d-none d-xl-inline-block">
@@ -30,20 +29,15 @@ const FoodContent = () => {
                     <DashboardDrawer /></div>
 
             </header>
-            <main className="">
+            <main>
 
-
-                <div className='bg-light p-4 rounded-4 pb-lg-5'>
-                    <FoodItems />
-                </div>
-
-
+                <NewStudentForm />
 
 
 
             </main>
-        </div>
+        </div >
     )
 }
 
-export default FoodContent
+export default NewStudentPageContent

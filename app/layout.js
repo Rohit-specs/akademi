@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-bootstrap";
 import "./../styles/scss/style.scss";
 export const metadata = {
   icons: {
@@ -8,7 +9,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body>
-      {children}</body>
+      {children}
+      </body>
     </html>
   );
 }

@@ -1,5 +1,5 @@
 import { Col, Form, Row } from "react-bootstrap";
-import { Bell, Envelope, Gear, Plus, Search, } from "react-bootstrap-icons";
+import { Envelope, Plus, Search, } from "react-bootstrap-icons";
 import StatsItems from "./StatsItems";
 import { StatsData } from "//data/StatsData";
 import SchoolPerformance from "./SchoolPerformanceChart";
@@ -7,6 +7,7 @@ import SchoolCalendar from "./Calender";
 import SchoolFinance from "./SchoolFinance";
 import StudentPagination from "../../../../component/StudentIntuition";
 import DashboardDrawer from "/component/DashboardDrawer";
+import HeaderIcons from "/component/HeaderIcons";
 
 const contacts = [
   {
@@ -72,7 +73,7 @@ const DashboardContent = () => {
       <div className="main-content flex-grow-1 m-lg-4 m-3">
         <header className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
           <h1 className="logo">Dashboard</h1>
-          <div className="search-box position-relative d-none d-xl-block">
+          <div className="search-box position-relative d-none d-xxl-block">
             <Search
               size={16}
               className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
@@ -113,18 +114,7 @@ const DashboardContent = () => {
         <div className="right-side-bar bg-light position-sticky top-0 overflow-y-auto vh-100">
           <div className="content m-lg-4 m-3">
             <div className="mb-lg-4 mb-2 d-flex gap-4 justify-content-between align-items-center ">
-              <span><Bell className="text-gray-400 fs-4" /></span>
-
-              <Gear className="text-gray-400 fs-4" />
-              <span className="icon-link gap-3">
-                <span>
-                  <div className="fs-small">Nabila A.</div>
-                  <small className="text-gray-400 ms-auto">Admin</small>
-                </span>
-                <span className="rounded-circle user-picture bg-purple-10">
-                  <img src={"https://i.pravatar.cc/150?img=2"} className="user-picture rounded-circle" />
-                </span>
-              </span>
+              <HeaderIcons />
             </div>
             <div className="d-flex justify-content-between align-content-center mb-2">
               <div>
@@ -160,7 +150,7 @@ const DashboardContent = () => {
 
               </div>
             ))}
-            <button className="mt-2 mb-2 btn bg-purple-10 text-primary w-100 rounded-pill">View More</button>
+            <button className="mt-2 mb-2 btn bg-purple-10 text-primary fw-medium w-100 rounded-pill">View More</button>
             <h2 className="fw-bold card-title mb-3 mt-2">Current Foods Menu</h2>
 
             {foods.map((item) => (
@@ -187,7 +177,7 @@ const DashboardContent = () => {
             ))}
 
             <button
-              className="mt-2 mb-2 btn bg-purple-10 text-primary w-100 rounded-pill">
+              className="mt-2 mb-2 btn bg-purple-10 text-primary fw-medium w-100 rounded-pill">
               View More
             </button>
           </div>

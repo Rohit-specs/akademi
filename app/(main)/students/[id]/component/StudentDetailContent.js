@@ -4,6 +4,7 @@ import { Bell, Calendar3, Clock, Envelope, Gear, GeoAlt, Person, Search, Telepho
 import { Card, Col, Form, Row, Table } from 'react-bootstrap'
 import Pagination from '/component/Pagination'
 import { useState } from 'react'
+import HeaderIcons from '/component/HeaderIcons'
 
 const StudentDetails = () => {
     const studentData = {
@@ -73,18 +74,7 @@ const StudentDetails = () => {
                             />
 
                         </div>
-                        <span className="p-2 rounded-pill bg-light"><Bell className="text-gray-400 fs-4" /></span>
-                        <span className="p-2 rounded-pill bg-light"><Gear className="text-gray-400 fs-4" /></span>
-
-                        <span className="icon-link gap-3">
-                            <span>
-                                <div className="fs-small">Nabila A.</div>
-                                <small className="text-gray-400 ms-auto">Admin</small>
-                            </span>
-                            <span className="rounded-circle user-picture bg-purple-10">
-                                <img src={"https://i.pravatar.cc/150?img=2"} className="user-picture rounded-circle" />
-                            </span>
-                        </span>
+                        <HeaderIcons/>
                     </div>
 
                     <DashboardDrawer /></div>
@@ -302,7 +292,7 @@ const StudentDetails = () => {
 
                         </div>
                         <button
-                            className="fw-medium mt-2 mb-2 btn bg-purple-10 text-primary w-100 rounded-pill">
+                            className="fw-medium mt-2 mb-2 btn bg-purple-10 text-primary fw-medium w-100 rounded-pill">
                             View More
                         </button>
 

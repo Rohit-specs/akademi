@@ -1,9 +1,10 @@
 "use client"
-import { Dropdown, Form, Table } from "react-bootstrap"
-import { Bell, Gear, Plus, Search,} from "react-bootstrap-icons"
+import { Button, Dropdown, Form, Table } from "react-bootstrap"
+import { Bell, Gear, Plus, Search, } from "react-bootstrap-icons"
 import DashboardDrawer from "/component/DashboardDrawer"
 import Link from "next/link"
 import StudentTable from "./StudentTable"
+import HeaderIcons from "/component/HeaderIcons"
 
 const StudentContent = () => {
     return (
@@ -13,18 +14,7 @@ const StudentContent = () => {
                     <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                         <h1 className="logo">Students</h1>
                         <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
-                            <span className="p-2 rounded-pill bg-light"><Bell className="text-gray-400 fs-4" /></span>
-                            <span className="p-2 rounded-pill bg-light"><Gear className="text-gray-400 fs-4" /></span>
-
-                            <span className="icon-link gap-3">
-                                <span>
-                                    <div className="fs-small">Nabila A.</div>
-                                    <small className="text-gray-400 ms-auto">Admin</small>
-                                </span>
-                                <span className="rounded-circle user-picture bg-purple-10">
-                                    <img src={"https://i.pravatar.cc/150?img=2"} className="user-picture rounded-circle" />
-                                </span>
-                            </span>
+                           <HeaderIcons/>
                         </div>
 
                         <DashboardDrawer /></div>
@@ -59,15 +49,14 @@ const StudentContent = () => {
                                     <Dropdown.Item>Most Popular</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                            <button className="rounded-pill btn btn-primary">
-                                <Plus fontWeight={500} className="fs-4 text-light"/> New Student</button>
+                            <Button as={Link} href="/students/add-new-student/" variant="primary" className="rounded-pill">
+                                <Plus fontWeight={500} className="fs-4 text-light" /> New Student</Button>
                         </div>
 
                     </div>
                 </header>
                 <main className="p-4 bg-light rounded-4">
-
-                    <StudentTable/>
+                    <StudentTable />
                 </main>
             </div>
         </>

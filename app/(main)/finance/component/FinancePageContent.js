@@ -5,9 +5,9 @@ import { Col, Form, Row } from "react-bootstrap"
 import { Area, ComposedChart, Line, LineChart, ResponsiveContainer } from "recharts"
 import { COLORS } from "/data/Theme"
 import BalanceAnalyticChart from "./BalanceAnalyticChart"
-import Pagination from "/component/Pagination"
 import StudentPagination from "/component/StudentIntuition"
 import SchoolExpense from "./SchoolExpense"
+import HeaderIcons from "/component/HeaderIcons"
 
 const FinancePageContent = () => {
     const StudentsComparisonData = [
@@ -38,18 +38,7 @@ const FinancePageContent = () => {
                                 placeholder="Search here..."
                             />
                         </div>
-                        <span className="p-2 rounded-pill bg-light"><Bell className="text-gray-400 fs-4" /></span>
-                        <span className="p-2 rounded-pill bg-light"><Gear className="text-gray-400 fs-4" /></span>
-
-                        <span className="icon-link gap-3">
-                            <span>
-                                <div className="fs-small">Nabila A.</div>
-                                <small className="text-gray-400 ms-auto">Admin</small>
-                            </span>
-                            <span className="rounded-circle user-picture bg-purple-10">
-                                <img src={"https://i.pravatar.cc/150?img=2"} className="user-picture rounded-circle" />
-                            </span>
-                        </span>
+                        <HeaderIcons/>
                     </div>
 
                     <DashboardDrawer /></div>

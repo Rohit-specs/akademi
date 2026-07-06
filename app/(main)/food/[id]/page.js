@@ -1,9 +1,8 @@
-import React from 'react'
-
-const page = () => {
+import FoodDetailsContent from './component/FoodDetailsContent'
+const FoodDetailPage = () => {
   return (
-    <div>page</div>
+    <FoodDetailsContent/>
   )
 }
 
-export default page
+export default FoodDetailPage
