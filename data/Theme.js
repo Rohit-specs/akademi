@@ -5,6 +5,9 @@ export const COLORS = {
   red: "#FF4550",
   green: "#4CBC9A",
   text: "#303972",
+  gray200: "#D8D8D8",
+  gray300: "#C1BBEB",
+  gray400: "#A098AE",
 };
 
 // $purple: #4D44B5;
