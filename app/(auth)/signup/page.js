@@ -9,6 +9,7 @@ import { Card, Form, Button, InputGroup, } from "react-bootstrap";
 
 import { Eye, EyeSlash, Google, RocketTakeoff, } from "react-bootstrap-icons";
 import { SignUpSchema } from "/schema/SignUpSchema";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const router = useRouter();
@@ -36,7 +37,7 @@ const SignUp = () => {
       })
     )
 
-    alert("Account Created Successfully");
+    toast.success("Account Created Successfully");
 
     router.push("/signin")
   }
