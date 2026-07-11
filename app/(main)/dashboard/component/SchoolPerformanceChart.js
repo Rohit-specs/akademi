@@ -36,13 +36,13 @@ export default function SchoolPerformance() {
 
           <div className="icon-link gap-3">
             <div className="d-flex flex-column justify-content-between align-items-center">
-              <span className="text-gray-400"><RecordCircleFill className="me-1 text-warning"/>
+              <span className="flex-shrink-0 text-gray-400"><RecordCircleFill className="me-1 text-warning"/>
               This Week</span>
              {1.245}
             </div>
 
             <div className="d-flex flex-column justify-content-between align-items-center">
-              <span className="text-gray-400">
+              <span className="flex-shrink-0 text-gray-400">
                   <RecordCircleFill className="me-1 text-info"/>
               
               Last Week

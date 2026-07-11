@@ -3,6 +3,7 @@ import { ArrowUpRight, BarChartFill, Bell, Gear, Quote, Search, StarFill } from 
 import DashboardDrawer from "/component/DashboardDrawer"
 import ProgressCircle from "/component/ProgressCircle"
 import HeaderIcons from "/component/HeaderIcons"
+import StudentsComments from "./StudentsComments"
 
 const FoodDetailsContent = () => {
     const FoodDetailsData = {
@@ -162,7 +163,9 @@ const FoodDetailsContent = () => {
                         </div>
                     </div>
                     <div className='d-none d-xxl-block'>
-                        <h2 className="card-title mb-2 mb-lg-3">Student Comments</h2>
+                                        <StudentsComments studentComments={FoodDetailsData.studentComments}/>
+                        
+                        {/* <h2 className="card-title mb-2 mb-lg-3">Student Comments</h2>
                         {FoodDetailsData.studentComments.map((comment) => (
                             <div className='bg-light p-lg-4 rounded-4 p-3 mb-3'>
                                 <Quote className="text-warning" size={24} />
@@ -178,7 +181,7 @@ const FoodDetailsContent = () => {
 
                                 </div>
                             </div>
-                        ))}
+                        ))} */}
 
 
 

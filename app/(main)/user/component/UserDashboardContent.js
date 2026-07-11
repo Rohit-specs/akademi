@@ -155,7 +155,13 @@ const UserDashboardContent = () => {
                         />
 
 
-                    </div><DashboardDrawer />
+                    </div><DashboardDrawer >
+                        <FreePlanCard/>
+                        <div >
+                            <h3 className="card-title mb-3">Latest Activity</h3>
+                            <LatestActivity activities={userData.latestActivity}/>
+                        </div>
+                    </DashboardDrawer>
                 </header>
                 <section className="status bg-light rounded-4 p-4 mb-lg-4 mb-2 position-relative">
                     <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
