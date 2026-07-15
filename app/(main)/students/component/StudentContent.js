@@ -5,8 +5,26 @@ import DashboardDrawer from "/component/DashboardDrawer"
 import Link from "next/link"
 import StudentTable from "./StudentTable"
 import HeaderIcons from "/component/HeaderIcons"
+import { useSelector } from "react-redux"
+import { useState } from "react"
 
 const StudentContent = () => {
+    const { students } = useSelector((state) => state.student)
+    const [sortBy, setSortBy] = useState("newest")
+    const filteredStudents = [...students]
+    if (sortBy === "newest") {
+        filteredStudents.sort(
+            (a, b) => new Date(b.dateOfBirth) - new Date(a.dateOfBirth)
+        )
+    }
+    if (sortBy === "oldest") {
+        filteredStudents.sort(
+            (a, b) => new Date(a.dateOfBirth) - new Date(b.dateOfBirth)
+        )
+    }
+    const handleSort = (e) => {
+        setSortBy(e.target.value)
+    }
     return (
         <>
             <div className="m-lg-4 m-3">
@@ -14,7 +32,7 @@ const StudentContent = () => {
                     <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                         <h1 className="logo">Students</h1>
                         <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
-                           <HeaderIcons/>
+                            <HeaderIcons />
                         </div>
 
                         <DashboardDrawer /></div>
@@ -33,30 +51,31 @@ const StudentContent = () => {
 
 
                         </div>
-                        <div className="icon-link gap-3">
-                            <Dropdown>
-                                <Dropdown.Toggle
-                                    variant="outline-primary"
-                                    id="dropdown-sort"
-                                    className="rounded-pill px-4 py-1 custom-dropdown"
-                                >
-                                    Newest
-                                </Dropdown.Toggle>
+                        <div className="flex-shrink-0 d-flex align-items-center gap-3 flex-nowrap">
+                            <Form.Select
+                                value={sortBy}
+                                onChange={handleSort}
+                                className="custom-dropdown rounded-pill px-5 p-2"
+                            >
+                                <option value="newest">Newest</option>
+                                <option value="oldest">Oldest</option>
+                            </Form.Select>
 
-                                <Dropdown.Menu>
-                                    <Dropdown.Item>Newest</Dropdown.Item>
-                                    <Dropdown.Item>Oldest</Dropdown.Item>
-                                    <Dropdown.Item>Most Popular</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                            <Button as={Link} href="/students/add-new-student/" variant="primary" className="rounded-pill">
-                                <Plus fontWeight={500} className="fs-4 text-light" /> New Student</Button>
+                            <Button
+                                as={Link}
+                                href="/students/add-new-student/"
+                                variant="primary"
+                                className="rounded-pill text-nowrap  p-2"
+                            >
+                                <Plus className="fs-4  me-1" />
+                                New Student
+                            </Button>
                         </div>
 
                     </div>
                 </header>
                 <main className="p-4 bg-light rounded-4">
-                    <StudentTable />
+                    <StudentTable students={filteredStudents} />
                 </main>
             </div>
         </>

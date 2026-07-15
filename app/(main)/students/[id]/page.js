@@ -8,7 +8,7 @@ export const metadata = {
 const StudentsDetailsPage = async ({params}) => {
   const {id} = await params
   return (
-    <StudentDetails/>
+    <StudentDetails id={id}/>
   )
 }
 export default StudentsDetailsPage

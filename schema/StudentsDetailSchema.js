@@ -7,8 +7,11 @@ export const StudentRegistrationSchema = yup.object().shape({
             "fileType",
             "Only JPG, JPEG and PNG are allowed",
             (file) => {
-                if (!file) return false;
-                return ["image/jpeg", "image/png"].includes(file.type);
+                if (!file) return false
+                if (typeof file === "string") {
+                    return true
+                }
+                return ["image/jpeg", "image/png"].includes(file.type)
             }
         ),
 

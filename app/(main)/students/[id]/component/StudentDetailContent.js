@@ -6,16 +6,11 @@ import Pagination from '/component/Pagination'
 import { useState } from 'react'
 import HeaderIcons from '/component/HeaderIcons'
 import ScheduleDetails from '/component/ScheduleDetails'
+import { useSelector } from 'react-redux'
 
-const StudentDetails = () => {
-    const studentData = {
-        name: "Karen Hope",
-        parentName: "Justin Hope",
-        address: "Jakarta, Indonesia",
-        phone: "+12 245 6845",
-        email: "hope@gmail.com",
-
-    }
+const StudentDetails = ({ id }) => {
+    const { students } = useSelector((state) => state.student)
+    const studentData = students.find((student) => student.id === Number(id))
     const studentPaymentHistory = [
         {
             "id": "#1245679",
@@ -53,7 +48,7 @@ const StudentDetails = () => {
     const itemPerPage = 4
     const [onPage, setOnPage] = useState(1)
     const startIndex = (onPage - 1) * itemPerPage
-    const totalPages = Math.ceil(studentPaymentHistory / itemPerPage)
+    const totalPages = Math.ceil(studentPaymentHistory.length / itemPerPage)
     const endIndex = startIndex + itemPerPage
     const currentPage = studentPaymentHistory.slice(startIndex, endIndex)
     return (
@@ -79,7 +74,7 @@ const StudentDetails = () => {
                     </div>
 
                     <DashboardDrawer >
-                        <ScheduleDetails />
+                        <ScheduleDetails selectedDate={new Date()} />
                     </DashboardDrawer>
                 </div>
 
@@ -89,8 +84,8 @@ const StudentDetails = () => {
                     <div className='flex-grow-1'>
                         <div className='bg-light p-4 rounded-4 position-relative pb-lg-5'>
                             <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
-                            <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={"https://i.pravatar.cc/150?img=2"} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
-                            <h2 className='mt-3'>{studentData.name}</h2>
+                            <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={studentData.photo} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
+                            <h2 className='mt-3'>{studentData.firstName + " " + studentData.lastName}</h2>
                             <p className='sidebar-link text-gray-400 mt-2'>Student</p>
                             <Row>
                                 <Col xs={12} md={6} xl={3}>
@@ -146,7 +141,7 @@ const StudentDetails = () => {
                                             </td>
 
                                             <td className='text-gray-400 small-text'>
-                                                {payment.date}
+                                                {payment.date?.split("T")[0]}
                                             </td>
 
                                             <td className='fs-5 fw-medium'>
@@ -179,7 +174,7 @@ const StudentDetails = () => {
                         </div>
                     </div>
                     <div className='d-none d-xxl-block'>
-                        <ScheduleDetails />
+                        <ScheduleDetails selectedDate={new Date()} />
 
 
                     </div>

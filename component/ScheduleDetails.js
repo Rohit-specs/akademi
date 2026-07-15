@@ -25,7 +25,7 @@ const ScheduleDetails = ({ selectedDate }) => {
 
 
                 {selectedEvents.length === 0 ? (
-                    <div className="bg-light rounded-4 p-5 text-center">
+                    <div className="bg-light py-lg-4 event-details-container rounded-4 py-3 px-4 px-lg-5 text-center">
                         <h5>No Events</h5>
                         <p className="text-gray-400 mb-0">
                             There are no scheduled events for this date.

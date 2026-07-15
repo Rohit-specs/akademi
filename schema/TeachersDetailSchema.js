@@ -1,5 +1,5 @@
 import * as yup from "yup";
-export const StudentDetailsSchema = yup.object().shape({
+export const TeacherRegistrationSchema = yup.object().shape({
     firstName: yup
         .string()
         .trim()
@@ -49,7 +49,9 @@ export const StudentDetailsSchema = yup.object().shape({
             "Only JPG, JPEG and PNG are allowed",
             (file) => {
                 if (!file) return false;
-
+                if (typeof file === "string") {
+                    return true
+                }
                 return ["image/jpeg", "image/png"].includes(file.type);
             }
         ),

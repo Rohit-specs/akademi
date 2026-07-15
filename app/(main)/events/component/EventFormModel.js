@@ -9,6 +9,7 @@ import { Plus } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addEvent } from "/store/slices/EventsSlice";
 import { format, parseISO } from "date-fns";
+import { addActivity } from "/store/slices/ActivitySlice";
 
 const EventFormModel = ({ selectedDate }) => {
     const [show, setShow] = useState(false);
@@ -36,7 +37,16 @@ const EventFormModel = ({ selectedDate }) => {
                 ...data,
                 date: format(data.date, "yyyy-MM-dd"),
             })
-        );
+        )
+        dispatch(addActivity({
+            type: "event",
+            user: "Admin",
+            action: "created a new event",
+            target: data.subject,
+            color: "warning",
+            date: format(new Date(), "yyyy-MM-dd"),
+            time: format(new Date(), "hh:mm a"),
+        }))
 
         toast.success("New Event Added Successfully")
         reset()

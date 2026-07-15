@@ -4,15 +4,42 @@ import { Button, Col, Form, Row } from "react-bootstrap"
 import { useForm } from "react-hook-form"
 import { useState } from "react"
 import { StudentRegistrationSchema } from "/schema/StudentsDetailSchema"
+import { format } from "date-fns"
+import { addStudent } from "/store/slices/StudentSlice"
+import { addActivity } from "/store/slices/ActivitySlice"
+import { useDispatch } from "react-redux"
+import { toast } from "react-toastify"
+import { useRouter } from "next/navigation"
 const NewStudentForm = () => {
-    const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm(
+    const { register, handleSubmit, setValue, watch, formState: { errors },reset } = useForm(
         { resolver: yupResolver(StudentRegistrationSchema) }
     )
-    const address = watch("address", "") 
-    const parentAddress = watch("parentAddress","")
+    const address = watch("address", "")
+    const router = useRouter()
+    const parentAddress = watch("parentAddress", "")
     const [preview, setPreview] = useState(null)
+    const dispatch = useDispatch()
     const SubmitHandler = (data) => {
-        console.log(data)
+        dispatch(addStudent({
+            ...data,
+            photo: preview,
+            dateOfBirth:
+                typeof data.dateOfBirth === "string"
+                    ? data.dateOfBirth
+                    : data.dateOfBirth.toISOString().split("T")[0],
+        }))
+        dispatch(addActivity({
+            type: "student",
+            user: "Admin",
+            action: "added a new student",
+            target: `${data.firstName} ${data.lastName}`,
+            color: "success",
+            date: format(new Date(), "yyyy-MM-dd"),
+            time: format(new Date(), "hh:mm a"),
+        }))
+        reset()
+        router.push("/students")
+        toast.success("Student Registered Sucessfully")
     }
     return (
         <Form onSubmit={handleSubmit(SubmitHandler)}>

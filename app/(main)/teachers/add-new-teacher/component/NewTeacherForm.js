@@ -3,19 +3,33 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { useForm } from "react-hook-form"
-import { StudentDetailsSchema } from "/schema/TeachersDetailSchema"
-
- 
+import { TeacherRegistrationSchema } from "/schema/TeachersDetailSchema"
+import { format } from "date-fns"
+import { useDispatch } from "react-redux"
+import { toast } from "react-toastify"
+import { addTeacher } from "/store/slices/TeacherSlice"
+import { addActivity } from "/store/slices/ActivitySlice"
 
 const NewTeacherForm = () => {
     const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm(
-        { resolver: yupResolver(StudentDetailsSchema) }
+        { resolver: yupResolver(TeacherRegistrationSchema) }
     )
     const address = watch("address", "")
     // const photoRegister = register("photo")
     const [preview, setPreview] = useState(null)
+    const dispatch = useDispatch()
     const SubmitHandler = (data) => {
-        console.log(data)
+        dispatch(addTeacher(data))
+        dispatch(addActivity({
+            type: "teacher",
+            user: "Admin",
+            action: "added a new teacher",
+            target: data.name,
+            color: "primary",
+            date: format(new Date(), "yyyy-MM-dd"),
+            time: format(new Date(), "hh:mm a"),
+        }))
+        toast.success("Teacher Sucessfully Registered")
     }
     return (
         <Form onSubmit={handleSubmit(SubmitHandler)}>
@@ -220,25 +234,25 @@ const NewTeacherForm = () => {
                             <div className="d-flex gap-2">
                                 <div>
                                     <Form.Control
-                                    type="date"
-                                    placeholder="September 2013"
-                                    {...register("startDate")}
-                                />
+                                        type="date"
+                                        placeholder="September 2013"
+                                        {...register("startDate")}
+                                    />
                                     <small className="text-danger">
                                         {errors.startDate?.message}
                                     </small>
-                                    </div>
+                                </div>
                                 <div>
                                     <Form.Control
-                                    type="date"
-                                    placeholder="September 2017"
-                                    {...register("endDate")}
-                                />
+                                        type="date"
+                                        placeholder="September 2017"
+                                        {...register("endDate")}
+                                    />
 
                                     <small className="text-danger">
                                         {errors.endDate?.message}
                                     </small>
-                                    </div>
+                                </div>
                             </div>
 
                         </Form.Group>

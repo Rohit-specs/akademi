@@ -1,5 +1,4 @@
 "use client";
-import { Fragment } from "react";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 function Pagination({
     currentPage,
