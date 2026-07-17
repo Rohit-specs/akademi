@@ -19,7 +19,24 @@ const NewTeacherForm = () => {
     const [preview, setPreview] = useState(null)
     const dispatch = useDispatch()
     const SubmitHandler = (data) => {
-        dispatch(addTeacher(data))
+        dispatch(addTeacher({
+            ...data,
+            photo: preview,
+            dateOfBirth:
+                typeof data.dateOfBirth === "string"
+                    ? data.dateOfBirth
+                    : data.dateOfBirth.toISOString().split("T")[0],
+
+            startDate:
+                typeof data.startDate === "string"
+                    ? data.startDate
+                    : data.startDate.toISOString().split("T")[0],
+
+            endDate:
+                typeof data.endDate === "string"
+                    ? data.endDate
+                    : data.endDate.toISOString().split("T")[0],
+        }))
         dispatch(addActivity({
             type: "teacher",
             user: "Admin",

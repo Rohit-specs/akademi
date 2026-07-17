@@ -408,6 +408,7 @@ export const StudentSlice = createSlice({
             state.students.push({
                 id: Date.now(),
                 studentId: `STU${String(state.students.length + 1).padStart(3, "0")}`,
+                grade: "X B",
                 ...action.payload,
             })
         },

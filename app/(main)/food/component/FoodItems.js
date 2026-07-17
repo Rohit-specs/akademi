@@ -6,12 +6,20 @@ import { ArrowUpRight, BarChartFill, StarFill, ThreeDots } from "react-bootstrap
 import Pagination from "/component/Pagination"
 import ProgressCircle from "/component/ProgressCircle"
 import { useRouter } from "next/navigation"
+import { useDispatch, useSelector } from "react-redux"
+import { toast } from "react-toastify"
+import { removeFood } from "/store/slices/FoodSlice"
+import { addActivity } from "/store/slices/ActivitySlice"
+import { format } from "date-fns"
 
 const FoodItems = () => {
     const [activeTab, setActiveTab] = useState("all");
-    const categories = FoodData.categories
-    const menuItems = FoodData.menuItems
-    const [foodCategoryItems, setFoodCategoryItems] = useState(menuItems) 
+    const { categories, foods } = useSelector((state) => state.food)
+
+    const foodCategoryItems =
+        activeTab === "all"
+            ? foods
+            : foods.filter((item) => item.category === activeTab);
 
     const itemPerPage = 5;
     const totalPages = Math.ceil(foodCategoryItems.length / itemPerPage);
@@ -23,24 +31,22 @@ const FoodItems = () => {
     const manageCategory = (category) => {
         let newCategory;
         if (category !== "all") {
-            newCategory = menuItems.filter((item) => item.category === category)
+            newCategory = foods.filter((item) => item.category === category)
         }
         else {
-            newCategory = menuItems
+            newCategory = foods
         }
         setOnPage(1)
-        setFoodCategoryItems(newCategory)
     }
+    const dispatch = useDispatch()
     const router = useRouter()
     return (<>
-
-        {/* {JSON.stringify(menuItems, null, 4)} */}
 
         <div className="d-inline-flex d-lg-flex flex-column flex-lg-row justify-content-between mb-3 mb-lg-4">
             <h2 className="page-title fw-medium">Food Menu</h2>
             <Nav className="d-flex gap-1 gap-lg-2 flex-nowrap custom-border-bottom">
                 {categories.map((item) => (
-                    <Nav.Item key={item.id} className={`${activeTab === item.id?"border-primary custom-border-bottom":""}`}>
+                    <Nav.Item key={item.id} className={`${activeTab === item.id ? "border-primary custom-border-bottom" : ""}`}>
                         <Nav.Link
                             active={activeTab === item.id}
                             onClick={() => {
@@ -57,16 +63,6 @@ const FoodItems = () => {
             </Nav>
         </div>
         <Table responsive borderless className="food-table align-middle">
-            {/* <thead>
-                <tr>
-                    <th>Food</th>
-                    <th>Rating</th>
-                    <th>Total Orders</th>
-                    <th>Interest</th>
-                    <th>Progress</th>
-                    <th></th>
-                </tr>
-            </thead> */}
 
             <tbody>
                 {currentFoods.map((food) => (
@@ -76,7 +72,7 @@ const FoodItems = () => {
                                 <span className="food-image bg-purple-10 rounded-4"> <img className="food-image rounded-4"
                                     src={food.image}
                                 /></span>
-                               
+
 
                                 <div>
                                     <Badge bg="primary" className="fs-5 px-3 py-2 mb-2 rounded-pill">
@@ -110,7 +106,7 @@ const FoodItems = () => {
                         <td>
                             <div className="d-flex align-items-center gap-2">
                                 <ArrowUpRight size={30} className="text-primary fw-bold" />
-                               
+
                                 <div>
                                     <p className="fs-4 fw-medium p-0 m-0 text-dark"> {food.interest}%</p>
                                     <span className="text-gray-400">Interest</span>
@@ -119,7 +115,7 @@ const FoodItems = () => {
                         </td>
 
                         <td>
-                            <ProgressCircle value={food.progress}/>
+                            <ProgressCircle value={food.progress} />
                         </td>
 
                         <td>
@@ -134,15 +130,30 @@ const FoodItems = () => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item onClick={()=>router.push("food/"+food.id)}>
+                                    <Dropdown.Item onClick={() => router.push("food/" + food.id)}>
                                         View
                                     </Dropdown.Item>
 
-                                    <Dropdown.Item>
+                                    {/* <Dropdown.Item>
                                         Edit
-                                    </Dropdown.Item>
+                                    </Dropdown.Item> */}
+                                    <Dropdown.Divider />
 
-                                    <Dropdown.Item>
+                                    <Dropdown.Item className="text-danger" onClick={() => {
+                                        dispatch(removeFood(food.id))
+                                        dispatch(
+                                            addActivity({
+                                                type: "food",
+                                                user: "Admin",
+                                                action: "removed food item",
+                                                target: food.name,
+                                                color: "danger",
+                                                date: format(new Date(), "yyyy-MM-dd"),
+                                                time: format(new Date(), "hh:mm a"),
+                                            })
+                                        )
+                                        toast.success("Food Removed Sucessfully")
+                                    }}>
                                         Delete
                                     </Dropdown.Item>
                                 </Dropdown.Menu>

@@ -71,7 +71,7 @@ const foods = [
 const DashboardContent = () => {
   return (
     <div className="d-flex">
-      <div className="main-content flex-grow-1 m-lg-4 m-3">
+      <div className="main-content flex-grow-1 m-lg-4 m-3 flex-shrink-0">
         <header className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
           <h1 className="logo">Dashboard</h1>
           <div className="search-box position-relative d-none d-xxl-block">

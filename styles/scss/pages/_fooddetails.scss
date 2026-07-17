@@ -1,7 +1,10 @@
-.food-details-image{
+.food-details-image {
     width: 120px;
     height: 120px;
+    object-fit: cover;
+    display: block;
 }
-.food-description{
+
+.food-description {
     max-width: 500px;
 }

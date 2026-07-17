@@ -1,15 +1,16 @@
-import { Bell, Gear, Search } from "react-bootstrap-icons"
-import DashboardDrawer from "/component/DashboardDrawer"
+"use client"
 import { Form } from "react-bootstrap"
-import FoodItems from "./FoodItems"
+import DashboardDrawer from "/component/DashboardDrawer"
 import HeaderIcons from "/component/HeaderIcons"
+import { Search, } from "react-bootstrap-icons"
+import LatestActivity from "/component/LatestActivity"
 
-const FoodContent = () => {
+const ActivityPageContent = () => {
     return (
         <div className="m-lg-4 m-3">
             <header>
                 <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
-                    <h1 className="logo">Food</h1>
+                    <h1 className="logo">Notification & Latest Activity</h1>
                     <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
 
                         <div className="search-box position-relative d-none d-xl-inline-block">
@@ -24,26 +25,19 @@ const FoodContent = () => {
                             />
 
                         </div>
-                        <HeaderIcons/>
+                        <HeaderIcons />
                     </div>
 
                     <DashboardDrawer /></div>
 
             </header>
-            <main className="">
-
-
-                <div className='bg-light p-4 rounded-4 pb-lg-5'>
-                    <FoodItems />
+            <main className="p-4 bg-light rounded-4">
+                <div className="w-100 px-2 px-md-3 py-3">
+                    <LatestActivity />
                 </div>
-
-
-
-
-
             </main>
-        </div>
+        </div >
     )
 }
 
-export default FoodContent
+export default ActivityPageContent

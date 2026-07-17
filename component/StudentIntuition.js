@@ -97,7 +97,7 @@ function StudentPagination() {
 
         <h2 className="mb-3 card-title fw-bold">Unpaid Student Intuition</h2>
 
-            <Table borderless responsive className="align-middle" variant="light">
+            <Table borderless responsive={true} className="align-middle" variant="light">
                 <tbody>
                     {currentStudents.map((student) => (
                         <tr key={student.id} className="my-2 my-lg-3">

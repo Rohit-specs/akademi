@@ -1,7 +1,9 @@
 import FoodDetailsContent from './component/FoodDetailsContent'
-const FoodDetailPage = () => {
+const FoodDetailPage = async({params}) => {
+  const {id} = await params
   return (
-    <FoodDetailsContent/>
+    
+    <FoodDetailsContent id={id}/>
   )
 }
 

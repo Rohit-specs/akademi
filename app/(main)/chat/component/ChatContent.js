@@ -6,137 +6,6 @@ import { ArrowLeft, CameraVideo, Dot, Paperclip, Search, SendFill, ThreeDots } f
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectChat, sendMessage } from "/store/slices/ChatSlice"
-const userData = {
-    "user": {
-        "id": 1,
-        "name": "Nabila Azalea",
-        "role": "Admin",
-        "location": "Jakarta, Indonesia",
-        "phone": "+12 346 6789 0",
-        "email": "jordan@mail.com",
-        "avatar": "https://i.pravatar.cc/150?img=32",
-        "coverImage": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200",
-        "stats": {
-            "contacts": 741,
-            "messages": 238,
-            "tasksCompleted": 124,
-            "projects": 18
-        }
-    },
-    "plan": {
-        "name": "Free",
-        "storage": "5 GB",
-        "status": "Limited Features",
-        "description": "Upgrade to Premium Plan to get more features and unlimited storage.",
-        "buttonText": "Upgrade Plan"
-    },
-    "contacts": [
-        {
-            "id": 1,
-            "name": "Samantha William",
-            "status": "Online",
-            "avatar": "https://i.pravatar.cc/150?img=5"
-        },
-        {
-            "id": 2,
-            "name": "Tony Soap",
-            "status": "Busy",
-            "avatar": "https://i.pravatar.cc/150?img=12"
-        },
-        {
-            "id": 3,
-            "name": "Karen Hope",
-            "status": "Offline",
-            "avatar": "https://i.pravatar.cc/150?img=16"
-        },
-        {
-            "id": 4,
-            "name": "Jordan Nico",
-            "status": "Online",
-            "avatar": "https://i.pravatar.cc/150?img=18"
-        },
-        {
-            "id": 5,
-            "name": "Nadila Adja",
-            "status": "Away",
-            "avatar": "https://i.pravatar.cc/150?img=24"
-        }
-    ],
-    "messages": [
-        {
-            "id": 1,
-            "name": "Samantha William",
-            "message": "Could you send the latest report?",
-            "time": "12:45 PM",
-            "unread": 2,
-            "avatar": "https://i.pravatar.cc/150?img=5"
-        },
-        {
-            "id": 2,
-            "name": "Tony Soap",
-            "message": "Meeting starts in 30 minutes.",
-            "time": "12:41 PM",
-            "unread": 3,
-            "avatar": "https://i.pravatar.cc/150?img=12"
-        },
-        {
-            "id": 3,
-            "name": "Karen Hope",
-            "message": "I sent the updated design files.",
-            "time": "12:34 PM",
-            "unread": 0,
-            "avatar": "https://i.pravatar.cc/150?img=16"
-        },
-        {
-            "id": 4,
-            "name": "Jordan Nico",
-            "message": "Let's schedule a meeting tomorrow.",
-            "time": "12:15 PM",
-            "unread": 1,
-            "avatar": "https://i.pravatar.cc/150?img=18"
-        },
-        {
-            "id": 5,
-            "name": "Nadila Adja",
-            "message": "Thanks for your support!",
-            "time": "12:04 PM",
-            "unread": 0,
-            "avatar": "https://i.pravatar.cc/150?img=24"
-        }
-    ],
-    "latestActivity": [
-        {
-            "id": 1,
-            "user": "Karen Hope",
-            "action": "moved task",
-            "task": "User Research",
-            "from": "In Progress",
-            "to": "Done",
-            "date": "April 24, 2025 10:42 AM"
-        },
-        {
-            "id": 2,
-            "user": "Samantha William",
-            "action": "added",
-            "task": "Photos",
-            "date": "April 24, 2025 10:14 AM"
-        },
-        {
-            "id": 3,
-            "user": "Tony Soap",
-            "action": "completed",
-            "task": "Wireframing",
-            "date": "April 24, 2025 09:52 AM"
-        },
-        {
-            "id": 4,
-            "user": "Samantha William",
-            "action": "created",
-            "task": "New Task",
-            "date": "March 30, 2025 12:45 PM"
-        }
-    ]
-}
 const ChatContent = () => {
     const { chats, groups, selectedChat } = useSelector((state) => state.chat)
     const [message, setMessage] = useState("");
@@ -196,7 +65,7 @@ const ChatContent = () => {
             <main className="bg-light rounded-4 chat-card">
                 <Row className="h-100 position-relative g-0">
                     <Col xs={12} lg={4} xl={3}
-                        className={`sidebar-container chats-border border-gray-300 p-lg-4 p-3 ${showConversation ? "d-none d-lg-block" : ""}`}
+                        className={`sidebar-container chats-border border-gray-300 p-lg-4 p-3 ${showConversation ? "d-none d-lg-flex" : ""}`}
                     >
                         <h2 className="card-title mb-3 mb-lg-4">Messages</h2>
                         <div className="mb-3 mb-lg-4 w-100 search-box position-relative d-inline-block">
@@ -210,7 +79,7 @@ const ChatContent = () => {
                                 placeholder="Search here..."
                             />
                         </div>
-                        <div className="chat-list-scroll">
+                        <div className="chat-list-scroll no-scrollbar">
                             <h3 className="fs-5 text-gray-400 mb-lg-3 mb-2">Chats</h3>
                             {chats.map((chat) => (
                                 <div

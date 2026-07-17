@@ -2,8 +2,8 @@ import { Col, Form, Row } from "react-bootstrap"
 import DashboardDrawer from "/component/DashboardDrawer"
 import { Bell, Envelope, Gear, GeoAlt, Plus, Search, Telephone } from "react-bootstrap-icons"
 import FreePlanCard from "./FreePlanCard"
-import LatestActivity from "./LatestActivity"
 import HeaderIcons from "/component/HeaderIcons"
+import LatestActivity from "/component/LatestActivity"
 
 const UserDashboardContent = () => {
     const userData = {
@@ -159,7 +159,7 @@ const UserDashboardContent = () => {
                         <FreePlanCard/>
                         <div >
                             <h3 className="card-title mb-3">Latest Activity</h3>
-                            <LatestActivity activities={userData.latestActivity}/>
+                            <LatestActivity/>
                         </div>
                     </DashboardDrawer>
                 </header>
@@ -291,7 +291,7 @@ const UserDashboardContent = () => {
                         <FreePlanCard/>
                         <div >
                             <h3 className="card-title mb-3">Latest Activity</h3>
-                            <LatestActivity activities={userData.latestActivity}/>
+                            <LatestActivity/>
                         </div>
                     </div>
                   

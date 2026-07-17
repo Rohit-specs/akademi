@@ -30,9 +30,6 @@
     overflow-x: hidden;
     min-height: 0;
 }
-.chat-list-scroll::-webkit-scrollbar {
-    width: 4px;
-}
 .chat-card {
     height: calc(100vh - 130px);
     overflow: hidden;

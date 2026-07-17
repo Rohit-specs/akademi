@@ -37,6 +37,7 @@ const StudentTable = ({ students }) => {
                 </thead>
 
                 <tbody>
+                   
                     {currentStudents.map((student) => (
                         <tr key={student.id}>
                             <td>
