@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { X, XLg } from "react-bootstrap-icons"
+import { XLg } from "react-bootstrap-icons"
 
 const FreePlanCard = () => {
   const [hide,setHide] = useState(false)

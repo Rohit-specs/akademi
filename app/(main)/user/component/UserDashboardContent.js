@@ -1,9 +1,11 @@
-import { Col, Form, Row } from "react-bootstrap"
+import { Button, Col, Form, Row } from "react-bootstrap"
 import DashboardDrawer from "/component/DashboardDrawer"
-import { Bell, Envelope, Gear, GeoAlt, Plus, Search, Telephone } from "react-bootstrap-icons"
+import { Envelope, GeoAlt, Plus, Search, Telephone } from "react-bootstrap-icons"
 import FreePlanCard from "./FreePlanCard"
 import HeaderIcons from "/component/HeaderIcons"
 import LatestActivity from "/component/LatestActivity"
+import UserMessages from "./UserMessages"
+import Link from "next/link"
 
 const UserDashboardContent = () => {
     const userData = {
@@ -156,10 +158,10 @@ const UserDashboardContent = () => {
 
 
                     </div><DashboardDrawer >
-                        <FreePlanCard/>
+                        <FreePlanCard />
                         <div >
                             <h3 className="card-title mb-3">Latest Activity</h3>
-                            <LatestActivity/>
+                            <LatestActivity />
                         </div>
                     </DashboardDrawer>
                 </header>
@@ -194,7 +196,7 @@ const UserDashboardContent = () => {
                 <section>
                     <Row>
                         <Col xs={12} lg={6}>
-                            <div className="bg-light rounded-4 p-4 mb-lg-4 mb-2">
+                            <div className="bg-light rounded-4 p-4 mb-lg-4 mb-2 h-100">
                                 <div className="d-flex justify-content-between align-items-center mb-2 mb-lg-3">
                                     <div>
                                         <h3 className="card-title">Contacts</h3>
@@ -229,54 +231,15 @@ const UserDashboardContent = () => {
                                         <button className="flex-shrink-0 btn btn-outline-primary rounded-circle plus-icon d-flex align-items-center justify-content-center"><Envelope size={24} /></button>
                                     </div>
                                 ))}
-                                <button
-                                    className="mt-2 mb-2 btn bg-purple-10 text-primary fw-medium w-100 rounded-pill">
+                                <Button variant="outline-primary"
+                                    className="mt-2 mb-2 bg-purple-10 fw-medium w-100 rounded-pill">
                                     View More
-                                </button>
+                                </Button>
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
-                            <div className="bg-light rounded-4 p-4 mb-lg-4 mb-2">
-
-                                <h3 className="card-title mb-2 mb-lg-3">Messages</h3>
-
-                                <div className="search-box position-relative mb-2 mb-lg-3">
-                                    <Search
-                                        size={16}
-                                        className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
-                                    />
-
-                                    <Form.Control
-                                        type="text "
-                                        className="bg-white border-1 border-secondary-subtle form-control ps-5 rounded-pill"
-                                        placeholder="Search here..."
-                                    />
-                                </div>
-                                {userData.messages.slice(0, 5).map((message) => (
-                                    <div className="d-flex justify-content-between mb-2 mb-lg-3" key={message.id}>
-                                        <div className="icon-link gap-2 ">
-                                            <div className="user-picture overflow-hidden rounded-circle bg-purple-10">
-                                                <img className="user-picture" src={message.avatar} />
-                                            </div>
-                                            <div>
-                                                <span className="fw-medium">{message.name}</span>
-                                                <small className="d-block fs-small text-gray-400">{message.message}</small>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <small className="text-gray-400">{message.time}</small>
-                                            {message.unread != 0 && (
-                                                <div className="ms-auto unread-message">
-                                                    {message.unread}
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                ))}
-                                <button
-                                    className="mt-2 mb-2 btn bg-purple-10 text-primary fw-medium w-100 rounded-pill">
-                                    View More
-                                </button>
+                            <div className="bg-light rounded-4 p-4 mb-lg-4 mb-2 h-100">
+                                <UserMessages />
                             </div>
                         </Col>
                     </Row>
@@ -286,15 +249,15 @@ const UserDashboardContent = () => {
                 <div className="right-side-bar bg-light position-sticky top-0 overflow-y-auto vh-100">
                     <div className="content m-lg-4 m-3">
                         <div className="mb-lg-4 mb-2 d-flex gap-4 justify-content-between align-items-center ">
-                            <HeaderIcons/>
+                            <HeaderIcons />
                         </div>
-                        <FreePlanCard/>
+                        <FreePlanCard />
                         <div >
                             <h3 className="card-title mb-3">Latest Activity</h3>
-                            <LatestActivity/>
+                            <LatestActivity />
                         </div>
                     </div>
-                  
+
                 </div>
             </aside>
         </div>
