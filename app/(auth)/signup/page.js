@@ -4,18 +4,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import { Card, Form, Button, InputGroup, } from "react-bootstrap";
-
 import { Eye, EyeSlash, Google, RocketTakeoff, } from "react-bootstrap-icons";
 import { SignUpSchema } from "/schema/SignUpSchema";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
-  const router = useRouter();
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const router = useRouter()
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
   const {
     register,
@@ -26,21 +23,31 @@ const SignUp = () => {
   })
 
   const onSubmit = (data) => {
+  const users = JSON.parse(localStorage.getItem("users")) || []
+  const emailExists = users.some(
+    (user) => user.email === data.email
+  )
 
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        fullname: data.fullname,
-        email: data.email,
-        phone: data.phone,
-        password: data.password,
-      })
-    )
-
-    toast.success("Account Created Successfully");
-
-    router.push("/signin")
+  if (emailExists) {
+    toast.error("Email already exists")
+    return
   }
+
+  const newUser = {
+    id: Date.now(),
+    fullname: data.fullname,
+    email: data.email,
+    phone: data.phone,
+    password: data.password,
+    role: "Admin",
+    avatar: "https://i.pravatar.cc/150?img=68",
+    location: null,
+  }
+  users.push(newUser)
+  localStorage.setItem("users", JSON.stringify(users))
+  toast.success("Account Created Successfully")
+  router.push("/signin")
+}
 
   return (
     <Card

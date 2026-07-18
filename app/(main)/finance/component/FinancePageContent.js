@@ -8,6 +8,7 @@ import BalanceAnalyticChart from "./BalanceAnalyticChart"
 import StudentPagination from "/component/StudentIntuition"
 import SchoolExpense from "./SchoolExpense"
 import HeaderIcons from "/component/HeaderIcons"
+import { useSelector } from "react-redux"
 
 const FinancePageContent = () => {
     const StudentsComparisonData = [
@@ -20,6 +21,9 @@ const FinancePageContent = () => {
         { value: 65 },
         { value: 52 },
     ]
+    const {students} = useSelector((state)=>state.student)
+    const {teachers} = useSelector((state)=>state.teacher)
+
 
     return (
         <div className="m-lg-4 m-3">
@@ -50,7 +54,7 @@ const FinancePageContent = () => {
                             <div className="counter-icon rounded-circle bg-primary position-relative flex-shrink-0"><Mortarboard size={36} className="text-light position-absolute start-50 top-50 translate-middle" /></div>
                             <div>
                                 <p className="fs-5 text-gray-400 mb-1">Total Students</p>
-                                <h2 className="logo mb-1">{932}</h2>
+                                <h2 className="logo mb-1">{students.length}</h2>
                                 <p className="fs-5 text-gray-400"><span className="fw-medium text-success">+10%</span> than last month</p>
                             </div>
                         </div>
@@ -60,7 +64,7 @@ const FinancePageContent = () => {
                             <div className="counter-icon rounded-circle bg-info position-relative flex-shrink-0"><PersonWorkspace size={36} className="text-light position-absolute start-50 top-50 translate-middle" /></div>
                             <div>
                                 <p className="fs-5 text-gray-400 mb-1">Total Teachers</p>
-                                <h2 className="logo mb-1">{734}</h2>
+                                <h2 className="logo mb-1">{teachers.length}</h2>
                                 <p className="fs-5 text-gray-400"><span className="fw-medium text-danger">-0.5%</span> than last month</p>
                             </div>
                         </div>
@@ -69,13 +73,14 @@ const FinancePageContent = () => {
                         <div className="p-3 p-lg-4 d-flex gap-2 gap-lg-3 align-items-center rounded-4 bg-light h-100">
                             <div className="flex-shrink-0 counter-icon rounded-circle position-relative bg-warning"><CurrencyDollar size={36} className="text-light position-absolute start-50 top-50 translate-middle" /></div>
                             <div className="flex-shrink-0">
-                                <p className="fs-5 text-gray-400 mb-1">Total Students</p>
+                                <p className="fs-5 text-gray-400 mb-1">School Balance</p>
                                 <h2 className="logo mb-1">{932}</h2>
                                 <p className="fs-5 text-gray-400"><span className="fw-medium text-success">+10%</span> than last month</p>
                             </div>
 
 
-                            <div className="h-100 w-100"> <ResponsiveContainer width={"100%"} height={"100%"}>
+                            <div className="h-100 w-100"> 
+                                <ResponsiveContainer width={"100%"} height={"100%"}>
 
                                 <ComposedChart data={StudentsComparisonData}>
 

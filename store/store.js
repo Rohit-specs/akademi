@@ -5,6 +5,7 @@ import { LatestActivitySlice } from "./slices/ActivitySlice";
 import { StudentSlice } from "./slices/StudentSlice";
 import { TeacherSlice } from "./slices/TeacherSlice";
 import { FoodSlice } from "./slices/FoodSlice";
+import { UserSlice } from "./slices/UserSlice";
 const store = configureStore({
     reducer:{
         "event":EventSlice.reducer,
@@ -13,6 +14,7 @@ const store = configureStore({
         "student":StudentSlice.reducer,
         "teacher":TeacherSlice.reducer,
         "food": FoodSlice.reducer, 
+        "user": UserSlice.reducer, 
     }
 })
 export default store

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const monthNames = [
     "January",
@@ -18,6 +19,17 @@ const monthNames = [
 ];
 
 export default function SchoolCalendar() {
+
+    const { events } = useSelector((state) => state.event)
+
+    const getEventCount = (day) => {
+        if (!day.currentMonth) return 0;
+
+        const date = `${selectedYear}-${String(selectedMonth + 1).padStart(2, "0")}-${String(day.day).padStart(2, "0")}`;
+
+        return events.filter((event) => event.date === date).length
+    }
+
     const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth())
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
 
@@ -69,14 +81,22 @@ export default function SchoolCalendar() {
         })
     }
 
-    const getDayClass = (day) => {
-        if (!day.currentMonth) return "text-muted";
-        // if (day.day === new Date().getDate()) return ""
-        if (day.day === 8) return "text-light bg-primary";
-        if (day.day === 20) return "text-light bg-warning";
-        if (day.day === 23) return "text-light bg-info";
+    // const getDayClass = (day) => {
+    //     if (!day.currentMonth) return "text-muted";
+    //     // if (day.day === new Date().getDate()) return ""
+    //     if (day.day === 8) return "text-light bg-primary";
+    //     if (day.day === 20) return "text-light bg-warning";
+    //     if (day.day === 23) return "text-light bg-info";
 
-        return "";
+    //     return "";
+    // };
+    const getDayClass = (day) => {
+        if (!day.currentMonth) return "text-muted"
+        const count = getEventCount(day)
+        if (count === 1) return "text-light bg-primary"
+        if (count === 2) return "text-light bg-info"
+        if (count >= 3) return "text-light bg-warning"
+        return ""
     };
 
     return (

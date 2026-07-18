@@ -6,6 +6,8 @@ import { ArrowLeft, CameraVideo, Dot, Paperclip, Search, SendFill, ThreeDots } f
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectChat, sendMessage } from "/store/slices/ChatSlice"
+import useDebounce from "/hooks/useDebounce"
+import SearchInput from "/component/SearchInput"
 const ChatContent = () => {
     const { chats, groups, selectedChat } = useSelector((state) => state.chat)
     const [message, setMessage] = useState("");
@@ -29,15 +31,23 @@ const ChatContent = () => {
         setMessage("")
     }
     const currentConversation = selectedChat.type === "chat" ? chats.find((chat) => chat.id === selectedChat.id) : groups.find((group) => group.id === selectedChat.id);
-    if (!currentConversation) {
-        return (
-            <div className="d-flex justify-content-center align-items-center h-100">
-                Select a chat to start messaging
-            </div>
-        )
-    }
+    // if (!currentConversation) {
+    //     return (
+    //         <div className="d-flex justify-content-center align-items-center h-100">
+    //             Select a chat to start messaging
+    //         </div>
+    //     )
+    // }
     const [showConversation, setShowConversation] = useState(false)
+    const [search, setSearch] = useState("")
+    const debouncedSearch = useDebounce(search, 500)
+    const filteredChats = chats.filter((chat) =>
+        chat.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+    )
 
+    const filteredGroups = groups.filter((group) =>
+        group.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+    )
     return (
         <div className="m-lg-4 m-3">
             <header>
@@ -73,105 +83,127 @@ const ChatContent = () => {
                                 size={16}
                                 className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
                             />
-                            <Form.Control
-                                type="text"
-                                className="bg-white border-1 border-gray-300 form-control ps-5 rounded-pill"
-                                placeholder="Search here..."
-                            />
+                            <SearchInput onChange={setSearch} value={search} />
                         </div>
-                        <div className="chat-list-scroll no-scrollbar">
-                            <h3 className="fs-5 text-gray-400 mb-lg-3 mb-2">Chats</h3>
-                            {chats.map((chat) => (
-                                <div
-                                    key={chat.id}
-                                    className="d-flex justify-content-between border-bottom border-gray-400 py-2"
-                                    role="button"
-                                    onClick={() => {
-                                        dispatch(
-                                            selectChat({
-                                                type: "chat",
-                                                id: chat.id,
-                                            })
-                                        )
-                                        setShowConversation(true)
-                                    }
-
-                                    }
-                                >
-                                    <div className="icon-link gap-2">
-                                        <div className="flex-shrink-0 user-picture overflow-hidden rounded-circle bg-purple-10">
-                                            <img
-                                                className="user-picture"
-                                                src={chat.avatar}
-                                                alt={chat.name}
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <span className="fw-medium">{chat.name}</span>
-
-                                            <small className="d-block fs-small text-gray-400">
-                                                {chat.lastMessage}
-                                            </small>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex-shrink-0 text-end">
-                                        <small className="text-gray-400">
-                                            {chat.lastMessageTime}
-                                        </small>
-
-                                        {chat.unread > 0 && (
-                                            <div className="ms-auto unread-message">
-                                                {chat.unread}
-                                            </div>
-                                        )}
-                                    </div>
+                        <div className="chat-list-scroll no-scrollbar">99
+                            {filteredChats.length === 0 && filteredGroups.length === 0 ? (
+                                <div className="text-center py-5 text-gray-400">
+                                    No chats or groups found.
                                 </div>
-                            ))}
-                            <h3 className="fs-5 text-gray-400 mb-lg-3 mb-2 mt-lg-3 mt-2">Groups</h3>
-                            {groups.map((group) => (
-                                <div
-                                    key={group.id}
-                                    className="d-flex justify-content-between border-bottom border-gray-400 py-2"
-                                    role="button"
-                                    onClick={() => {
-                                        dispatch(
-                                            selectChat({
-                                                type: "group",
-                                                id: group.id,
-                                            }))
-                                        setShowConversation(true)
-                                    }}>
-                                    <div className="icon-link gap-2">
-                                        <div className="flex-shrink-0 user-picture overflow-hidden rounded-circle bg-purple-10">
-                                            <img
-                                                className="user-picture"
-                                                src={group.avatar}
-                                                alt={group.name}
-                                            />
-                                        </div>
-                                        <div>
-                                            <span className="fw-medium">{group.name}</span>
-                                            <small className="d-block fs-small text-gray-400">
-                                                {group.lastMessage}
-                                            </small>
-                                        </div>
-                                    </div>
+                            ) : (
+                                <>
+                                    {filteredChats.length > 0 && (
+                                        <>
+                                            <h3 className="fs-5 text-gray-400 mb-lg-3 mb-2">
+                                                Chats
+                                            </h3>
 
-                                    <div className="flex-shrink-0 text-end">
-                                        <small className="text-gray-400">
-                                            {group.lastMessageTime}
-                                        </small>
+                                            {filteredChats.map((chat) => (
+                                                <div
+                                                    key={chat.id}
+                                                    className="d-flex justify-content-between border-bottom border-gray-400 py-2"
+                                                    role="button"
+                                                    onClick={() => {
+                                                        dispatch(
+                                                            selectChat({
+                                                                type: "chat",
+                                                                id: chat.id,
+                                                            })
+                                                        );
+                                                        setShowConversation(true);
+                                                    }}
+                                                >
+                                                    <div className="icon-link gap-2">
+                                                        <div className="flex-shrink-0 user-picture overflow-hidden rounded-circle bg-purple-10">
+                                                            <img
+                                                                className="user-picture"
+                                                                src={chat.avatar}
+                                                                alt={chat.name}
+                                                            />
+                                                        </div>
 
-                                        {group.unread > 0 && (
-                                            <div className="ms-auto unread-message">
-                                                {group.unread}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}</div>
+                                                        <div>
+                                                            <span className="fw-medium">{chat.name}</span>
+
+                                                            <small className="d-block fs-small text-gray-400">
+                                                                {chat.lastMessage}
+                                                            </small>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="text-end">
+                                                        <small className="text-gray-400">
+                                                            {chat.lastMessageTime}
+                                                        </small>
+
+                                                        {chat.unread > 0 && (
+                                                            <div className="ms-auto unread-message">
+                                                                {chat.unread}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </>
+                                    )}
+
+                                    {filteredGroups.length > 0 && (
+                                        <>
+                                            <h3 className="fs-5 text-gray-400 mt-3 mb-2">
+                                                Groups
+                                            </h3>
+
+                                            {filteredGroups.map((group) => (
+                                                <div
+                                                    key={group.id}
+                                                    className="d-flex justify-content-between border-bottom border-gray-400 py-2"
+                                                    role="button"
+                                                    onClick={() => {
+                                                        dispatch(
+                                                            selectChat({
+                                                                type: "group",
+                                                                id: group.id,
+                                                            })
+                                                        );
+                                                        setShowConversation(true);
+                                                    }}
+                                                >
+                                                    <div className="icon-link gap-2">
+                                                        <div className="flex-shrink-0 user-picture overflow-hidden rounded-circle bg-purple-10">
+                                                            <img
+                                                                className="user-picture"
+                                                                src={group.avatar}
+                                                                alt={group.name}
+                                                            />
+                                                        </div>
+
+                                                        <div>
+                                                            <span className="fw-medium">{group.name}</span>
+
+                                                            <small className="d-block fs-small text-gray-400">
+                                                                {group.lastMessage}
+                                                            </small>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="text-end">
+                                                        <small className="text-gray-400">
+                                                            {group.lastMessageTime}
+                                                        </small>
+
+                                                        {group.unread > 0 && (
+                                                            <div className="ms-auto unread-message">
+                                                                {group.unread}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </>
+                                    )}
+                                </>
+                            )}
+                        </div>
                     </Col>
 
 
@@ -242,7 +274,7 @@ const ChatContent = () => {
 
                                 <div
                                     key={message.id}
-                                    className={`d-flex mb-4 ${message.sender === "me"
+                                    className={`d-flex mw-75 mb-4 ${message.sender === "me"
                                         ? "justify-content-end"
                                         : ""
                                         }`}
@@ -294,8 +326,8 @@ const ChatContent = () => {
                                 <Button variant="primary" onClick={handleSendMessage} className="position-absolute p-3 px-4 top-50 end-0 translate-middle-y me-2 icon-link gap-2 rounded-pill">
                                     Send <SendFill />
                                 </Button>
-                                <span className="d-inline-block position-absolute top-50 end-0 translate-middle-y me-5 attach-clip"><Paperclip />
-                                </span>
+                                {/* <span className="d-inline-block position-absolute top-50 end-0 translate-middle-y me-5 attach-clip"><Paperclip /> */}
+                                {/* </span> */}
 
                             </div>
 

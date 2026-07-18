@@ -16,34 +16,36 @@ import { SignInSchema } from "/schema/SignInSchema";
 import { toast } from "react-toastify";
 
 const SignIn = () => {
-  const router = useRouter();
-  const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter()
+  const [showPassword, setShowPassword] = useState(false)
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(SignInSchema),
-  });
+  })
 
   const onSubmit = (data) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-
+    const users = JSON.parse(localStorage.getItem("users")) || []
+    if (users.length === 0) {
+      toast.info("No account found. Please Sign Up first.")
+      return
+    }
+    const user = users.find(
+      (item) =>
+        item.email === data.email &&
+        item.password === data.password
+    )
     if (!user) {
-      toast.info("No account found. Please Sign Up first.");
-      return;
+      toast.error("Invalid Email or Password")
+      return
     }
-
-    if (
-      user.email === data.email &&
-      user.password === data.password
-    ) {
-      localStorage.setItem("isLoggedIn", true);
-      router.push("/dashboard");
-    } else {
-      toast.error("Invalid Email or Password");
-    }
-  };
+    localStorage.setItem("isLoggedIn", "true")
+    localStorage.setItem("currentUserId", user.id)
+    toast.success(`Welcome ${user.fullname}`)
+    router.push("/dashboard")
+  }
 
   return (
     <Card
