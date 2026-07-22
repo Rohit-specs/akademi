@@ -14,12 +14,12 @@ const StudentContent = () => {
     const filteredStudents = [...students]
     if (sortBy === "newest") {
         filteredStudents.sort(
-            (a, b) => new Date(b.dateOfBirth) - new Date(a.dateOfBirth)
+            (a, b) => b.id - a.id
         )
     }
     if (sortBy === "oldest") {
         filteredStudents.sort(
-            (a, b) => new Date(a.dateOfBirth) - new Date(b.dateOfBirth)
+            (a, b) => a.id - b.id
         )
     }
     const handleSort = (e) => {

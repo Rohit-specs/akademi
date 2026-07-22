@@ -111,62 +111,62 @@ const EventCalendar = ({
         </Stack>
       </Stack>
       <div className="calendar-scroll">
-  <div className="calendar-content">
+        <div className="calendar-content">
 
-      <Row className="text-center fw-semibold text-gray-400 mb-3">
-        {weekDays.map((day) => (
-          <Col key={day}><span className="d-none d-sm-inline">{day}</span>
-            <span className="d-inline d-sm-none">
-              {day.slice(0, 3)}
-            </span></Col>
-        ))}
-      </Row>
-      <div className="event-calendar calendar-grid gap-2 gap-lg-3">
-        {days.map((day) => {
-          const eventCount = events.filter(
-            (event) => event.date === format(day, "yyyy-MM-dd")
-          ).length;
-          return (<div key={day}
-            onClick={() => {
-              setSelectedDate(day)
-            }}
-            className={`calendar-day w-100 h-100 ${isSameDay(day, selectedDate)
-              ? "active-day"
-              : ""
-              }`}>
-            <div
-              className={`rounded-4 border-primary p-1 p-lg-2 ${!isSameMonth(day, currentDate) ? "opacity-50" : ""}`}>
-              <div className="fw-bold">
-                {format(day, "d")}
-              </div>
-              {eventCount > 0 && (
-                <div className="mt-4 d-md-flex gap-1 d-none">
-                  {eventCount > 3 ? (
-                    <span className={`p-3 rounded-circle bg-dark text-light position-relative ${isSameDay(day, selectedDate) ? 'd-none' : ""}`}>
-                      <span className="position-absolute top-50 start-50 translate-middle">3+</span>
-                    </span>
-                  ) : (
-                    <>
-                      {eventCount >= 1 && (
-                        <span className="event-dot rounded-circle bg-primary"></span>
-                      )}
+          <Row className="text-center fw-semibold text-gray-400 mb-3">
+            {weekDays.map((day) => (
+              <Col key={day}><span className="d-none d-sm-inline">{day}</span>
+                <span className="d-inline d-sm-none">
+                  {day.slice(0, 2)}
+                </span></Col>
+            ))}
+          </Row>
+          <div className="event-calendar calendar-grid gap-2 gap-lg-3">
+            {days.map((day) => {
+              const eventCount = events.filter(
+                (event) => event.date === format(day, "yyyy-MM-dd")
+              ).length;
+              return (<div key={day}
+                onClick={() => {
+                  setSelectedDate(day)
+                }}
+                className={`calendar-day w-100 h-100 ${isSameDay(day, selectedDate)
+                  ? "active-day"
+                  : ""
+                  }`}>
+                <div
+                  className={`rounded-4 border-primary p-1 p-lg-2 ${!isSameMonth(day, currentDate) ? "opacity-50" : ""}`}>
+                  <div className="fw-bold">
+                    {format(day, "d")}
+                  </div>
+                  {eventCount > 0 && (
+                    <div className="mt-4 d-md-flex gap-1 d-none">
+                      {eventCount > 3 ? (
+                        <span className={`p-3 rounded-circle bg-dark text-light position-relative ${isSameDay(day, selectedDate) ? 'd-none' : ""}`}>
+                          <span className="position-absolute top-50 start-50 translate-middle">3+</span>
+                        </span>
+                      ) : (
+                        <>
+                          {eventCount >= 1 && (
+                            <span className="event-dot rounded-circle bg-primary"></span>
+                          )}
 
-                      {eventCount >= 2 && (
-                        <span className="event-dot rounded-circle bg-info"></span>
-                      )}
+                          {eventCount >= 2 && (
+                            <span className="event-dot rounded-circle bg-info"></span>
+                          )}
 
-                      {eventCount >= 3 && (
-                        <span className="event-dot rounded-circle bg-warning"></span>
+                          {eventCount >= 3 && (
+                            <span className="event-dot rounded-circle bg-warning"></span>
+                          )}
+                        </>
                       )}
-                    </>
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
-          </div>
-          )
-        })}
-      </div></div></div>
+              </div>
+              )
+            })}
+          </div></div></div>
     </>
   );
 };

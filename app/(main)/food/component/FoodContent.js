@@ -1,10 +1,13 @@
-import { Bell, Gear, Search } from "react-bootstrap-icons"
+'use client'
+import { Search } from "react-bootstrap-icons"
 import DashboardDrawer from "/component/DashboardDrawer"
-import { Form } from "react-bootstrap"
 import FoodItems from "./FoodItems"
 import HeaderIcons from "/component/HeaderIcons"
+import { useState } from "react"
+import { Form } from "react-bootstrap"
 
 const FoodContent = () => {
+    const [search, setSearch] = useState("")
     return (
         <div className="m-lg-4 m-3">
             <header>
@@ -19,12 +22,14 @@ const FoodContent = () => {
                             />
                             <Form.Control
                                 type="text"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
                                 className="bg-white border-0 form-control ps-5 rounded-pill"
                                 placeholder="Search here..."
                             />
 
                         </div>
-                        <HeaderIcons/>
+                        <HeaderIcons />
                     </div>
 
                     <DashboardDrawer /></div>
@@ -34,13 +39,8 @@ const FoodContent = () => {
 
 
                 <div className='bg-light p-4 rounded-4 pb-lg-5'>
-                    <FoodItems />
+                    <FoodItems value={search} />
                 </div>
-
-
-
-
-
             </main>
         </div>
     )

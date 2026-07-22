@@ -21,8 +21,8 @@ const FinancePageContent = () => {
         { value: 65 },
         { value: 52 },
     ]
-    const {students} = useSelector((state)=>state.student)
-    const {teachers} = useSelector((state)=>state.teacher)
+    const { students } = useSelector((state) => state.student)
+    const { teachers } = useSelector((state) => state.teacher)
 
 
     return (
@@ -31,17 +31,6 @@ const FinancePageContent = () => {
                 <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                     <h1 className="logo">Finance</h1>
                     <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
-                        <div className="search-box position-relative d-none d-xl-inline-block">
-                            <Search
-                                size={16}
-                                className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
-                            />
-                            <Form.Control
-                                type="text"
-                                className="bg-white border-0 form-control ps-5 rounded-pill"
-                                placeholder="Search here..."
-                            />
-                        </div>
                         <HeaderIcons/>
                     </div>
 
@@ -79,45 +68,46 @@ const FinancePageContent = () => {
                             </div>
 
 
-                            <div className="h-100 w-100"> 
+                            <div className="h-100 w-100">
                                 <ResponsiveContainer width={"100%"} height={"100%"}>
 
-                                <ComposedChart data={StudentsComparisonData}>
+                                    <ComposedChart data={StudentsComparisonData}>
 
-                                    <defs>
-                                        <linearGradient id="greenFill" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="0%" stopColor={COLORS.green} stopOpacity={0.25} />
-                                            <stop offset="100%" stopColor={COLORS.green} stopOpacity={0} />
-                                        </linearGradient>
-                                    </defs>
-
-
-                                    <Area
-                                        type="natural"
-                                        dataKey="value"
-                                        fill="url(#greenFill)"
-                                        stroke="none"
-                                    />
+                                        <defs>
+                                            <linearGradient id="greenFill" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stopColor={COLORS.green} stopOpacity={0.25} />
+                                                <stop offset="100%" stopColor={COLORS.green} stopOpacity={0} />
+                                            </linearGradient>
+                                        </defs>
 
 
-                                    <Line
-                                        type="natural"
-                                        dataKey="value"
-                                        stroke={COLORS.green}
-                                        strokeWidth={3}
-                                        dot={false}
-                                        strokeLinecap="round"
-                                    />
+                                        <Area
+                                            type="natural"
+                                            dataKey="value"
+                                            fill="url(#greenFill)"
+                                            stroke="none"
+                                        />
 
-                                </ComposedChart>
-                            </ResponsiveContainer></div>
+
+                                        <Line
+                                            type="natural"
+                                            dataKey="value"
+                                            stroke={COLORS.green}
+                                            strokeWidth={3}
+                                            dot={false}
+                                            strokeLinecap="round"
+                                        />
+
+                                    </ComposedChart>
+                                </ResponsiveContainer>
+                            </div>
 
                         </div>
                     </Col>
 
                 </Row>
                 <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 mt-lg-4 mt-md-3 mt-2 rounded-4">
-                    <div className="d-flex justify-content-between align-items-center mb-4">
+                    <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
                         <h2 className="card-title fw-bold mb-0">Balance Analytics</h2>
 
                         <div className="icon-link gap-3">

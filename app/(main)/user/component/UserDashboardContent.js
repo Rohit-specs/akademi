@@ -8,6 +8,7 @@ import LatestActivity from "/component/LatestActivity"
 import UserMessages from "./UserMessages"
 import { useSelector } from "react-redux"
 import UserContacts from "./UserContact"
+import UserProfileMenu from "./UserProfileMenu"
 
 const UserDashboardContent = () => {
     const userData = {
@@ -141,14 +142,15 @@ const UserDashboardContent = () => {
             }
         ]
     }
-    const { user } = useSelector((state) => state.user);
+    const { user } = useSelector((state) => state.user)
+    console.log(JSON.stringify(user,null,4))
     return (
         <div className="d-flex">
             <div className="main-content flex-grow-1 m-lg-4 m-3">
                 <header className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                     <h1 className="logo">User Dashboard</h1>
-                    <div className="search-box position-relative d-none d-xxl-block">
-                        <Search
+                    {/*<div className="search-box position-relative d-none d-xxl-block">
+                         <Search
                             size={16}
                             className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
                         />
@@ -160,7 +162,8 @@ const UserDashboardContent = () => {
                         />
 
 
-                    </div><DashboardDrawer >
+                    </div>*/}
+                    <DashboardDrawer > 
                         <FreePlanCard />
                         <div >
                             <h3 className="card-title mb-3">Latest Activity</h3>
@@ -171,7 +174,7 @@ const UserDashboardContent = () => {
                 <section className="status bg-light rounded-4 p-4 mb-lg-4 mb-2 position-relative">
                     <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
                     <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={user.avatar} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
-
+                    <UserProfileMenu />
                     <Row className='mb-3 mt-3'>
                         <Col xs={12} md={6} xl={4}>
                             <div className='d-flex flex-column'>
@@ -210,7 +213,7 @@ const UserDashboardContent = () => {
                                 <p className='text-gray-400 sidebar-link'>Email</p>
                                 <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='text-break bg-info text-light p-3 rounded-circle contact-icon position-relative'><Envelope size={24} className='position-absolute start-50 top-50 translate-middle' />
                                 </div>
-                                {userData.user.email}
+                                    {userData.user.email}
                                 </div>
                             </div>
                         </Col>
@@ -220,46 +223,7 @@ const UserDashboardContent = () => {
                     <Row>
                         <Col xs={12} lg={6}>
                             <div className="bg-light rounded-4 p-4 mb-lg-4 mb-2 h-100">
-                                {/* <div className="d-flex justify-content-between align-items-center mb-2 mb-lg-3">
-                                    <div>
-                                        <h3 className="card-title">Contacts</h3>
-                                        <small className="text-gray-400">You have <span className="fw-medium text-dark">{userData.contacts.length}</span> contacts</small>
-                                    </div>
-                                    <div role="button" className="plus-icon bg-primary text-white d-flex align-items-center justify-content-center rounded-circle"><Plus size={24} /></div>
-
-                                </div>
-                                <div className="search-box position-relative mb-2 mb-lg-3">
-                                    <Search
-                                        size={16}
-                                        className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
-                                    />
-
-                                    <Form.Control
-                                        type="text "
-                                        className="bg-white border-1 border-secondary-subtle form-control ps-5 rounded-pill"
-                                        placeholder="Search here..."
-                                    />
-                                </div>
-                                {userData.contacts.slice(0, 5).map((contact) => (
-                                    <div className="d-flex justify-content-between mb-2 mb-lg-3" key={contact.id}>
-                                        <div className="icon-link gap-2 ">
-                                            <div className="user-picture overflow-hidden rounded-circle bg-purple-10">
-                                                <img className="user-picture" src={contact.avatar} />
-                                            </div>
-                                            <div>
-                                                <span className="fw-medium">{contact.name}</span>
-                                                <small className="d-block fs-small text-gray-400">{"VII A"}</small>
-                                            </div>
-                                        </div>
-                                        <button className="flex-shrink-0 btn btn-outline-primary rounded-circle plus-icon 
-                                        position-relative"><Envelope className="position-absolute top-50 start-50 translate-middle" size={20} /></button>
-                                    </div>
-                                ))}
-                                <Button variant="outline-primary"
-                                    className="mt-2 mb-2 bg-purple-10 fw-medium w-100 rounded-pill">
-                                    View More
-                                </Button> */}
-                                <UserContacts/>
+                                <UserContacts />
                             </div>
                         </Col>
 

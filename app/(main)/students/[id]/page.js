@@ -1,10 +1,18 @@
-import StudentDetails from "./component/StudentDetailContent"
-
 export const metadata = {
-  title: "Student Detail",
+  title: "Student Details",
   description:
-    "View student profile, parent information, payment history, enrolled classes, and academic schedule.",
+  "View detailed student information including profile, contact details, grades, and academic records.",
+  keywords: [
+    "Akademi",
+    "Student Details",
+    "Student Profile",
+    "Academic Records",
+    "School Management",
+    "Student Information",
+    "Education",
+  ],
 }
+import StudentDetails from "./component/StudentDetailContent"
 const StudentsDetailsPage = async ({params}) => {
   const {id} = await params
   return (

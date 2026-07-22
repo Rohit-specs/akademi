@@ -81,15 +81,6 @@ export default function SchoolCalendar() {
         })
     }
 
-    // const getDayClass = (day) => {
-    //     if (!day.currentMonth) return "text-muted";
-    //     // if (day.day === new Date().getDate()) return ""
-    //     if (day.day === 8) return "text-light bg-primary";
-    //     if (day.day === 20) return "text-light bg-warning";
-    //     if (day.day === 23) return "text-light bg-info";
-
-    //     return "";
-    // };
     const getDayClass = (day) => {
         if (!day.currentMonth) return "text-muted"
         const count = getEventCount(day)
@@ -101,7 +92,7 @@ export default function SchoolCalendar() {
 
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
                 <h2 className="card-title fw-bold mb-0">School Calendar</h2>
 
                 <Form.Select

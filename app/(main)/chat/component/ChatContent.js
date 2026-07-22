@@ -53,9 +53,9 @@ const ChatContent = () => {
             <header>
                 <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                     <h1 className="logo">Chat</h1>
-                    <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
+                    <div className="d-xl-flex gap-4 justify-content-between align-items-center d-none">
 
-                        <div className="search-box position-relative d-none d-xl-inline-block">
+                        {/* <div className="search-box position-relative d-none d-xl-inline-block">
                             <Search
                                 size={16}
                                 className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
@@ -65,7 +65,7 @@ const ChatContent = () => {
                                 className="bg-white border-0 form-control ps-5 rounded-pill"
                                 placeholder="Search here..."
                             />
-                        </div>
+                        </div> */}
                         <HeaderIcons />
                     </div>
 
@@ -85,7 +85,7 @@ const ChatContent = () => {
                             />
                             <SearchInput onChange={setSearch} value={search} />
                         </div>
-                        <div className="chat-list-scroll no-scrollbar">99
+                        <div className="chat-list-scroll no-scrollbar">
                             {filteredChats.length === 0 && filteredGroups.length === 0 ? (
                                 <div className="text-center py-5 text-gray-400">
                                     No chats or groups found.
@@ -126,7 +126,7 @@ const ChatContent = () => {
                                                             <span className="fw-medium">{chat.name}</span>
 
                                                             <small className="d-block fs-small text-gray-400">
-                                                                {chat.lastMessage}
+                                                                {chat.lastMessage.slice(0,10)+".."}
                                                             </small>
                                                         </div>
                                                     </div>
@@ -181,7 +181,7 @@ const ChatContent = () => {
                                                             <span className="fw-medium">{group.name}</span>
 
                                                             <small className="d-block fs-small text-gray-400">
-                                                                {group.lastMessage}
+                                                                {group.lastMessage.slice(0,10)+".."}
                                                             </small>
                                                         </div>
                                                     </div>

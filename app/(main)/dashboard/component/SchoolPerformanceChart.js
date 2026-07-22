@@ -31,7 +31,7 @@ export default function SchoolPerformance() {
   return (
     <section>
       <div className="rounded-4 mb-lg-4 mb-2 p-4 bg-light">
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
           <h2 className="card-title fw-bold mb-0">School Performance</h2>
 
           <div className="icon-link gap-3">

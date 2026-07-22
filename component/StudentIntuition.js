@@ -96,14 +96,12 @@ function StudentPagination() {
     return (<>
 
         <h2 className="mb-3 card-title fw-bold">Unpaid Student Intuition</h2>
-
-            <Table borderless responsive={true} className="align-middle" variant="light">
+        <div className="table-responsive">
+            <Table borderless responsive={"true"} variant="light" className="align-middle">
                 <tbody>
                     {currentStudents.map((student) => (
                         <tr key={student.id} className="my-2 my-lg-3">
-
-
-                            <td>
+                            <td className="text-nowrap">
                                 <div className="d-flex align-items-center">
                                     <img
                                         className="rounded-circle me-3 profile-picture"
@@ -116,16 +114,12 @@ function StudentPagination() {
                                     </div>
                                 </div>
                             </td>
-
-
-                            <td>
+                            <td className="text-nowrap">
                                 <span className="small text-primary fw-bold">
                                     ID:{student.studentId}
                                 </span>
                             </td>
-
-
-                            <td>
+                            <td className="text-nowrap">
                                 <div className="d-flex align-items-center">
                                     <div className="rounded-circle bg-info d-flex align-items-center justify-content-center me-2 profile-picture">
                                         <Person className="text-light" />
@@ -139,28 +133,23 @@ function StudentPagination() {
                                     </div>
                                 </div>
                             </td>
-
-
-                            <td>
+                            <td className="text-nowrap">
                                 <div className="fw-bold text-dark">
                                     $ {student.fee}
                                 </div>
                             </td>
-
-
-                            <td>
+                            <td className="text-nowrap">
                                 <div className="d-flex align-items-center justify-content-between">
-                                    <Printer className="text-gray-400 card-title" role="button"/>
-                                    <ThreeDots className="text-gray-400 card-title" role="button" />
+                                    <Printer className="text-gray-400 card-title" role="button" />
+                                    {/* <ThreeDots className="text-gray-400 card-title" role="button" /> */}
                                 </div>
                             </td>
-
                         </tr>
                     ))}
                 </tbody>
             </Table>
-            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} startIndex={startIndex} endIndex={endIndex} totalItems={students.length}/>
-        
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} startIndex={startIndex} endIndex={endIndex} totalItems={students.length} />
+        </div>
     </>
     )
 }

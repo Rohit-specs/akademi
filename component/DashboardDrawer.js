@@ -40,7 +40,7 @@ export default function DashboardDrawer({children}) {
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
-            Akademi
+            Academy
           </Offcanvas.Title>
         </Offcanvas.Header>
 
@@ -49,13 +49,10 @@ export default function DashboardDrawer({children}) {
             placeholder="Search here..."
             className="mb-4"
           />
-
-
             <div className="d-sm-none">
               <h6 className="text-gray-400 fw-semibold mb-3">
                 Navigation
               </h6>
-
               <ListGroup className="mb-4">
                 <ListGroup.Item  as={Link} href="/dashboard" className="border-0">
                   <House className="me-2" />

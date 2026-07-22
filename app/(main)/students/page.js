@@ -1,6 +1,4 @@
 import StudentContent from "./component/StudentContent"
-
-
 export const metadata = {
   title: "Students",
   description:
@@ -14,7 +12,6 @@ export const metadata = {
     "student records",
     "Akademi",
   ],
-
 }
 const StudentsPage = () => {
   return (

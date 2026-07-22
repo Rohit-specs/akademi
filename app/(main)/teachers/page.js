@@ -1,6 +1,5 @@
-import TeachersContent from "./component/TeachersContent"
-export const meta = {
-  title: "Teachers ",
+export const metadata = {
+  title: "Teachers",
   description:
     "Manage teacher profiles, departments, subjects, contact information, and faculty records in the Akademi School Dashboard.",
   keywords: [
@@ -12,8 +11,8 @@ export const meta = {
     "school administration",
     "Akademi",
   ],
-
 }
+import TeachersContent from "./component/TeachersContent"
 const TeachersPage = () => {
   return (
     <TeachersContent/>

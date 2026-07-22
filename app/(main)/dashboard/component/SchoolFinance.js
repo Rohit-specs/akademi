@@ -47,7 +47,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 const SchoolFinance = () => {
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
                 <h2 className="card-title fw-bold mb-0">School Finance</h2>
 
                 <div className="icon-link gap-3 flex-shrink-0">
