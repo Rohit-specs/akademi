@@ -58,32 +58,41 @@ export const UserSlice = createSlice({
 
     reducers: {
         loginUser(state, action) {
-            state.user = action.payload;
+            state.user = action.payload
         },
 
-        logoutUser(state) {
-            state.user = defaultUser;
+        initializeUser: (state) => {
+            // if (typeof window === "undefined") return
+            const currentUserId = Number(localStorage.getItem("currentUserId"))
+            const users = JSON.parse(localStorage.getItem("users")) || []
+            const user = users.find((item) => item.id === currentUserId)
+            if (!user) return
+            state.user = {
+                id: user.id,
+                fullname: user.fullname,
+                role: "Admin",
+                email: user.email,
+                phone: user.phone,
+                location: user.location ?? null,
+                avatar: user.avatar ?? "/images/user.png",
+            }
+        },
+        logoutUser: (state) => {
+            state.user = defaultUser
+            localStorage.removeItem("currentUser")
+            localStorage.removeItem("isLoggedIn")
         },
 
-        updateUser(state, action) {
+        updateUser: (state, action) => {
             state.user = {
                 ...state.user,
                 ...action.payload,
-            }
-
-            const users =
-                JSON.parse(localStorage.getItem("users")) || []
-
-            const updatedUsers = users.map((user) =>
-                user.id === state.user.id
-                    ? { ...user, ...action.payload }
-                    : user
-            )
+            };
 
             localStorage.setItem(
-                "users",
-                JSON.stringify(updatedUsers)
-            )
+                "currentUser",
+                JSON.stringify(state.user)
+            );
         },
 
         addContact(state, action) {
@@ -101,7 +110,7 @@ export const UserSlice = createSlice({
             )
 
             if (contact) {
-                Object.assign(contact, data);
+                Object.assign(contact, data)
             }
         },
 
@@ -120,6 +129,7 @@ export const {
     addContact,
     updateContact,
     removeContact,
+    initializeUser,
 } = UserSlice.actions
 
 export default UserSlice.reducer

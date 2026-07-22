@@ -20,27 +20,50 @@ body {
 
 .logo {
   font-size: $fs-3xl;
-  // 36px
+  @include media-breakpoint-down(xl) {
+    font-size: 2rem;  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.75rem;  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.5rem;  }
 }
 
 .page-title {
   font-size: $fs-2xl;
-  // 32px
+  @include media-breakpoint-down(xl) {
+    font-size: 1.75rem;  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.5rem;  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.375rem;  }
 }
 
 .card-title {
   font-size: $fs-xl;
-  // 24px
+  @include media-breakpoint-down(md) {
+    font-size: 1.25rem;  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.125rem;  }
 }
 
 .sidebar-link {
   font-size: $fs-md;
-  // 18px
+  @include media-breakpoint-down(md) {
+    font-size: 1rem;  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 0.9375rem;  }
 }
 
 .small-text {
   font-size: $fs-sm;
-  // 14px
+  @include media-breakpoint-down(sm) {
+    font-size: 0.8125rem;  }
 }
 
 a {
@@ -142,4 +165,8 @@ a {
 }
 .h-380{
   height: 380px;
+}
+.table-container{
+    overflow-x:auto;
+    width:100%;
 }
