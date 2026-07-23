@@ -11,139 +11,9 @@ import UserContacts from "./UserContact"
 import UserProfileMenu from "./UserProfileMenu"
 
 const UserDashboardContent = () => {
-    const userData = {
-        "user": {
-            "id": 1,
-            "name": "Nabila Azalea",
-            "role": "Admin",
-            "location": "Jakarta, Indonesia",
-            "phone": "+12 346 6789 0",
-            "email": "jordan@mail.com",
-            "avatar": "https://i.pravatar.cc/150?img=32",
-            "coverImage": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200",
-            "stats": {
-                "contacts": 741,
-                "messages": 238,
-                "tasksCompleted": 124,
-                "projects": 18
-            }
-        },
-        "plan": {
-            "name": "Free",
-            "storage": "5 GB",
-            "status": "Limited Features",
-            "description": "Upgrade to Premium Plan to get more features and unlimited storage.",
-            "buttonText": "Upgrade Plan"
-        },
-        "contacts": [
-            {
-                "id": 1,
-                "name": "Samantha William",
-                "status": "Online",
-                "avatar": "https://i.pravatar.cc/150?img=5"
-            },
-            {
-                "id": 2,
-                "name": "Tony Soap",
-                "status": "Busy",
-                "avatar": "https://i.pravatar.cc/150?img=12"
-            },
-            {
-                "id": 3,
-                "name": "Karen Hope",
-                "status": "Offline",
-                "avatar": "https://i.pravatar.cc/150?img=16"
-            },
-            {
-                "id": 4,
-                "name": "Jordan Nico",
-                "status": "Online",
-                "avatar": "https://i.pravatar.cc/150?img=18"
-            },
-            {
-                "id": 5,
-                "name": "Nadila Adja",
-                "status": "Away",
-                "avatar": "https://i.pravatar.cc/150?img=24"
-            }
-        ],
-        "messages": [
-            {
-                "id": 1,
-                "name": "Samantha William",
-                "message": "Could you send the latest report?",
-                "time": "12:45 PM",
-                "unread": 2,
-                "avatar": "https://i.pravatar.cc/150?img=5"
-            },
-            {
-                "id": 2,
-                "name": "Tony Soap",
-                "message": "Meeting starts in 30 minutes.",
-                "time": "12:41 PM",
-                "unread": 3,
-                "avatar": "https://i.pravatar.cc/150?img=12"
-            },
-            {
-                "id": 3,
-                "name": "Karen Hope",
-                "message": "I sent the updated design files.",
-                "time": "12:34 PM",
-                "unread": 0,
-                "avatar": "https://i.pravatar.cc/150?img=16"
-            },
-            {
-                "id": 4,
-                "name": "Jordan Nico",
-                "message": "Let's schedule a meeting tomorrow.",
-                "time": "12:15 PM",
-                "unread": 1,
-                "avatar": "https://i.pravatar.cc/150?img=18"
-            },
-            {
-                "id": 5,
-                "name": "Nadila Adja",
-                "message": "Thanks for your support!",
-                "time": "12:04 PM",
-                "unread": 0,
-                "avatar": "https://i.pravatar.cc/150?img=24"
-            }
-        ],
-        "latestActivity": [
-            {
-                "id": 1,
-                "user": "Karen Hope",
-                "action": "moved task",
-                "task": "User Research",
-                "from": "In Progress",
-                "to": "Done",
-                "date": "April 24, 2025 10:42 AM"
-            },
-            {
-                "id": 2,
-                "user": "Samantha William",
-                "action": "added",
-                "task": "Photos",
-                "date": "April 24, 2025 10:14 AM"
-            },
-            {
-                "id": 3,
-                "user": "Tony Soap",
-                "action": "completed",
-                "task": "Wireframing",
-                "date": "April 24, 2025 09:52 AM"
-            },
-            {
-                "id": 4,
-                "user": "Samantha William",
-                "action": "created",
-                "task": "New Task",
-                "date": "March 30, 2025 12:45 PM"
-            }
-        ]
-    }
+
     const { user } = useSelector((state) => state.user)
-    console.log(JSON.stringify(user,null,4))
+    // console.log(JSON.stringify(user,null,4))
     return (
         <div className="d-flex">
             <div className="main-content flex-grow-1 m-lg-4 m-3">
@@ -173,7 +43,7 @@ const UserDashboardContent = () => {
                 </header>
                 <section className="status bg-light rounded-4 p-4 mb-lg-4 mb-2 position-relative">
                     <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
-                    <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={user.avatar} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
+                    <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={user?.avatar} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
                     <UserProfileMenu />
                     <Row className='mb-3 mt-3'>
                         <Col xs={12} md={6} xl={4}>
@@ -213,7 +83,7 @@ const UserDashboardContent = () => {
                                 <p className='text-gray-400 sidebar-link'>Email</p>
                                 <div className='d-flex align-items-center gap-lg-3 gap-2 fw-medium'><div className='text-break bg-info text-light p-3 rounded-circle contact-icon position-relative'><Envelope size={24} className='position-absolute start-50 top-50 translate-middle' />
                                 </div>
-                                    {userData.user.email}
+                                    {user.email}
                                 </div>
                             </div>
                         </Col>

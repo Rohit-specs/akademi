@@ -3,7 +3,7 @@ export const metadata = {
   description:
   "Update student information including personal details, academic records, contact information, and enrollment data.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Edit Student",
     "Update Student",
     "Student Profile",

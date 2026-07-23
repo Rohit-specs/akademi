@@ -12,7 +12,7 @@ const AuthLayout = ({ children }) => {
           <MortarboardFill size={70} />
 
           <h1 className="fw-bold display-5 mt-4">
-            Akademi
+            Academy
           </h1>
 
           <p className="text-center w-75 fs-5 mt-3">

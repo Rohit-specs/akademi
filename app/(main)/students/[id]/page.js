@@ -3,7 +3,7 @@ export const metadata = {
   description:
   "View detailed student information including profile, contact details, grades, and academic records.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Student Details",
     "Student Profile",
     "Academic Records",

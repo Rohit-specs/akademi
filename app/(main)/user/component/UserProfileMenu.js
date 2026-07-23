@@ -18,13 +18,11 @@ const UserProfileMenu = () => {
         user.avatar === DEFAULT_AVATAR
 
     const handleLogout = () => {
-        localStorage.removeItem("isLoggedIn")
-        localStorage.removeItem("currentUserId")
         dispatch(logoutUser())
         router.replace("/signin")
     }
     return (
-        <Dropdown align="end">
+        <Dropdown>
             <Dropdown.Toggle
                 as="button"
                 bsPrefix=" "

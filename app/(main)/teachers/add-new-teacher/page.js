@@ -3,7 +3,7 @@ export const metadata = {
   description:
   "Register a new teacher by providing professional, personal, and contact information.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Add Teacher",
     "Teacher Registration",
     "Faculty Registration",

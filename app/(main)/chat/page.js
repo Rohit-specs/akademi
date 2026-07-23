@@ -1,9 +1,9 @@
 export const metadata = {
   title: "Chat",
   description:
-  "Communicate with students, teachers, and contacts through Akademi's chat and group messaging system.",
+  "Communicate with students, teachers, and contacts through Academy's chat and group messaging system.",
   keywords: [
-    "Akademi Chat",
+    "Academy Chat",
     "School Chat",
     "Student Chat",
     "Teacher Chat",

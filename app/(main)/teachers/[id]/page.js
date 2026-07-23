@@ -3,7 +3,7 @@ export const metadata = {
   description:
   "View teacher profiles, qualifications, subjects, contact details, and assigned classes.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Teacher Details",
     "Teacher Profile",
     "Faculty Information",

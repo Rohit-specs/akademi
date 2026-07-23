@@ -218,7 +218,7 @@ const NewTeacherForm = () => {
                             </Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="University Akademi Historia"
+                                placeholder="University Academy Historia"
                                 {...register("university")}
                             />
 

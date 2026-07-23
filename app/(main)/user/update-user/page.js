@@ -3,7 +3,7 @@ export const metadata = {
   description:
     "Update your profile information including name, contact details, location, profile picture, and personal information.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Update Profile",
     "Edit Profile",
     "User Settings",

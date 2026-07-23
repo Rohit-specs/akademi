@@ -1,9 +1,9 @@
 export const metadata = {
   title: "Finance",
   description:
-  "Track school finances, income, expenses, fee collection, and financial records from the Akademi dashboard.",
+  "Track school finances, income, expenses, fee collection, and financial records from the Academy dashboard.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Finance",
     "School Finance",
     "Fee Management",

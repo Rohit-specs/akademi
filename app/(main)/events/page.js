@@ -1,9 +1,9 @@
 export const metadata = {
   title: "Events",
   description:
-    "Manage school events, schedules, meetings, holidays, and academic activities in the Akademi dashboard.",
+    "Manage school events, schedules, meetings, holidays, and academic activities in the Academy dashboard.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Events",
     "School Events",
     "Academic Calendar",

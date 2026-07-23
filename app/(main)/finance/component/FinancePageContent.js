@@ -59,17 +59,25 @@ const FinancePageContent = () => {
                         </div>
                     </Col>
                     <Col xs={12} xxl={6}>
-                        <div className="p-3 p-lg-4 d-flex gap-2 gap-lg-3 align-items-center rounded-4 bg-light h-100">
-                            <div className="flex-shrink-0 counter-icon rounded-circle position-relative bg-warning"><CurrencyDollar size={36} className="text-light position-absolute start-50 top-50 translate-middle" /></div>
-                            <div className="flex-shrink-0">
-                                <p className="fs-5 text-gray-400 mb-1">School Balance</p>
-                                <h2 className="logo mb-1">{932}</h2>
-                                <p className="fs-5 text-gray-400"><span className="fw-medium text-success">+10%</span> than last month</p>
+                        <div className="p-3 p-lg-4 d-flex flex-column flex-lg-row gap-3 align-items-center rounded-4 bg-light h-100">
+                            <div className="d-flex align-items-center gap-3 w-100 w-lg-auto">
+                                <div className="flex-shrink-0 counter-icon rounded-circle position-relative bg-warning">
+                                    <CurrencyDollar
+                                        size={36}
+                                        className="text-light position-absolute start-50 top-50 translate-middle"
+                                    />
+                                </div>
+
+                                <div>
+                                    <p className="fs-5 text-gray-400 mb-1">School Balance</p>
+                                    <h2 className="logo mb-1">932</h2>
+                                    <p className="fs-5 text-gray-400">
+                                        <span className="fw-medium text-success">+10%</span> than last month
+                                    </p>
+                                </div>
                             </div>
-
-
-                            <div className="h-100 w-100">
-                                <ResponsiveContainer width={"100%"} height={"100%"}>
+                            <div className="w-100" style={{ height: 150 }}>
+                                <ResponsiveContainer width="100%" height="100%">
 
                                     <ComposedChart data={StudentsComparisonData}>
 

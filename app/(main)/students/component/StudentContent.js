@@ -7,11 +7,23 @@ import StudentTable from "./StudentTable"
 import HeaderIcons from "/component/HeaderIcons"
 import { useSelector } from "react-redux"
 import { useState } from "react"
+import useDebounce from "/hooks/useDebounce"
 
 const StudentContent = () => {
+    const [search, setSearch] = useState("")
+    const value = useDebounce(search, 500)
     const { students } = useSelector((state) => state.student)
     const [sortBy, setSortBy] = useState("newest")
-    const filteredStudents = [...students]
+    const filteredStudents = students.filter((student) => {
+        if (!value) return true
+        const result = value?.toLowerCase()
+        return (
+            `${student.firstName} ${student.lastName}`.toLowerCase().includes(result) ||
+            (student.studentId.toLowerCase()).includes(result) ||
+            (student.grade.toLowerCase()).includes(result)
+        )
+    }
+    )
     if (sortBy === "newest") {
         filteredStudents.sort(
             (a, b) => b.id - a.id
@@ -45,6 +57,8 @@ const StudentContent = () => {
 
                             <Form.Control
                                 type="text"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
                                 className="bg-white border-0 form-control ps-5 rounded-pill"
                                 placeholder="Search here..."
                             />

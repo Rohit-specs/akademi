@@ -1,9 +1,9 @@
 export const metadata = {
   title: "Latest Activity",
   description:
-    "View recent activities, task updates, project progress, completed work, and user actions in your Akademi dashboard.",
+    "View recent activities, task updates, project progress, completed work, and user actions in your Academy dashboard.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Latest Activity",
     "Activity Feed",
     "Recent Updates",

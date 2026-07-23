@@ -1,9 +1,9 @@
 export const metadata = {
-  title: "Sign In | Akademi",
+  title: "Sign In | Academy",
   description:
-  "Sign in to your Akademi account to access your dashboard, assignments, courses, messages, and school management features.",
+  "Sign in to your Academy account to access your dashboard, assignments, courses, messages, and school management features.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Sign In",
     "Login",
     "School Management",

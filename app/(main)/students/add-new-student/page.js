@@ -4,7 +4,7 @@ export const metadata = {
   description:
     "Register a new student by entering personal, academic, and contact information.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Add Student",
     "Student Registration",
     "New Student",

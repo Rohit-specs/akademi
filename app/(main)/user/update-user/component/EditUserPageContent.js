@@ -2,18 +2,18 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap"
-import { Search } from "react-bootstrap-icons"
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { EditUserSchema } from "/schema/UpdateUserSchema";
-import { updateUser } from "/store/slices/UserSlice";
+import { logoutUser, updateUser } from "/store/slices/UserSlice";
 import DashboardDrawer from "/component/DashboardDrawer";
 import { toast } from "react-toastify";
 import HeaderIcons from "/component/HeaderIcons";
+import { useRouter } from "next/navigation";
 
 const EditUserPageContent = () => {
     const { user } = useSelector((state) => state.user)
-    console.log(JSON.stringify(user))
+    const router = useRouter()
     const dispatch = useDispatch()
     const [preview, setPreview] = useState(null)
     const {
@@ -25,7 +25,14 @@ const EditUserPageContent = () => {
         formState: { errors },
     } = useForm({
         resolver: yupResolver(EditUserSchema),
-    });
+        defaultValues: {
+            fullname: "",
+            email: "",
+            phone: "",
+            location: "",
+            password: "",
+        },
+    })
     useEffect(() => {
         if (user) {
             reset({
@@ -37,39 +44,115 @@ const EditUserPageContent = () => {
 
             setPreview(user.avatar)
         }
-    }, [user, reset]);
+    }, [user, reset])
+    console.log(watch("location"))
+    // const SubmitHandler = (data) => {
+    //     console.log(JSON.stringify(data))
+    //     const users = JSON.parse(localStorage.getItem("users")) || []
+    //     const currentUserId = Number(localStorage.getItem("currentUserId"))
+    //     const currentUser = users.find((user) => user.id === currentUserId)
+    //     const emailChanged = currentUser.email !== data.email
+    //     console.log("Current Password:", currentUser.password);
+    //     console.log("New Password:", data.password);
+    //     console.log("Password Changed:", passwordChanged);
+    //     const passwordChanged =
+    //         data.password &&
+    //         data.password.trim() !== "" &&
+    //         currentUser.password !== data.password
+
+    //     const updatedUsers = users.map((user) =>
+    //         user.id === currentUserId
+    //             ? {
+    //                 ...user,
+    //                 fullname: data.fullname,
+    //                 email: data.email,
+    //                 phone: data.phone,
+    //                 location: data.location,
+    //                 avatar: preview || user.avatar,
+    //                 password: data.password && data.password.trim() !== ""
+    //                     ? data.password
+    //                     : user.password,
+    //             }
+    //             : user
+    //     )
+
+    //     localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+    //     dispatch(
+    //         updateUser({
+    //             ...data,
+    //             avatar: preview,
+    //         })
+    //     )
+
+    //     if (emailChanged || passwordChanged) {
+    //         dispatch(logoutUser())
+    //         toast.success("Email or password changed. Please sign in again.");
+    //         router.replace("/signin")
+    //         return
+    //     }
+    //     toast.success("Profile updated successfully.")
+    //     router.push("/user")
+    // }
     const SubmitHandler = (data) => {
-        dispatch(
-            updateUser({
-                ...data,
-                avatar: preview,
-            })
+    const users = JSON.parse(localStorage.getItem("users")) || []
+    const currentUserId = Number(localStorage.getItem("currentUserId"))
+    const currentUser = users.find(
+        (user) => user.id === currentUserId
+    )
+    const emailChanged = currentUser.email !== data.email
+    const passwordChanged =
+        data.newPassword &&
+        data.newPassword.trim() !== "" &&
+        currentUser.password !== data.newPassword
+    const updatedUsers = users.map((user) =>
+        user.id === currentUserId
+            ? {
+                  ...user,
+                  fullname: data.fullname,
+                  email: data.email,
+                  phone: data.phone,
+                  location: data.location,
+                  avatar: preview || user.avatar,
+                  password: passwordChanged
+                      ? data.newPassword
+                      : user.password,
+              }
+            : user
+    )
+    localStorage.setItem("users", JSON.stringify(updatedUsers))
+    dispatch(
+        updateUser({
+            fullname: data.fullname,
+            email: data.email,
+            phone: data.phone,
+            location: data.location,
+            avatar: preview || currentUser.avatar,
+            password: passwordChanged
+                ? data.newPassword
+                : currentUser.password,
+        })
+    )
+    if (emailChanged || passwordChanged) {
+        dispatch(logoutUser());
+        localStorage.removeItem("currentUser")
+        localStorage.removeItem("currentUserId")
+        localStorage.removeItem("isLoggedIn")
+
+        toast.success(
+            "Email or password changed. Please sign in again."
         )
-        const users = JSON.parse(localStorage.getItem("users")) || []
-        const currentUserId = Number(localStorage.getItem("currentUserId"))
-
-        const updatedUsers = users.map((user) =>
-            user.id === currentUserId
-                ? {
-                    ...user,
-                    fullname: data.fullname,
-                    email: data.email,
-                    phone: data.phone,
-                    location: data.location,
-                    avatar: data.photo || user.avatar,
-                }
-                : user
-        )
-
-        localStorage.setItem("users", JSON.stringify(updatedUsers))
-
-        toast.success("Profile updated successfully")
+        router.replace("/signin")
+        return
     }
+    toast.success("Profile updated successfully.")
+    router.push("/user")
+}
     return (
         <>
             <header className="mb-2 d-flex justify-content-between align-items-center m-4">
                 <h1 className="logo">User Details</h1>
-                <div className="d-xl-flex gap-4 justify-content-between align-items-center d-none">
+                <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
                     <HeaderIcons />
                 </div>
                 <DashboardDrawer />

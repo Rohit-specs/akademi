@@ -92,7 +92,7 @@ const EditTeacherForm = ({ id }) => {
                 <header>
                     <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                         <h1 className="logo">Edit Teacher</h1>
-                        <div className="d-xl-flex gap-4 justify-content-between align-items-center d-none">
+                        <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
 
                             {/* <div className="search-box position-relative d-none d-xl-inline-block">
                                 <Search
@@ -283,7 +283,7 @@ const EditTeacherForm = ({ id }) => {
                                         </Form.Label>
                                         <Form.Control
                                             type="text"
-                                            placeholder="University Akademi Historia"
+                                            placeholder="University Academy Historia"
                                             {...register("university")}
                                         />
 

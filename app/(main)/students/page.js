@@ -2,7 +2,7 @@ import StudentContent from "./component/StudentContent"
 export const metadata = {
   title: "Students",
   description:
-    "Manage student records, admissions, profiles, grades, attendance, and student information from the Akademi School Admission Dashboard.",
+    "Manage student records, admissions, profiles, grades, attendance, and student information from the Academy School Admission Dashboard.",
   keywords: [
     "students",
     "school dashboard",
@@ -10,7 +10,7 @@ export const metadata = {
     "school admission",
     "education CRM",
     "student records",
-    "Akademi",
+    "Academy",
   ],
 }
 const StudentsPage = () => {

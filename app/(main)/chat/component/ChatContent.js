@@ -53,7 +53,7 @@ const ChatContent = () => {
             <header>
                 <div className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
                     <h1 className="logo">Chat</h1>
-                    <div className="d-xl-flex gap-4 justify-content-between align-items-center d-none">
+                    <div className="d-xxl-flex gap-4 justify-content-between align-items-center d-none">
 
                         {/* <div className="search-box position-relative d-none d-xl-inline-block">
                             <Search

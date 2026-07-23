@@ -14,7 +14,7 @@ export const TeacherSlice = createSlice({
                 photo: "https://i.pravatar.cc/150?img=41",
                 dateOfBirth: "1990-02-14",
                 placeOfBirth: "Jakarta",
-                university: "University Akademi Historia",
+                university: "University Academy Historia",
                 degree: "History Major",
                 startDate: "2010-09-01",
                 endDate: "2014-06-01",

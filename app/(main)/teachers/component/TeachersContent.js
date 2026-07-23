@@ -7,11 +7,20 @@ import Link from "next/link"
 import HeaderIcons from "/component/HeaderIcons"
 import { useSelector } from "react-redux"
 import { useState } from "react"
+import useDebounce from "/hooks/useDebounce"
 
 const TeachersContent = () => {
     const { teachers } = useSelector((state) => state.teacher)
+    const [search, setSearch] = useState("")
+    const value = useDebounce(search, 500)
     const [sortBy, setSortBy] = useState("newest")
-    const filteredTeachers = [...teachers]
+    const filteredTeachers = teachers.filter((teacher) => {
+        if (!value) return true
+        const result = value.toLowerCase()
+        return(
+            `${teacher.firstName} ${teacher.lastName}`.toLowerCase().includes(result)
+    )
+    })
     if (sortBy === "newest") {
         filteredTeachers.sort(
             (a, b) => b.id - a.id
@@ -44,6 +53,8 @@ const TeachersContent = () => {
 
                         <Form.Control
                             type="text"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
                             className="bg-white border-0 form-control ps-5 rounded-pill"
                             placeholder="Search here..."
                         />
@@ -73,11 +84,8 @@ const TeachersContent = () => {
             </header>
             <main>
                 <Row className="g-2 g-md-3 g-lg-4">
-
                     <TeachersCard teachers={filteredTeachers} />
                 </Row>
-
-
             </main>
         </div>
     )

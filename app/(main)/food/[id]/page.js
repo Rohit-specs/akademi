@@ -3,7 +3,7 @@ export const metadata = {
   description:
     "View complete information about school meals, ingredients, pricing, and nutritional values.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Food Details",
     "Meal Details",
     "Nutrition",

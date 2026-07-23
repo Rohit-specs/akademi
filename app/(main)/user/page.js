@@ -1,9 +1,9 @@
 export const metadata = {
   title: "User Profile",
   description:
-  "View your Akademi profile, personal information, contacts, and account details.",
+  "View your Academy profile, personal information, contacts, and account details.",
   keywords: [
-    "Akademi",
+    "Academy",
     "User Profile",
     "My Profile",
     "Account",

@@ -3,7 +3,7 @@ export const metadata = {
   description:
   "Browse and manage cafeteria meals, food menus, and nutrition information for students.",
   keywords: [
-    "Akademi",
+    "Academy",
     "Food",
     "School Cafeteria",
     "Food Menu",
