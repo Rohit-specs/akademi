@@ -17,9 +17,10 @@ const TeachersContent = () => {
     const filteredTeachers = teachers.filter((teacher) => {
         if (!value) return true
         const result = value.toLowerCase()
-        return(
-            `${teacher.firstName} ${teacher.lastName}`.toLowerCase().includes(result)
-    )
+        return (
+            `${teacher.firstName} ${teacher.lastName}`.toLowerCase().includes(result) ||
+            teacher.degree.toLowerCase().includes(result)
+        )
     })
     if (sortBy === "newest") {
         filteredTeachers.sort(

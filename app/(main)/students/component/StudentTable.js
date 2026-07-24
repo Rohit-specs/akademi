@@ -38,7 +38,14 @@ const StudentTable = ({ students }) => {
 
                 <tbody>
                    
-                    {currentStudents.map((student) => (
+                    {
+                    currentStudents.length === 0 ?
+                    <tr>
+                        <td colSpan={8} className="text-center py-5 text-gray-400">
+                            No Result Found
+                        </td>
+                    </tr>
+                    :currentStudents.map((student) => (
                         <tr key={student.id}>
                             <td>
                                 <div className="d-flex align-items-center gap-3">
