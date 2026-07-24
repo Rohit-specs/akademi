@@ -31,8 +31,8 @@ const FoodContent = () => {
                         </div>
                         <HeaderIcons />
                     </div>
-
-                    <DashboardDrawer /></div>
+                    <DashboardDrawer />
+                    </div>
 
             </header>
             <main className="">

@@ -22,7 +22,7 @@ const StudentTable = ({ students }) => {
 
     return (
         <>
-            <Table responsive variant="light" className="student-table align-middle">
+            <Table responsive variant="light" className="student-table align-middle table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -138,6 +138,7 @@ const StudentTable = ({ students }) => {
                     ))}
                 </tbody>
             </Table >
+        
             <Pagination currentPage={onPage} endIndex={endIndex} startIndex={startIndex} onPageChange={setOnPage} totalPages={totalPages} totalItems={students.length} />
         </>
     )

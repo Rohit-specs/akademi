@@ -1,5 +1,4 @@
 import { Col, Form, Row } from "react-bootstrap";
-import { Search, } from "react-bootstrap-icons";
 import StatsItems from "./StatsItems";
 import SchoolPerformance from "./SchoolPerformanceChart";
 import SchoolCalendar from "./Calender";
@@ -13,7 +12,7 @@ import RightSideBarContent from "./RightSideBarContent";
 const DashboardContent = () => {
   return (
     <div className="d-flex">
-      <div className="main-content flex-grow-1 m-lg-4 m-3 flex-shrink-0">
+      <div className="main-content flex-grow-1 m-lg-4 m-3">
         <header className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
           <h1 className="logo">Dashboard</h1>
           <DashboardDrawer>

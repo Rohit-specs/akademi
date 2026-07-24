@@ -81,7 +81,7 @@ const StudentContent = () => {
                                 variant="primary"
                                 className="rounded-pill text-nowrap  p-2"
                             >
-                                <Plus className="fs-4  me-1" />
+                                <Plus className="fs-4 me-1"/>
                                 New Student
                             </Button>
                         </div>
