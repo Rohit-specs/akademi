@@ -22,7 +22,7 @@ const StudentTable = ({ students }) => {
 
     return (
         <>
-            <Table responsive variant="light" className="student-table align-middle table">
+            <Table responsive variant="light" className="student-table align-middle custom-table-responsive">
                 <thead>
                     <tr>
                         <th>Name</th>

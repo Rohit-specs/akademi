@@ -68,7 +68,7 @@ const FoodItems = ({ value }) => {
                 ))}
             </Nav>
         </div>
-        <Table responsive borderless className="food-table align-middle table" style={{overflowX:"auto"}}>
+        <Table responsive borderless className="food-table align-middle custom-table-responsive">
             <tbody>
                 {currentFoods.length === 0 ?
                     <tr>
@@ -148,7 +148,7 @@ const FoodItems = ({ value }) => {
                                             View
                                         </Dropdown.Item>
 
-                              
+
                                         <Dropdown.Divider />
 
                                         <Dropdown.Item className="text-danger" onClick={() => {

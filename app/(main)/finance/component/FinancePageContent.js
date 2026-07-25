@@ -142,12 +142,12 @@ const FinancePageContent = () => {
                 </div>
                 <Row className="g-3 g-lg-4">
                     <Col xs={12} xxl={7}>
-                        <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 rounded-4 h-100">
+                        <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 rounded-4 h-100" style={{minWidth:0}}>
                             <StudentPagination />
                         </div>
                     </Col>
                     <Col xs={12} xxl={5}>
-                        <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 rounded-4 h-100">
+                        <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 rounded-4 h-100" style={{minWidth:0}}>
                             <h3 className='card-title mb-3'>Payment History</h3>
                             <SchoolExpense />
                         </div>

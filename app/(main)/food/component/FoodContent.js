@@ -38,7 +38,7 @@ const FoodContent = () => {
             <main className="">
 
 
-                <div className='bg-light p-4 rounded-4 pb-lg-5'>
+                <div className='bg-light p-4 rounded-4 pb-lg-5' style={{minWidth:0}}>
                     <FoodItems value={search} />
                 </div>
             </main>

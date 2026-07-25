@@ -96,59 +96,59 @@ function StudentPagination() {
     return (<>
 
         <h2 className="mb-3 card-title fw-bold">Unpaid Student Intuition</h2>
-            <Table borderless responsive variant="light" className="align-middle table">
-                <tbody>
-                    {currentStudents.map((student) => (
-                        <tr key={student.id} className="my-2 my-lg-3">
-                            <td className="text-nowrap">
-                                <div className="d-flex align-items-center">
-                                    <img
-                                        className="rounded-circle me-3 profile-picture"
-                                        src={student.profilePicture}
-                                        alt="profile picture"
-                                    />
+        <Table borderless responsive variant="light" className="align-middle custom-table-responsive">
+            <tbody>
+                {currentStudents.map((student) => (
+                    <tr key={student.id} className="my-2 my-lg-3">
+                        <td className="text-nowrap">
+                            <div className="d-flex align-items-center">
+                                <img
+                                    className="rounded-circle me-3 profile-picture"
+                                    src={student.profilePicture}
+                                    alt="profile picture"
+                                />
 
-                                    <div className="fw-semibold text-dark fs-small">
-                                        {student.name}
-                                    </div>
+                                <div className="fw-semibold text-dark fs-small">
+                                    {student.name}
                                 </div>
-                            </td>
-                            <td className="text-nowrap">
-                                <span className="small text-primary fw-bold">
-                                    ID:{student.studentId}
-                                </span>
-                            </td>
-                            <td className="text-nowrap">
-                                <div className="d-flex align-items-center">
-                                    <div className="rounded-circle bg-info d-flex align-items-center justify-content-center me-2 profile-picture">
-                                        <Person className="text-light" />
-                                    </div>
+                            </div>
+                        </td>
+                        <td className="text-nowrap">
+                            <span className="small text-primary fw-bold">
+                                ID:{student.studentId}
+                            </span>
+                        </td>
+                        <td className="text-nowrap">
+                            <div className="d-flex align-items-center">
+                                <div className="rounded-circle bg-info d-flex align-items-center justify-content-center me-2 profile-picture">
+                                    <Person className="text-light" />
+                                </div>
 
-                                    <div>
-                                        <div className="text-gray-400 small">Class</div>
-                                        <div className="fw-semibold text-dark small">
-                                            {student.class}
-                                        </div>
+                                <div>
+                                    <div className="text-gray-400 small">Class</div>
+                                    <div className="fw-semibold text-dark small">
+                                        {student.class}
                                     </div>
                                 </div>
-                            </td>
-                            <td className="text-nowrap">
-                                <div className="fw-bold text-dark">
-                                    $ {student.fee}
-                                </div>
-                            </td>
-                            <td className="text-nowrap">
-                                <div className="d-flex align-items-center justify-content-between">
-                                    <Printer className="text-gray-400 card-title" role="button" />
-                                    {/* <ThreeDots className="text-gray-400 card-title" role="button" /> */}
-                                </div>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
-            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} startIndex={startIndex} endIndex={endIndex} totalItems={students.length} />
- 
+                            </div>
+                        </td>
+                        <td className="text-nowrap">
+                            <div className="fw-bold text-dark">
+                                $ {student.fee}
+                            </div>
+                        </td>
+                        <td className="text-nowrap">
+                            <div className="d-flex align-items-center justify-content-between">
+                                <Printer className="text-gray-400 card-title" role="button" />
+                                {/* <ThreeDots className="text-gray-400 card-title" role="button" /> */}
+                            </div>
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </Table>
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} startIndex={startIndex} endIndex={endIndex} totalItems={students.length} />
+
     </>
     )
 }

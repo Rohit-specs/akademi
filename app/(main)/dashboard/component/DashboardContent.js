@@ -30,7 +30,7 @@ const DashboardContent = () => {
           <Col xs="12" lg="6" className="mh-100"><div className="bg-light rounded-4 mb-lg-4 mb-2 p-4"><SchoolFinance /></div></Col>
         </Row>
         <section className="student-intution">
-          <div className="bg-light rounded-4 mb-lg-4 mb-2 p-4">
+          <div className="bg-light rounded-4 mb-lg-4 mb-2 p-4" style={{minWidth:0}}>
             <StudentPagination />
           </div>
         </section>

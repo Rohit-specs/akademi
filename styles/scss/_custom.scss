@@ -166,7 +166,15 @@ a {
 .h-380{
   height: 380px;
 }
-.table-container{
-    overflow-x:auto;
-    width:100%;
+/* Fix for all Bootstrap Tables in the project */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure the parent doesn't prevent shrinking */
+.card-body, .content-body {
+    min-width: 0;
 }

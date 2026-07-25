@@ -77,7 +77,7 @@ const SchoolExpense = () => {
     const endIndex = startIndex + itemPerPage
     const currentPage = SchoolExpenseData.slice(startIndex, endIndex)
     return (
-        <><Table responsive variant='light' borderless className="align-middle payment-table mb-0">
+        <><Table responsive variant='light' borderless className="align-middle payment-table mb-0 custom-table-responsive">
 
             <tbody>
                 {currentPage.map((payment) => (

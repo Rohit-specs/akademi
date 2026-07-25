@@ -88,7 +88,7 @@ const StudentContent = () => {
 
                     </div>
                 </header>
-                <main className="p-4 bg-light rounded-4">
+                <main className="p-4 bg-light rounded-4" style={{minWidth:0}}>
                     <StudentTable students={filteredStudents} />
                 </main>
             </div>
