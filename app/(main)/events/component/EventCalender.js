@@ -61,7 +61,7 @@ const EventCalendar = ({
         direction="horizontal"
         className="justify-content-between align-items-center flex-wrap mb-4"
       >
-        <h2 className="fw-bold mb-2 mb-md-0">Calendar</h2>
+        <h2 className="fw-medium page-title mb-2 mb-md-0">Calendar</h2>
 
         <Stack
           direction="horizontal"
@@ -115,10 +115,15 @@ const EventCalendar = ({
 
           <Row className="text-center fw-semibold text-gray-400 mb-3">
             {weekDays.map((day) => (
-              <Col key={day}><span className="d-none d-sm-inline">{day}</span>
-                <span className="d-inline d-sm-none">
+              <Col key={day}>
+                <span className="d-none d-lg-inline">{day}</span>
+                <span className="d-inline d-md-none">
                   {day.slice(0, 2)}
-                </span></Col>
+                </span>
+                <span className="d-none d-md-inline d-lg-none">
+                  {day.slice(0, 3)}
+                </span>
+                </Col>
             ))}
           </Row>
           <div className="event-calendar calendar-grid gap-2 gap-lg-3">

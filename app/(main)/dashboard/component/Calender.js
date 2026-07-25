@@ -92,7 +92,7 @@ export default function SchoolCalendar() {
 
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+            <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
                 <h2 className="card-title fw-bold mb-0">School Calendar</h2>
 
                 <Form.Select

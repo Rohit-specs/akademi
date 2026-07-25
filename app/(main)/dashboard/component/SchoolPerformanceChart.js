@@ -31,30 +31,30 @@ export default function SchoolPerformance() {
   return (
     <section>
       <div className="rounded-4 mb-lg-4 mb-2 p-4 bg-light">
-        <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+        <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-xl-3 gap-2">
           <h2 className="card-title fw-bold mb-0">School Performance</h2>
 
           <div className="icon-link gap-3">
             <div className="d-flex flex-column justify-content-between align-items-center">
-              <span className="flex-shrink-0 text-gray-400"><RecordCircleFill className="me-1 text-warning"/>
-              This Week</span>
-             {1.245}
+              <span className="flex-shrink-0 text-gray-400"><RecordCircleFill className="me-1 text-warning" />
+                This Month</span>
+              {1.245}
             </div>
 
             <div className="d-flex flex-column justify-content-between align-items-center">
               <span className="flex-shrink-0 text-gray-400">
-                  <RecordCircleFill className="me-1 text-info"/>
-              
-              Last Week
+                <RecordCircleFill className="me-1 text-info" />
+
+                Last Month
               </span>
               {1.356}
-           
+
             </div>
           </div>
         </div>
 
-        <div className="w-100" style={{height: 300 }}>
-          <ResponsiveContainer height="100%" width="100%">
+        <div className="w-100" style={{ height: 300 }}>
+          <ResponsiveContainer height="100%" width="100%" >
             <AreaChart data={data}>
               <defs>
                 <linearGradient id="yellowFill" x1="0" y1="0" x2="0" y2="1">
@@ -97,6 +97,7 @@ export default function SchoolPerformance() {
               />
 
               <YAxis
+              width={27}
                 axisLine={false}
                 tickLine={false}
               />

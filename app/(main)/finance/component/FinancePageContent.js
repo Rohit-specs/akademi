@@ -42,9 +42,9 @@ const FinancePageContent = () => {
                         <div className="p-3 p-lg-4 d-flex gap-2 gap-lg-3 align-items-center rounded-4 bg-light h-100">
                             <div className="counter-icon rounded-circle bg-primary position-relative flex-shrink-0"><Mortarboard size={36} className="text-light position-absolute start-50 top-50 translate-middle" /></div>
                             <div>
-                                <p className="fs-5 text-gray-400 mb-1">Total Students</p>
+                                <p className="sidebar-link text-gray-400 mb-1">Total Students</p>
                                 <h2 className="logo mb-1">{students.length}</h2>
-                                <p className="fs-5 text-gray-400"><span className="fw-medium text-success">+10%</span> than last month</p>
+                                <p className="sidebar-link text-gray-400"><span className="fw-medium text-success">+10%</span> than last month</p>
                             </div>
                         </div>
                     </Col>
@@ -52,9 +52,9 @@ const FinancePageContent = () => {
                         <div className="p-3 p-lg-4 d-flex gap-2 gap-lg-3 align-items-center rounded-4 bg-light h-100">
                             <div className="counter-icon rounded-circle bg-info position-relative flex-shrink-0"><PersonWorkspace size={36} className="text-light position-absolute start-50 top-50 translate-middle" /></div>
                             <div>
-                                <p className="fs-5 text-gray-400 mb-1">Total Teachers</p>
+                                <p className="sidebar-link text-gray-400 mb-1">Total Teachers</p>
                                 <h2 className="logo mb-1">{teachers.length}</h2>
-                                <p className="fs-5 text-gray-400"><span className="fw-medium text-danger">-0.5%</span> than last month</p>
+                                <p className="sidebar-link text-gray-400"><span className="fw-medium text-danger">-0.5%</span> than last month</p>
                             </div>
                         </div>
                     </Col>
@@ -69,9 +69,9 @@ const FinancePageContent = () => {
                                 </div>
 
                                 <div>
-                                    <p className="fs-5 text-gray-400 mb-1">School Balance</p>
+                                    <p className="sidebar-link text-gray-400 mb-1">School Balance</p>
                                     <h2 className="logo mb-1">932</h2>
-                                    <p className="fs-5 text-gray-400">
+                                    <p className="sidebar-link text-gray-400">
                                         <span className="fw-medium text-success">+10%</span> than last month
                                     </p>
                                 </div>
@@ -115,7 +115,7 @@ const FinancePageContent = () => {
 
                 </Row>
                 <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 mt-lg-4 mt-md-3 mt-2 rounded-4">
-                    <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                    <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 gap-xl-3">
                         <h2 className="card-title fw-bold mb-0">Balance Analytics</h2>
 
                         <div className="icon-link gap-3">
@@ -142,12 +142,12 @@ const FinancePageContent = () => {
                 </div>
                 <Row className="g-3 g-lg-4">
                     <Col xs={12} xxl={7}>
-                        <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 rounded-4 h-100" style={{minWidth:0}}>
+                        <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 rounded-4 h-100">
                             <StudentPagination />
                         </div>
                     </Col>
                     <Col xs={12} xxl={5}>
-                        <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 rounded-4 h-100" style={{minWidth:0}}>
+                        <div className="p-4 bg-light mb-lg-4 mb-md-3 mb-2 rounded-4 h-100">
                             <h3 className='card-title mb-3'>Payment History</h3>
                             <SchoolExpense />
                         </div>

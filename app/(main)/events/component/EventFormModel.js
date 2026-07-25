@@ -60,9 +60,8 @@ const EventFormModel = ({ selectedDate }) => {
 
     return (
         <>
-            {/* {JSON.stringify(events)} */}
-            <Button variant="primary" onClick={() => setShow(true)} className="rounded-pill btn-lg">
-                <Plus className="me-2" size={24} />
+            <Button variant="primary" onClick={() => setShow(true)} className="rounded-pill btn py-2">
+                <Plus className="me-2" size={24}/>
                 New Event
             </Button>
 

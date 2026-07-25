@@ -45,8 +45,8 @@ const TeachersContent = () => {
                     </div>
 
                     <DashboardDrawer /></div>
-                <div className="d-flex justify-content-between align-items-center mb-lg-4 mb-2">
-                    <div className="search-box position-relative d-none d-xl-inline-block">
+                <div className="d-flex justify-content-between align-items-center mb-lg-4 mb-2 row-gap-2 flex-wrap">
+                    <div className="search-box position-relative">
                         <Search
                             size={16}
                             className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"
@@ -59,8 +59,6 @@ const TeachersContent = () => {
                             className="bg-white border-0 form-control ps-5 rounded-pill"
                             placeholder="Search here..."
                         />
-
-
                     </div>
                     <div className="flex-shrink-0 d-flex align-items-center gap-3 flex-nowrap">
                         <Form.Select

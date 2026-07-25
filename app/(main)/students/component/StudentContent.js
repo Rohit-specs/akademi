@@ -48,8 +48,8 @@ const StudentContent = () => {
                         </div>
 
                         <DashboardDrawer /></div>
-                    <div className="d-flex justify-content-between align-items-center mb-lg-4 mb-2">
-                        <div className="search-box position-relative d-none d-xl-inline-block">
+                    <div className="d-flex justify-content-between align-items-center mb-lg-4 mb-2 row-gap-2 flex-wrap">
+                        <div className="search-box position-relative">
                             <Search
                                 size={16}
                                 className="text-primary position-absolute top-50 start-0 translate-middle-y ms-3"

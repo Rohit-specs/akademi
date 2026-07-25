@@ -160,7 +160,7 @@ const EditUserPageContent = () => {
             <main className="p-4">
                 <Form onSubmit={handleSubmit(SubmitHandler)}>
                     <div className="bg-light py-2 px-4 rounded-4 pb-3 pb-lg-5 mb-3 mb-lg-4 card-top-primary">
-                        <h2 className="card-title text-light mb-3 mb-lg-4">
+                        <h2 className="h4 text-light mb-3 mb-lg-4">
                             Update Profile
                         </h2>
 

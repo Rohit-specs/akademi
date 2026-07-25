@@ -33,7 +33,6 @@ const HeaderIcons = () => {
                 <Link className='stretched-link' href={"/activity"}></Link>
                 <Bell className="text-gray-400 fs-4" /></span>
 
-            {/* <Gear className="text-gray-400 fs-4" /> */}
             <Dropdown style={{ justifyContent: 'center', alignItems: "center" }}>
                 <Dropdown.Toggle
                     as="button"

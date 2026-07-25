@@ -105,7 +105,7 @@ const EditStudentForm = ({ id }) => {
                         }
                     )}>
                         <div className='bg-light py-2 px-4 rounded-4 pb-3 pb-lg-5 mb-3 mb-lg-4 card-top-primary'>
-                            <h2 className="card-title text-light mb-3 mb-lg-4">Student Details</h2>
+                            <h2 className="h4 text-light mb-3 mb-lg-4">Student Details</h2>
                             <Row className="g-4">
                                 <Col xs={12} lg={3}>
                                     <Form.Group>
@@ -308,7 +308,7 @@ const EditStudentForm = ({ id }) => {
                             </Row>
                         </div>
                         <div className='bg-light py-2 px-4 rounded-4 pb-3  pb-lg-5  mt-4 mb-3 mb-lg-4 card-top-primary'>
-                            <h2 className="card-title text-light mb-3 mb-lg-4">Parent Details</h2>
+                            <h2 className="h4 text-light mb-3 mb-lg-4">Parent Details</h2>
                             <Row className="g-4">
                                 <Col xs={12} md={6}>
                                     <Form.Group>

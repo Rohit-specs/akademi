@@ -117,7 +117,7 @@ const EditTeacherForm = ({ id }) => {
 
                     <Form onSubmit={handleSubmit(SubmitHandler)}>
                         <div className='bg-light py-2 px-4 rounded-4 pb-3 pb-lg-5 mb-3 mb-lg-4 card-top-primary'>
-                            <h2 className="card-title text-light mb-3 mb-lg-4">Personal Details</h2>
+                            <h2 className="h4 text-light mb-3 mb-lg-4">Personal Details</h2>
                             <Row className="g-3 g-lg-4">
                                 <Col xs={12} lg={6}>
                                     <Form.Group>
@@ -274,7 +274,7 @@ const EditTeacherForm = ({ id }) => {
                             </Row>
                         </div>
                         <div className='bg-light py-2 px-4 rounded-4 pb-3  pb-lg-5  mt-4 mb-3 mb-lg-4 card-top-primary'>
-                            <h2 className="card-title text-light mb-3 mb-lg-4">Education</h2>
+                            <h2 className="h4 text-light mb-3 mb-lg-4">Education</h2>
                             <Row className="g-3 g-lg-4">
                                 <Col xs={12} lg={6}>
                                     <Form.Group>

@@ -81,7 +81,7 @@ const StudentDetails = ({ id }) => {
             </header>
             <main className="">
                 <div className='d-flex gap-xl-4 gap-3'>
-                    <div className='flex-grow-1'>
+                    <div className='flex-grow-1' style={{minWidth:0}}>
                         <div className='bg-light p-4 rounded-4 position-relative pb-lg-5'>
                             <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
                             <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={studentData.photo} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
@@ -111,7 +111,7 @@ const StudentDetails = ({ id }) => {
                         <div className='bg-light p-4 rounded-4 py-lg-5 mt-3 mt-lg-4 mt-xl-5'>
                             <h3 className='card-title mb-4'>Payment History</h3>
 
-                            <Table    variant='light' borderless className="align-middle payment-table mb-0">
+                            <Table responsive="xl" variant='light' borderless className="align-middle payment-table mb-0">
                                 {/* <thead>
                                     <tr>
                                         <th>Payment ID</th>

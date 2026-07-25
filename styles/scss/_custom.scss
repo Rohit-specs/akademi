@@ -196,3 +196,11 @@ table.table {
     white-space: nowrap; /* Ensures text doesn't wrap, triggering the scroll */
     padding: 12px;
 }
+.recharts-wrapper *,
+.recharts-wrapper *:focus,
+.recharts-wrapper *:focus-visible,
+.recharts-wrapper svg,
+.recharts-wrapper svg:focus,
+.recharts-wrapper svg:focus-visible {
+  outline: none !important;
+}
