@@ -68,7 +68,7 @@ const FoodItems = ({ value }) => {
                 ))}
             </Nav>
         </div>
-        <Table responsive borderless className="food-table align-middle custom-table-responsive">
+        <Table responsive={"xl"} borderless className="food-table align-middle  w-100">
             <tbody>
                 {currentFoods.length === 0 ?
                     <tr>

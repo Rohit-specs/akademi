@@ -174,7 +174,47 @@ a {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Ensure the parent doesn't prevent shrinking */
 .card-body, .content-body {
+    min-width: 0;
+}
+@media (max-width: 992px) { 
+  .main-content {
+    padding-left: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+table {
+  display: block;
+  width: 100% !important;
+  overflow-x: auto;
+}
+
+main{
+  max-width: 100%;
+  overflow-x: hidden;
+}
+/* 1. Force the responsive container to take full width */
+.table-responsive {
+    width: 100% !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 2. Force the table itself to take full width */
+.table-responsive > .table {
+    width: 100% !important;
+    table-layout: auto; /* Allows columns to adjust naturally */
+    margin-bottom: 0;
+}
+
+/* 3. Prevent text wrapping if you have many columns (optional) */
+.table-nowrap td, .table-nowrap th {
+    white-space: nowrap;
+}
+
+/* 3. Fix for Dashboard Layouts (Akademi fix) */
+/* This prevents the sidebar from pushing the table off the screen */
+.main-content, .card-body, .container-fluid {
     min-width: 0;
 }

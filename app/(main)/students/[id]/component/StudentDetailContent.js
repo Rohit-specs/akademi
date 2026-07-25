@@ -111,7 +111,7 @@ const StudentDetails = ({ id }) => {
                         <div className='bg-light p-4 rounded-4 py-lg-5 mt-3 mt-lg-4 mt-xl-5'>
                             <h3 className='card-title mb-4'>Payment History</h3>
 
-                            <Table responsive variant='light' borderless className="align-middle payment-table mb-0">
+                            <Table    variant='light' borderless className="align-middle payment-table mb-0">
                                 {/* <thead>
                                     <tr>
                                         <th>Payment ID</th>
