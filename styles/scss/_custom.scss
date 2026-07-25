@@ -166,55 +166,33 @@ a {
 .h-380{
   height: 380px;
 }
-/* Fix for all Bootstrap Tables in the project */
-.table-responsive {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
 
-.card-body, .content-body {
-    min-width: 0;
-}
-@media (max-width: 992px) { 
-  .main-content {
-    padding-left: 0;
+/* 1. LOCK THE PAGE: This prevents the whole dashboard from scrolling */
+body, 
+main, 
+.main-content{
     max-width: 100vw;
-    overflow-x: hidden;
-  }
-}
-table {
-  display: block;
-  width: 100% !important;
-  overflow-x: auto;
+    overflow-x: hidden; /* Stops the "Whole Page" scroll */
 }
 
-main{
-  max-width: 100%;
-  overflow-x: hidden;
-}
-/* 1. Force the responsive container to take full width */
+/* 2. THE TABLE CONTAINER: This is where the scroll should happen */
 .table-responsive {
     width: 100% !important;
-    overflow-x: auto;
+    overflow-x: auto !important; /* Forces scroll inside this div only */
+    display: block;
     -webkit-overflow-scrolling: touch;
 }
 
-/* 2. Force the table itself to take full width */
-.table-responsive > .table {
+/* 3. THE TABLE ITSELF: Full width on desktop */
+table.table {
     width: 100% !important;
-    table-layout: auto; /* Allows columns to adjust naturally */
+    display: table !important; /* Fixes the "not taking full width" issue */
     margin-bottom: 0;
+    table-layout: auto; 
 }
 
-/* 3. Prevent text wrapping if you have many columns (optional) */
-.table-nowrap td, .table-nowrap th {
-    white-space: nowrap;
-}
-
-/* 3. Fix for Dashboard Layouts (Akademi fix) */
-/* This prevents the sidebar from pushing the table off the screen */
-.main-content, .card-body, .container-fluid {
-    min-width: 0;
+/* 4. PREVENT COLUMN SQUISHING: This makes the scrollbar appear only when needed */
+.table th, .table td {
+    white-space: nowrap; /* Ensures text doesn't wrap, triggering the scroll */
+    padding: 12px;
 }
