@@ -76,7 +76,7 @@ const UserMessages = () => {
                     <span className="fw-medium">{item.name}</span>
 
                     <small className="d-block fs-small text-gray-400">
-                        {item.lastMessage}
+                        {item.lastMessage.slice(0,20)+".."}
                     </small>
 
                     <small className="text-primary text-capitalize">

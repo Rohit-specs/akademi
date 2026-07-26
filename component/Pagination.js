@@ -36,13 +36,13 @@ function Pagination({
         return pages;
     };
     return (
-        <div className="d-flex justify-content-between align-items-center mt-4">
+        <div className="d-flex flex-column flex-xl-row justify-content-xl-between align-items-end align-items-xl-center mt-2 mt-lg-3 mt-xl-4 gap-2 gap-lg-3">
             <small className="text-gray-400">
                 Showing {startIndex + 1}-
                 {Math.min(endIndex, totalItems)} from {totalItems} data
             </small>
 
-            <div className="d-flex align-items-center gap-2">
+            <div className="d-flex align-items-center gap-1 gap-md-2">
                 <button
                     className="btn btn-sm border-0"
                     disabled={currentPage === 1}
@@ -51,8 +51,7 @@ function Pagination({
                     <ChevronLeft />
                 </button>
                 {getPageNumbers().map((page, index) => (
-                  
-                        page === "left-three-dots" ? (
+                    page === "left-three-dots" ? (
                         <button
                             key={index} className="btn btn-sm border-0"
                             onClick={() =>
@@ -61,7 +60,7 @@ function Pagination({
                         >
                             ...
                         </button>
-                        ) : page === "right-three-dots" ? (
+                    ) : page === "right-three-dots" ? (
                         <button
                             key={index} className="btn btn-sm border-0"
                             onClick={() =>
@@ -70,7 +69,7 @@ function Pagination({
                         >
                             ...
                         </button>
-                        ) : (
+                    ) : (
                         <button
                             onClick={() => onPageChange(page)}
                             key={index} className={`dashboard-pagination-btn btn btn-sm rounded-circle ${currentPage === page
@@ -80,8 +79,8 @@ function Pagination({
                         >
                             {page}
                         </button>
-                        )
-                       ))}
+                    )
+                ))}
                 <button
                     className="btn btn-sm border-0 "
                     disabled={currentPage === totalPages}

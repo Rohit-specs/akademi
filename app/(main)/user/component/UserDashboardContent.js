@@ -30,8 +30,6 @@ const UserDashboardContent = () => {
                             className="bg-white border-0 form-control ps-5 rounded-pill"
                             placeholder="Search here..."
                         />
-
-
                     </div>*/}
                     <DashboardDrawer > 
                         <FreePlanCard />
@@ -90,7 +88,7 @@ const UserDashboardContent = () => {
                     </Row>
                 </section>
                 <section>
-                    <Row>
+                    <Row className="gy-2">
                         <Col xs={12} lg={6}>
                             <div className="bg-light rounded-4 p-4 mb-lg-4 mb-2 h-100">
                                 <UserContacts />

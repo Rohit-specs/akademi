@@ -50,7 +50,7 @@ const FoodItems = ({ value }) => {
 
         <div className="d-inline-flex d-lg-flex flex-column flex-lg-row justify-content-between mb-3 mb-lg-4">
             <h2 className="page-title fw-medium">Food Menu</h2>
-            <Nav className="d-flex gap-1 gap-lg-2 flex-nowrap custom-border-bottom">
+            <Nav className="d-flex flex-nowrap custom-border-bottom custom-nav">
                 {categories.map((item) => (
                     <Nav.Item key={item.id} className={`${activeTab === item.id ? "border-primary custom-border-bottom" : ""}`}>
                         <Nav.Link
@@ -59,7 +59,7 @@ const FoodItems = ({ value }) => {
                                 setActiveTab(item.id)
                                 manageCategory(item.id)
                             }}
-                            className={`${activeTab === item.id ? "text-primary fw-semibold" : "text-gray-400 "
+                            className={` ${activeTab === item.id ? "text-primary fw-semibold" : "text-gray-400 "
                                 }`}
                         >
                             {item.name}
@@ -79,7 +79,7 @@ const FoodItems = ({ value }) => {
                     : (currentFoods.map((food) => (
                         <tr key={food.id} className="gap-2">
                             <td>
-                                <div className="d-flex align-items-center gap-3 flex-nowrap">
+                                <div className="d-flex align-items-center gap-2 gap-3 flex-nowrap">
                                     <span className="food-image bg-purple-10 rounded-4"> <img className="food-image rounded-4"
                                         src={food.image}
                                     /></span>
@@ -93,7 +93,7 @@ const FoodItems = ({ value }) => {
                                             {food.category}
                                         </Badge>
 
-                                        <h6 className="mb-0 text-truncate">
+                                        <h6 className="mb-0 card-title">
                                             {food.name}
                                         </h6>
                                     </div>
@@ -103,7 +103,7 @@ const FoodItems = ({ value }) => {
                             <td>
                                 <div className="d-flex align-items-center gap-2">
                                     <StarFill className="text-warning" />
-                                    <span className="fs-4 fw-medium p-0 m-0 text-dark">{food.rating}</span>
+                                    <span className="card-title fw-medium p-0 m-0 text-dark">{food.rating}</span>
                                 </div>
                             </td>
 
@@ -111,7 +111,7 @@ const FoodItems = ({ value }) => {
                                 <div className="d-flex align-items-center gap-2">
                                     <BarChartFill size={30} className="text-primary" />
                                     <div>
-                                        <p className="fs-4 fw-medium p-0 m-0 text-dark">{food.totalOrders}</p>
+                                        <p className="card-title fw-medium p-0 m-0 text-dark">{food.totalOrders}</p>
                                         <span className="text-gray-400 d-none d-xl-block">Total Order</span>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@ const FoodItems = ({ value }) => {
                                     <ArrowUpRight size={30} className="text-primary fw-bold" />
 
                                     <div>
-                                        <p className="fs-4 fw-medium p-0 m-0 text-dark"> {food.interest}%</p>
+                                        <p className="card-title fw-medium p-0 m-0 text-dark"> {food.interest}%</p>
                                         <span className="text-gray-400 d-none d-xl-block">Interest</span>
                                     </div>
                                 </div>
