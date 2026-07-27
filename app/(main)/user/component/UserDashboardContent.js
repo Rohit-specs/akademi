@@ -39,8 +39,8 @@ const UserDashboardContent = () => {
                         </div>
                     </DashboardDrawer>
                 </header>
-                <section className="status bg-light rounded-4 p-4 mb-lg-4 mb-2 position-relative">
-                    <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
+                <section className="status bg-light rounded-4 p-4 mb-lg-4 mb-2 position-relative overflow-hidden">
+                    <img src={"/images/user-page-card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
                     <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={user?.avatar} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
                     <UserProfileMenu />
                     <Row className='mb-3 mt-3'>

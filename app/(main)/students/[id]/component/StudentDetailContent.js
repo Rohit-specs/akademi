@@ -82,8 +82,8 @@ const StudentDetails = ({ id }) => {
             <main className="">
                 <div className='d-flex gap-xl-4 gap-3'>
                     <div className='flex-grow-1' style={{minWidth:0}}>
-                        <div className='bg-light p-4 rounded-4 position-relative pb-lg-5'>
-                            <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
+                        <div className='bg-light p-4 rounded-4 position-relative pb-lg-5 overflow-hidden'>
+                            <img src={"/images/student-detail-card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
                             <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={studentData.photo} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
                             <h2 className='mt-3'>{studentData.firstName + " " + studentData.lastName}</h2>
                             <p className='sidebar-link text-gray-400 mt-2'>Student</p>

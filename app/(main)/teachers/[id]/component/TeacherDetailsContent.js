@@ -40,7 +40,7 @@ const TeacherDetailsContent = ({ id }) => {
             <main className="">
                 <div className='d-flex gap-xl-4 gap-3'>
                     <div className='flex-grow-1'>
-                        <div className='bg-light p-4 rounded-4 position-relative pb-lg-5'>
+                        <div className='bg-light p-4 rounded-4 position-relative pb-lg-5 overflow-hidden'>
                             <img src={"/images/card-bg.png"} className="details-banner position-absolute top-0 start-0 end-0 w-100" />
                             <div className='ms-3 mt-3 z-1 position-relative'><span className='d-block details-page-profile-picture bg-purple-10 rounded-circle'><img src={teacherData.photo} className='details-page-profile-picture rounded-circle profile-picture-border' /></span></div>
                             <h2 className='mt-3 logo'>{teacherData.firstName + " " + teacherData.lastName}</h2>
