@@ -22,17 +22,17 @@ const StudentTable = ({ students }) => {
 
     return (
         <>
-            <Table responsive={"xl"} variant="light" className="student-table align-middle  w-100">
+            <Table responsive={"xl"} variant="light" className="student-table align-middle w-100">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Parent Name</th>
-                        <th>City</th>
-                        <th>Contact</th>
-                        <th>Grade</th>
-                        <th>Action</th>
+                        <th className="sidebar-link fs-6">Name</th>
+                        <th className="sidebar-link fs-6">ID</th>
+                        <th className="sidebar-link fs-6">Date</th>
+                        <th className="sidebar-link fs-6">Parent Name</th>
+                        <th className="sidebar-link fs-6">City</th>
+                        <th className="sidebar-link fs-6">Contact</th>
+                        <th className="sidebar-link fs-6">Grade</th>
+                        <th className="sidebar-link fs-6">Action</th>
                     </tr>
                 </thead>
 
@@ -48,26 +48,26 @@ const StudentTable = ({ students }) => {
                     :currentStudents.map((student) => (
                         <tr key={student.id}>
                             <td>
-                                <div className="d-flex align-items-center gap-3">
+                                <div className="d-flex align-items-center gap-1 gap-md-2 gap-lg-3">
                                     <div className="student-avatar rounded-circle bg-purple-10 profile-picture"><img className="profile-picture rounded-circle" src={student.photo} /></div>
 
-                                    <span className="fw-semibold">
+                                    <span className="fw-semibold sidebar-link fs-6">
                                         {student.firstName + " " + student.lastName}
                                     </span>
                                 </div>
                             </td>
 
-                            <td className="student-id text-primary fw-medium">
+                            <td className="student-id text-primary fw-medium sidebar-link fs-6">
                                 #{student.studentId}
                             </td>
 
-                            <td className="text-gray-400">
+                            <td className="text-gray-400 sidebar-link fs-6">
                                 {student.dateOfBirth}
                             </td>
 
-                            <td>{student.parentName}</td>
+                            <td className="sidebar-link fs-6">{student.parentName}</td>
 
-                            <td>{student.address.split(",")[0]}</td>
+                            <td className="sidebar-link fs-6">{student.address.split(",")[0]}</td>
 
                             <td>
                                 <div className="d-flex gap-2">

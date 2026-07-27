@@ -54,16 +54,20 @@ body {
 .sidebar-link {
   font-size: $fs-md;
   @include media-breakpoint-down(md) {
-    font-size: 1rem;  }
+    font-size: 1rem !important;  
+  }
 
   @include media-breakpoint-down(sm) {
-    font-size: 0.9375rem;  }
+    font-size: 0.9375rem !important;  
+  }
 }
 
 .small-text {
   font-size: $fs-sm;
-  @include media-breakpoint-down(sm) {
-    font-size: 0.8125rem;  }
+  @include media-breakpoint-down(sm) 
+  {
+    font-size: 0.8125rem;  
+  }
 }
 
 a {

@@ -62,12 +62,26 @@
   width: 40px;
   height: 40px;
 }
+.student-payment-table{
+  svg {
+      width: 20px;
+      height: 20px;
+    }
+  @include media-breakpoint-down(lg) {
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    svg {
+      width: 16px;
+      height: 16px;
+    }}
+}
 .food-image{
   max-width: 100%;
   @include media-breakpoint-down(xxl) {
     max-width: 200px;
 }
 }
-// .custom-table-responsive{
-//   overflow-x: auto !important; 
-// }

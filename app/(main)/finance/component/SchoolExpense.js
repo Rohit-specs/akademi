@@ -91,27 +91,24 @@ const SchoolExpense = () => {
                                         alt=""
                                     />
                                 </span>
-                                <div><span className='fs-5 fw-medium'>
+                                <div><span className='sidebar-link fs-5 fw-medium'>
                                     {payment.id}
-                                  
                                 </span>
-                                <small className="text-gray-400 d-block">{payment.date}</small></div>
-                                
+                                <small className="text-gray-400 small-text d-block">{payment.date.split("T")[0]}</small></div>
                             </div>
                         </td>
 
-                        <td className='fs-5 fw-medium'>
+                        <td className='sidebar-link fs-5 fw-medium'>
                             {/* {payment.currency} */}$ {payment.amount}
                         </td>
 
                         <td
-                            className={`fs-5 fw-medium ${payment.status.toLowerCase() === "complete"
+                            className={`sidebar-link fs-5 fw-medium ${payment.status.toLowerCase() === "complete"
                                 ? "text-success"
                                 : payment.status.toLowerCase() === "pending"
                                     ? "text-gray-400"
                                     : "text-danger"
-                                }`}
-                        >
+                                }`}>
                             {payment.status}
                         </td>
                     </tr>

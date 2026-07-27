@@ -134,7 +134,7 @@ const StudentDetails = ({ id }) => {
                                                         />
                                                     </span>
 
-                                                    <span className='fs-5 fw-medium'>
+                                                    <span className='fs-5 sidebar-link fw-medium'>
                                                         {payment.id}
                                                     </span>
                                                 </div>
@@ -144,12 +144,12 @@ const StudentDetails = ({ id }) => {
                                                 {payment.date?.split("T")[0]}
                                             </td>
 
-                                            <td className='fs-5 fw-medium'>
+                                            <td className='fs-5 sidebar-link fw-medium'>
                                                 {payment.currency} {payment.amount}
                                             </td>
 
                                             <td
-                                                className={`fs-5 fw-medium ${payment.status.toLowerCase() === "complete"
+                                                className={`fs-5 sidebar-link fw-medium ${payment.status.toLowerCase() === "complete"
                                                     ? "text-success"
                                                     : payment.status.toLowerCase() === "pending"
                                                         ? "text-gray-400"

@@ -96,7 +96,7 @@ function StudentPagination() {
     return (<>
 
         <h2 className="mb-3 card-title fw-bold">Unpaid Student Intuition</h2>
-        <Table borderless responsive="lg" variant="light" className="align-middle  w-100">
+        <Table borderless responsive="lg" variant="light" className="align-middle student-payment-table w-100">
             <tbody>
                 {currentStudents.map((student) => (
                     <tr key={student.id} className="my-2 my-lg-3">
@@ -108,32 +108,32 @@ function StudentPagination() {
                                     alt="profile picture"
                                 />
 
-                                <div className="fw-semibold text-dark fs-small">
+                                <div className="fw-semibold text-dark sidebar-link">
                                     {student.name}
                                 </div>
                             </div>
                         </td>
                         <td className="text-nowrap">
-                            <span className="small text-primary fw-bold">
+                            <span className="sidebar-link text-primary fw-bold">
                                 ID:{student.studentId}
                             </span>
                         </td>
                         <td className="text-nowrap">
                             <div className="d-flex align-items-center">
-                                <div className="rounded-circle bg-info d-flex align-items-center justify-content-center me-2 profile-picture">
-                                    <Person className="text-light" />
+                                <div className="rounded-circle bg-info position-relative me-2 profile-picture">
+                                    <Person className="text-light position-absolute top-50 start-50 translate-middle" />
                                 </div>
 
                                 <div>
-                                    <div className="text-gray-400 small">Class</div>
-                                    <div className="fw-semibold text-dark small">
+                                    <div className="text-gray-400 small-text">Class</div>
+                                    <div className="fw-semibold text-dark sidebar-link">
                                         {student.class}
                                     </div>
                                 </div>
                             </div>
                         </td>
                         <td className="text-nowrap">
-                            <div className="fw-bold text-dark">
+                            <div className="fw-bold text-dark sidebar-link">
                                 $ {student.fee}
                             </div>
                         </td>
