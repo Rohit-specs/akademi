@@ -12,7 +12,8 @@ import RightSideBarContent from "./RightSideBarContent";
 const DashboardContent = () => {
   return (
     <div className="d-flex">
-      <div className="main-content flex-grow-1 m-lg-4 m-3">
+      <div className="main-content flex-grow-1">
+        <div className=" m-lg-4 m-3">
         <header className="mb-lg-4 mb-2 d-flex justify-content-between align-items-center">
           <h1 className="logo">Dashboard</h1>
           <DashboardDrawer>
@@ -34,6 +35,7 @@ const DashboardContent = () => {
             <StudentPagination />
           </div>
         </section>
+      </div>
       </div>
       <aside className="position-relative d-none d-xxl-block">
         <div className="right-side-bar bg-light position-sticky top-0 overflow-y-auto vh-100">
