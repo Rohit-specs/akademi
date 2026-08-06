@@ -39,3 +39,9 @@
     overflow-y:auto;
     min-height:0;
 }
+.message-bubble{
+    // max-width: 75%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+}

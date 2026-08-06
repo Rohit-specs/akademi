@@ -3,14 +3,15 @@ import { Button, Col, Form, Row } from "react-bootstrap"
 import DashboardDrawer from "/component/DashboardDrawer"
 import HeaderIcons from "/component/HeaderIcons"
 import { ArrowLeft, CameraVideo, Dot, Paperclip, Search, SendFill, ThreeDots } from "react-bootstrap-icons"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectChat, sendMessage } from "/store/slices/ChatSlice"
 import useDebounce from "/hooks/useDebounce"
 import SearchInput from "/component/SearchInput"
 const ChatContent = () => {
     const { chats, groups, selectedChat } = useSelector((state) => state.chat)
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState("")
+    const chatMessagesRef = useRef(null)
     const dispatch = useDispatch()
     const handleSendMessage = () => {
         dispatch(
@@ -30,6 +31,7 @@ const ChatContent = () => {
         )
         setMessage("")
     }
+
     const currentConversation = selectedChat.type === "chat" ? chats.find((chat) => chat.id === selectedChat.id) : groups.find((group) => group.id === selectedChat.id);
     // if (!currentConversation) {
     //     return (
@@ -38,6 +40,14 @@ const ChatContent = () => {
     //         </div>
     //     )
     // }
+    useEffect(() => {
+        if (chatMessagesRef.current) {
+            chatMessagesRef.current.scrollTo({
+                top: chatMessagesRef.current.scrollHeight,
+                behavior: "smooth",
+            })
+        }
+    }, [currentConversation.messages]);
     const [showConversation, setShowConversation] = useState(false)
     const [search, setSearch] = useState("")
     const debouncedSearch = useDebounce(search, 500)
@@ -126,7 +136,7 @@ const ChatContent = () => {
                                                             <span className="fw-medium">{chat.name}</span>
 
                                                             <small className="d-block fs-small text-gray-400">
-                                                                {chat.lastMessage.slice(0,10)+".."}
+                                                                {chat.lastMessage.slice(0, 10) + ".."}
                                                             </small>
                                                         </div>
                                                     </div>
@@ -181,7 +191,7 @@ const ChatContent = () => {
                                                             <span className="fw-medium">{group.name}</span>
 
                                                             <small className="d-block fs-small text-gray-400">
-                                                                {group.lastMessage.slice(0,10)+".."}
+                                                                {group.lastMessage.slice(0, 10) + ".."}
                                                             </small>
                                                         </div>
                                                     </div>
@@ -268,7 +278,7 @@ const ChatContent = () => {
 
                         </div>
 
-                        <div className="chat-messages p-lg-4 p-2">
+                        <div className="chat-messages p-lg-4 p-2" ref={chatMessagesRef}>
 
                             {currentConversation.messages.map((message) => (
 
@@ -288,7 +298,7 @@ const ChatContent = () => {
                                     >
 
                                         <div
-                                            className={`rounded-4 px-3 py-2 ${message.sender === "me"
+                                            className={`rounded-4 px-3 py-2 message-bubble ${message.sender === "me"
                                                 ? "bg-primary text-white"
                                                 : "bg-dark text-white"
                                                 }`}
