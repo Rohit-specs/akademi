@@ -26,9 +26,9 @@ const DashboardContent = () => {
         <section>
           <SchoolPerformance />
         </section>
-        <Row>
-          <Col xs="12" lg="6" className="mh-100"><div className="bg-light rounded-4 mb-lg-4 mb-2 p-4"><SchoolCalendar /></div></Col>
-          <Col xs="12" lg="6" className="mh-100"><div className="bg-light rounded-4 mb-lg-4 mb-2 p-4"><SchoolFinance /></div></Col>
+        <Row className="mb-lg-4 mb-2">
+          <Col xs="12" lg="6" className="mh-100"><div className="bg-light rounded-4 mb-2 m-lg-0 p-4 h-100"><SchoolCalendar /></div></Col>
+          <Col xs="12" lg="6" className="mh-100"><div className="bg-light rounded-4 p-4 h-100"><SchoolFinance /></div></Col>
         </Row>
         <section className="student-intution">
           <div className="bg-light rounded-4 mb-lg-4 mb-2 p-4" style={{minWidth:0}}>

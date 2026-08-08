@@ -74,7 +74,7 @@ const StudentTable = ({ students }) => {
                                     <Button
                                         as={"a"}
                                         href={`tel:${student.phone.split("+")[1]}`}
-                                        className="contact-btn bg-purple-10 text-white link-opacity-50-hover text-white position-relative rounded-circle border-0"
+                                        className="contact-btn fw-medium position-relative rounded-circle border-0"
                                         type="button"
                                     >
                                         <Telephone size={18} className="position-absolute top-50 start-50 translate-middle" />
@@ -83,7 +83,7 @@ const StudentTable = ({ students }) => {
                                     <Button
                                         as="a"
                                         href={`mailto:${student.email}`}
-                                        className="contact-btn bg-purple-10 text-white text-link-opacity-75-hover text-white position-relative rounded-circle border-0"
+                                        className="contact-btn fw-medium position-relative rounded-circle border-0"
                                         type="button"
                                     >
                                         <Envelope size={18} className="position-absolute top-50 start-50 translate-middle" />

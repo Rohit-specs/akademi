@@ -24,5 +24,11 @@
     }.contact-btn {
         width: 32px;
         height: 32px;
+        color: $primary;
+        background-color: $gray-200;
+        &:hover{
+            color: $light;
+            background-color: $primary;
+        }
 }
 }
