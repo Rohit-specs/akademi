@@ -1,0 +1,210 @@
+body {
+  background: $body-bg;
+}
+
+.bg-purple-10 {
+  background: $purple-10;
+}
+
+.bg-linear-1 {
+  background: $linear-1;
+}
+
+.bg-linear-2 {
+  background: $linear-2;
+}
+
+.bg-linear-3 {
+  background: $linear-3;
+}
+
+.logo {
+  font-size: $fs-3xl;
+  @include media-breakpoint-down(xl) {
+    font-size: 2rem;  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.75rem;  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.5rem;  }
+}
+
+.page-title {
+  font-size: $fs-2xl;
+  @include media-breakpoint-down(xl) {
+    font-size: 1.75rem;  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.5rem;  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.375rem;  }
+}
+
+.card-title {
+  font-size: $fs-xl;
+  @include media-breakpoint-down(md) {
+    font-size: 1.25rem;  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.125rem;  }
+}
+
+.sidebar-link {
+  font-size: $fs-md;
+  @include media-breakpoint-down(md) {
+    font-size: 1rem !important;  
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 0.9375rem !important;  
+  }
+}
+
+.small-text {
+  font-size: $fs-sm;
+  @include media-breakpoint-down(sm) 
+  {
+    font-size: 0.8125rem;  
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Background Color Classes */
+.bg-gray-100 {
+  background-color: $gray-100;
+}
+
+.bg-gray-200 {
+  background-color: $gray-200;
+}
+
+.bg-gray-300 {
+  background-color: $gray-300;
+}
+
+.bg-gray-400 {
+  background-color: $gray-400;
+}
+
+/* Text Color Classes */
+.text-gray-100 {
+  color: $gray-100;
+}
+
+.text-gray-200 {
+  color: $gray-200;
+}
+
+.text-gray-300 {
+  color: $gray-300;
+}
+
+.text-gray-400 {
+  color: $gray-400 !important;
+}
+
+.sidebar-menu {
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.progress-circle {
+  height: 60px;
+  width: 60px;
+}
+
+.border-gray-300 {
+  border-color: $gray-300;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-200;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $gray-300;
+}
+
+@include media-breakpoint-down(md) {
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+.no-scrollbar {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+}
+.h-380{
+  height: 380px;
+}
+
+/* 1. LOCK THE PAGE: This prevents the whole dashboard from scrolling */
+body, 
+main, 
+.main-content{
+    max-width: 100vw;
+    // overflow-x: hidden; /* Stops the "Whole Page" scroll */
+}
+
+/* 2. THE TABLE CONTAINER: This is where the scroll should happen */
+.table-responsive {
+    width: 100% !important;
+    overflow-x: auto !important; /* Forces scroll inside this div only */
+    display: block;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 3. THE TABLE ITSELF: Full width on desktop */
+table.table {
+    width: 100% !important;
+    display: table !important; /* Fixes the "not taking full width" issue */
+    margin-bottom: 0;
+    table-layout: auto; 
+}
+
+/* 4. PREVENT COLUMN SQUISHING: This makes the scrollbar appear only when needed */
+.table th, .table td {
+    white-space: nowrap; /* Ensures text doesn't wrap, triggering the scroll */
+    padding: 6px;
+}
+.recharts-wrapper *,
+.recharts-wrapper *:focus,
+.recharts-wrapper *:focus-visible,
+.recharts-wrapper svg,
+.recharts-wrapper svg:focus,
+.recharts-wrapper svg:focus-visible {
+  outline: none !important;
+}

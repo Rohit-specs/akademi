@@ -1,0 +1,68 @@
+// =========================
+// Theme Colors
+// =========================
+
+$purple: #4D44B5;
+$orange: rgb(251, 125, 91);
+$yellow: #FCC43E;
+$text: #303972;
+$green: #4CBC9A;
+$red: #FF4550;
+
+$white: #FFFFFF;
+$gray-100: #F3F4FF;
+$gray-200: #D8D8D8;
+$gray-300: #C1BBEB;
+$gray-400: #A098AE;
+
+$body-bg: $gray-100;
+
+// =========================
+// Bootstrap theme colors
+// =========================
+
+$primary: $purple;
+$secondary: $gray-400;
+$success: $green;
+$danger: $red;
+$warning: $yellow;
+$info: $orange;
+$light: $white;
+$dark: $text;
+
+
+$body-color: $text;
+// =========================
+// Custom variables
+// =========================
+
+$purple-10: rgba(77, 68, 181, 0.1);
+
+$linear-1: linear-gradient(
+  90deg,
+  rgba(251, 125, 91, 1) 0%,
+  rgba(251, 125, 91, 0) 100%
+);
+$linear-2: linear-gradient(
+  90deg,
+  rgba(252, 196, 62, 1) 0%,
+  rgba(252, 196, 62, 0) 100%
+);
+$linear-3: linear-gradient(
+  180deg,
+  #4D44B5 0%,
+  #303972 100%
+);
+$linear-4: linear-gradient(
+  270deg,
+  #4D44B5 0%,
+  #303972 100%
+);
+
+// Typography
+
+$fs-sm: 14px;
+$fs-md: 18px;
+$fs-xl: 24px;
+$fs-2xl: 32px;
+$fs-3xl: 36px;

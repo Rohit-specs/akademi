@@ -1,0 +1,64 @@
+.event-calendar {
+    .event-dot {
+        width: 14px;
+        height: 14px;
+    }
+
+    .calendar-day>div {
+        border: 0.0625rem solid $dark;
+        height: 100px;
+        cursor: pointer;
+        transition: .25s;
+
+        &:hover {
+            border-width: 0.125rem;
+        }
+
+        @include media-breakpoint-down(lg) {
+            height: 80px;
+        }
+
+        @include media-breakpoint-down(md) {
+            height: 60px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            height: 45px;
+        }
+        
+    }
+
+    button {
+        padding: 10px 14px;
+    }
+
+    .active-day {
+        background: $primary;
+        color: $light;
+        border: 0px;
+        border-radius: 12px;
+        outline-offset: 2px;
+        outline: 2px solid $primary;
+
+        .event-dot {
+            display: none;
+        }
+    }
+}
+.calendar-dropdown .dropdown-toggle {
+    border-radius: 50px;
+    padding: 10px 14px;
+}
+// .calendar-scroll {
+//     overflow-x: auto;
+//     -webkit-overflow-scrolling: touch;
+//     min-width: 500px;
+// }
+// .calendar-content {
+// }
+.event-details-container {
+    max-width: 300px;
+    @include media-breakpoint-down(xxl) {
+        max-width: 100%;
+    }
+}

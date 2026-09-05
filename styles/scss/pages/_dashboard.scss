@@ -1,0 +1,87 @@
+.stats-icon {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-cell {
+  height: 58px;
+  border: 1px solid $gray-100;
+
+}
+
+.calendar-day {
+  width: 34px;
+  height: 34px;
+  transition: 0.3s;
+}
+
+.dashboard-pagination-btn {
+  width: 35px;
+  height: 35px;
+}
+
+.student-intution {
+  .profile-picture {
+    width: 40px;
+    height: 40px;
+  }
+
+  td {
+    background-color: $white;
+  }
+}
+
+.right-side-bar {
+  .content {
+    min-width: 240px;
+    max-width: 350px;
+  }
+}
+.plus-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.user-picture {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+}
+.student-payment-table{
+  svg {
+      width: 20px;
+      height: 20px;
+    }
+  @include media-breakpoint-down(lg) {
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    svg {
+      width: 16px;
+      height: 16px;
+    }}
+}
+.food-image{
+  max-width: 100%;
+  @include media-breakpoint-down(xxl) {
+    max-width: 200px;
+}
+}
